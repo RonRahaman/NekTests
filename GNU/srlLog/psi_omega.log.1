@@ -1,0 +1,573 @@
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 182468 182468 182468
+   buffer bytes (avg, min, max): 0 0 0
+/----------------------------------------------------------\\
+|      _   __ ______ __ __  ______  ____    ____    ____   |
+|     / | / // ____// //_/ / ____/ / __ \\ / __ \\ / __ \\ |
+|    /  |/ // __/  / ,<   /___ \\  / / / // / / // / / /   |
+|   / /|  // /___ / /| | ____/ / / /_/ // /_/ // /_/ /     |
+|  /_/ |_//_____//_/ |_|/_____/  \\____/ \\____/ \\____/   |
+|                                                          |
+|----------------------------------------------------------|
+|                                                          |
+| NEK5000:  Open Source Spectral Element Solver            |
+| COPYRIGHT (c) 2008-2010 UCHICAGO ARGONNE, LLC            |
+| Version:  1.0rc1 / SVN  r1082                            |
+| Web:      http://nek5000.mcs.anl.gov                     |
+|                                                          |
+\\----------------------------------------------------------/
+                                                              
+
+ Number of processors:           1
+ REAL    wdsize      :           8
+ INTEGER wdsize      :           4
+
+
+  Beginning session:
+  /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/eddy_psi_omega/ps
+
+ 
+ timer accuracy:   0.0000000E+00 sec
+
+ read .rea file
+ nelgt/nelgv/lelt:         256         256         300
+ lx1  /lx2  /lx3 :          16          16          16
+
+ mapping elements to processors
+           0         256         256         256         256  NELV
+ RANK     0 IEG       1       2       3       4       5       6       7       8
+                      9      10      11      12      13      14      15      16
+                     17      18      19      20      21      22      23      24
+                     25      26      27      28      29      30      31      32
+                     33      34      35      36      37      38      39      40
+                     41      42      43      44      45      46      47      48
+                     49      50      51      52      53      54      55      56
+                     57      58      59      60      61      62      63      64
+                     65      66      67      68      69      70      71      72
+                     73      74      75      76      77      78      79      80
+                     81      82      83      84      85      86      87      88
+                     89      90      91      92      93      94      95      96
+                     97      98      99     100     101     102     103     104
+                    105     106     107     108     109     110     111     112
+                    113     114     115     116     117     118     119     120
+                    121     122     123     124     125     126     127     128
+                    129     130     131     132     133     134     135     136
+                    137     138     139     140     141     142     143     144
+                    145     146     147     148     149     150     151     152
+                    153     154     155     156     157     158     159     160
+                    161     162     163     164     165     166     167     168
+                    169     170     171     172     173     174     175     176
+                    177     178     179     180     181     182     183     184
+                    185     186     187     188     189     190     191     192
+                    193     194     195     196     197     198     199     200
+                    201     202     203     204     205     206     207     208
+                    209     210     211     212     213     214     215     216
+                    217     218     219     220     221     222     223     224
+                    225     226     227     228     229     230     231     232
+                    233     234     235     236     237     238     239     240
+                    241     242     243     244     245     246     247     248
+                    249     250     251     252     253     254     255     256
+ element load imbalance:            0         256         256
+ done :: mapping elements to processors
+  
+           0  objects found
+ done :: read .rea file    0.0000     sec
+
+ Reset the target Courant number to .5
+ setup mesh topology
+   Right-handed check complete for     256 elements. OK.
+   setvert2d:  16        7424       57600        7424        7424
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   0 16        7424         256
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ vol_t,vol_v:   39.478417604357290        39.478417604357290     
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+ regenerate geometry data           1
+ vol_t,vol_v:   39.478417604357290        39.478417604357290     
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+   0.0000000000000000        6.2831853071795862       Xrange
+   0.0000000000000000        6.2831853071795862       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+ 103   Parameters from file:/homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/eddy_psi_omega/psi_omega.rea
+   1          1.000000         p01 DENSITY
+   2         -20.00000         p02 VISCOS
+   7          1.000000         p07 RHOCP
+   8         -20.00000         p08 CONDUCT
+  10          2.000000         p10 FINTIME
+  12        -2.0000001E-03     p12 DT
+  21         1.0000000E-10     p21 DIVERGENCE
+  22         1.0000000E-09     p22 HELMHOLTZ
+  24         1.0000000E-10     p24 TOLREL
+  25         1.0000000E-10     p25 TOLABS
+  26          2.000000         p26 COURANT/NTAU
+  27          3.000000         p27 TORDER
+  28         0.0000000E+00     p28 TORDER: mesh velocity (0: p28=p27)
+  43          1.000000         p43 0=semg/1=schwarz
+  99          3.000000         p99    dealiasing:if <0 disable
+  
+ IFTRAN   = T
+ IFFLOW   = F
+ IFHEAT   = T
+ IFSPLIT  = T
+ IFLOMACH = F
+ IFUSERVP = F
+ IFUSERMV = F
+ IFSTRS   = F
+ IFCHAR   = F
+ IFCYCLIC = F
+ IFAXIS   = F
+ IFMVBD   = F
+ IFMELT   = F
+ IFMODEL  = F
+ IFKEPS   = F
+ IFMOAB   = F
+ IFNEKNEK = F
+ IFSYNC   = T
+   
+ IFVCOR   = T
+ IFINTQ   = F
+ IFCWUZ   = F
+ IFSWALL  = F
+ IFGEOM   = F
+ IFSURT   = F
+ IFWCNO   = F
+   
+ IFTMSH for field           1    =  F
+ IFADVC for field           1    =  F
+ IFNONL for field           1    =  F
+   
+ IFTMSH for field           2    =  T
+ IFADVC for field           2    =  T
+ IFNONL for field           2    =  F
+   
+ Dealiasing enabled, lxd=          24
+  
+ Estimated eigenvalues
+ EIGAA =   0.25000000000000000     
+ EIGGA =    0.0000000000000000     
+  
+ verify mesh topology
+   0.0000000000000000        6.2831853071795862       Xrange
+   0.0000000000000000        6.2831853071795862       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+ call usrdat3
+ done :: usrdat3
+
+ set initial conditions
+ nekuic (1) for ifld            1
+ nekuic (1) for ifld            2
+ call nekuic for ifld            2
+ call nekuic for vel  
+ xyz min     0.0000       0.0000       0.0000    
+ uvwpt min  -2.0000      -1.7209     -0.16768E-22 -0.16768E-22 -0.16768E-22
+ PS min      0.0000    
+ xyz max     6.2832       6.2832       0.0000    
+ uvwpt max   2.0000       1.7209      0.40000E-19  0.40000E-19  0.40000E-19
+ PS max      0.0000    
+ done :: set initial conditions
+  
+ call userchk
+  1.00000000000000006E-009  p22            0           2
+          0    Hmholtz psi :      0   3.5340E-21   3.5340E-21   1.0000E-09
+ schfile:/homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/eddy_psi_omega/psi_omega.sch                                           
+ Output:         -10
+ call outfld: ifpsco: F
+
+        0  0.0000E+00 Write checkpoint:
+
+        0  0.0000E+00 OPEN: psi_omega.fld01                                                               
+    0  0.000000E+00  2.000000E+00  0.000000E+00  2.000000E+00  0.000000E+00  X err
+    0  0.000000E+00  1.585375E+01  2.000000E+00  1.720863E+00  0.000000E+00  Tmax 
+ done :: userchk
+
+gridpoints unique/tot:         57600        65536
+  dofs:                57600                    0
+  
+ Initialization successfully completed   0.59000     sec
+
+Starting time loop ...
+
+     DT/DTCFL/DTFS/DTINIT   0.200E-02   0.303-316   0.109-321   0.200E-02
+Step      1, t= 2.0000001E-03, DT= 2.0000001E-03, C=  1.004 0.0000E+00 0.0000E+00
+             Solving for heat
+  Temperature/Passive scalar solution
+  1.00000000000000006E-009  p22            1           2
+  1     1 Helmholtz TEMP    F:   7.3703E+00   1.0000E-09   5.0000E-02   5.0000E+02
+  1     2 Helmholtz TEMP    F:   3.4120E+00   1.0000E-09   5.0000E-02   5.0000E+02
+  1     3 Helmholtz TEMP    F:   2.6937E+00   1.0000E-09   5.0000E-02   5.0000E+02
+  1     4 Helmholtz TEMP    F:   1.0179E+00   1.0000E-09   5.0000E-02   5.0000E+02
+  1     5 Helmholtz TEMP    F:   4.5448E-01   1.0000E-09   5.0000E-02   5.0000E+02
+  1     6 Helmholtz TEMP    F:   2.6011E-01   1.0000E-09   5.0000E-02   5.0000E+02
+  1     7 Helmholtz TEMP    F:   2.2699E-01   1.0000E-09   5.0000E-02   5.0000E+02
+  1     8 Helmholtz TEMP    F:   7.7884E-02   1.0000E-09   5.0000E-02   5.0000E+02
+  1     9 Helmholtz TEMP    F:   4.7460E-02   1.0000E-09   5.0000E-02   5.0000E+02
+  1    10 Helmholtz TEMP    F:   1.2096E-02   1.0000E-09   5.0000E-02   5.0000E+02
+  1    11 Helmholtz TEMP    F:   7.7116E-03   1.0000E-09   5.0000E-02   5.0000E+02
+  1    12 Helmholtz TEMP    F:   4.3955E-03   1.0000E-09   5.0000E-02   5.0000E+02
+  1    13 Helmholtz TEMP    F:   1.2444E-03   1.0000E-09   5.0000E-02   5.0000E+02
+  1    14 Helmholtz TEMP    F:   6.8886E-04   1.0000E-09   5.0000E-02   5.0000E+02
+  1    15 Helmholtz TEMP    F:   3.7290E-04   1.0000E-09   5.0000E-02   5.0000E+02
+  1    16 Helmholtz TEMP    F:   1.7263E-04   1.0000E-09   5.0000E-02   5.0000E+02
+  1    17 Helmholtz TEMP    F:   1.0297E-04   1.0000E-09   5.0000E-02   5.0000E+02
+  1    18 Helmholtz TEMP    F:   4.5654E-05   1.0000E-09   5.0000E-02   5.0000E+02
+  1    19 Helmholtz TEMP    F:   2.5553E-05   1.0000E-09   5.0000E-02   5.0000E+02
+  1    20 Helmholtz TEMP    F:   1.1483E-05   1.0000E-09   5.0000E-02   5.0000E+02
+  1    21 Helmholtz TEMP    F:   4.9803E-06   1.0000E-09   5.0000E-02   5.0000E+02
+  1    22 Helmholtz TEMP    F:   3.0820E-06   1.0000E-09   5.0000E-02   5.0000E+02
+  1    23 Helmholtz TEMP    F:   1.3328E-06   1.0000E-09   5.0000E-02   5.0000E+02
+  1    24 Helmholtz TEMP    F:   8.1909E-07   1.0000E-09   5.0000E-02   5.0000E+02
+  1    25 Helmholtz TEMP    F:   3.2919E-07   1.0000E-09   5.0000E-02   5.0000E+02
+  1    26 Helmholtz TEMP    F:   1.2526E-07   1.0000E-09   5.0000E-02   5.0000E+02
+  1    27 Helmholtz TEMP    F:   7.9568E-08   1.0000E-09   5.0000E-02   5.0000E+02
+  1    28 Helmholtz TEMP    F:   4.0835E-08   1.0000E-09   5.0000E-02   5.0000E+02
+  1    29 Helmholtz TEMP    F:   1.4714E-08   1.0000E-09   5.0000E-02   5.0000E+02
+  1    30 Helmholtz TEMP    F:   6.3773E-09   1.0000E-09   5.0000E-02   5.0000E+02
+  1    31 Helmholtz TEMP    F:   3.0740E-09   1.0000E-09   5.0000E-02   5.0000E+02
+  1    32 Helmholtz TEMP    F:   1.5920E-09   1.0000E-09   5.0000E-02   5.0000E+02
+  1    33 Helmholtz TEMP    F:   8.9599E-10   1.0000E-09   5.0000E-02   5.0000E+02
+          1    Hmholtz TEMP:     32   8.9599E-10   7.3703E+00   1.0000E-09
+          1   2.0000E-03  1.5000E-01 Heat done
+  1.00000000000000006E-009  p22            1           2
+  1     1 Helmholtz psi     T:   5.8815E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1     2 Helmholtz psi     T:   4.7040E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1     3 Helmholtz psi     T:   3.3667E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1     4 Helmholtz psi     T:   2.4239E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1     5 Helmholtz psi     T:   2.4366E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1     6 Helmholtz psi     T:   4.1698E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1     7 Helmholtz psi     T:   4.0412E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1     8 Helmholtz psi     T:   4.3496E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1     9 Helmholtz psi     T:   5.3138E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    10 Helmholtz psi     T:   4.2434E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    11 Helmholtz psi     T:   2.8718E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    12 Helmholtz psi     T:   4.0617E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    13 Helmholtz psi     T:   3.2033E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    14 Helmholtz psi     T:   2.6221E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    15 Helmholtz psi     T:   3.8545E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    16 Helmholtz psi     T:   2.2477E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    17 Helmholtz psi     T:   2.2778E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    18 Helmholtz psi     T:   1.9950E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    19 Helmholtz psi     T:   1.6803E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    20 Helmholtz psi     T:   1.9887E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    21 Helmholtz psi     T:   1.6666E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    22 Helmholtz psi     T:   2.2172E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    23 Helmholtz psi     T:   1.9028E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    24 Helmholtz psi     T:   2.2522E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    25 Helmholtz psi     T:   1.9243E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    26 Helmholtz psi     T:   1.4346E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    27 Helmholtz psi     T:   1.0737E+01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    28 Helmholtz psi     T:   7.6406E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    29 Helmholtz psi     T:   6.2966E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    30 Helmholtz psi     T:   6.4231E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    31 Helmholtz psi     T:   6.3549E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    32 Helmholtz psi     T:   4.7450E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    33 Helmholtz psi     T:   4.9514E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    34 Helmholtz psi     T:   3.8400E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    35 Helmholtz psi     T:   3.8312E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    36 Helmholtz psi     T:   4.2106E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    37 Helmholtz psi     T:   3.1370E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    38 Helmholtz psi     T:   2.9127E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    39 Helmholtz psi     T:   2.6140E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    40 Helmholtz psi     T:   2.4309E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    41 Helmholtz psi     T:   2.0695E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    42 Helmholtz psi     T:   1.9779E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    43 Helmholtz psi     T:   1.5437E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    44 Helmholtz psi     T:   1.0510E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    45 Helmholtz psi     T:   1.1921E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    46 Helmholtz psi     T:   1.3344E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    47 Helmholtz psi     T:   1.1030E+00   1.0000E-09   1.0000E+00   0.0000E+00
+  1    48 Helmholtz psi     T:   8.8366E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    49 Helmholtz psi     T:   8.1624E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    50 Helmholtz psi     T:   6.8596E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    51 Helmholtz psi     T:   6.0118E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    52 Helmholtz psi     T:   5.6237E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    53 Helmholtz psi     T:   3.9772E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    54 Helmholtz psi     T:   3.0903E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    55 Helmholtz psi     T:   2.6193E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    56 Helmholtz psi     T:   2.3833E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    57 Helmholtz psi     T:   2.5275E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    58 Helmholtz psi     T:   2.0171E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    59 Helmholtz psi     T:   1.5200E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    60 Helmholtz psi     T:   1.7318E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    61 Helmholtz psi     T:   1.4063E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    62 Helmholtz psi     T:   1.2764E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    63 Helmholtz psi     T:   1.3170E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    64 Helmholtz psi     T:   1.0799E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    65 Helmholtz psi     T:   1.0331E-01   1.0000E-09   1.0000E+00   0.0000E+00
+  1    66 Helmholtz psi     T:   8.3830E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    67 Helmholtz psi     T:   7.1241E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    68 Helmholtz psi     T:   6.5315E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    69 Helmholtz psi     T:   6.1278E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    70 Helmholtz psi     T:   5.4697E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    71 Helmholtz psi     T:   5.8964E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    72 Helmholtz psi     T:   5.9343E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    73 Helmholtz psi     T:   4.8127E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    74 Helmholtz psi     T:   4.1306E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    75 Helmholtz psi     T:   3.0935E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    76 Helmholtz psi     T:   1.8278E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    77 Helmholtz psi     T:   1.8325E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    78 Helmholtz psi     T:   1.7439E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    79 Helmholtz psi     T:   1.5950E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    80 Helmholtz psi     T:   1.3735E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    81 Helmholtz psi     T:   1.4014E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    82 Helmholtz psi     T:   1.1054E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    83 Helmholtz psi     T:   9.4957E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1    84 Helmholtz psi     T:   9.6191E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1    85 Helmholtz psi     T:   9.2862E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1    86 Helmholtz psi     T:   1.1329E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    87 Helmholtz psi     T:   1.4384E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    88 Helmholtz psi     T:   1.3596E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    89 Helmholtz psi     T:   1.4976E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    90 Helmholtz psi     T:   1.4271E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    91 Helmholtz psi     T:   1.2114E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    92 Helmholtz psi     T:   1.2001E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    93 Helmholtz psi     T:   1.2880E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    94 Helmholtz psi     T:   1.4585E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    95 Helmholtz psi     T:   1.3945E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    96 Helmholtz psi     T:   1.4046E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    97 Helmholtz psi     T:   1.3595E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    98 Helmholtz psi     T:   1.1829E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1    99 Helmholtz psi     T:   1.1245E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1   100 Helmholtz psi     T:   1.1781E-02   1.0000E-09   1.0000E+00   0.0000E+00
+  1   101 Helmholtz psi     T:   9.6158E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   102 Helmholtz psi     T:   8.5078E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   103 Helmholtz psi     T:   7.9972E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   104 Helmholtz psi     T:   8.8094E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   105 Helmholtz psi     T:   8.1673E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   106 Helmholtz psi     T:   7.2315E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   107 Helmholtz psi     T:   6.0281E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   108 Helmholtz psi     T:   5.0654E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   109 Helmholtz psi     T:   5.8196E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   110 Helmholtz psi     T:   4.3656E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   111 Helmholtz psi     T:   3.9487E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   112 Helmholtz psi     T:   3.5851E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   113 Helmholtz psi     T:   3.0976E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   114 Helmholtz psi     T:   3.4066E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   115 Helmholtz psi     T:   3.2473E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   116 Helmholtz psi     T:   2.8589E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   117 Helmholtz psi     T:   2.6863E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   118 Helmholtz psi     T:   2.3566E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   119 Helmholtz psi     T:   1.6414E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   120 Helmholtz psi     T:   1.3220E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   121 Helmholtz psi     T:   1.0134E-03   1.0000E-09   1.0000E+00   0.0000E+00
+  1   122 Helmholtz psi     T:   8.6839E-04   1.0000E-09   1.0000E+00   0.0000E+00
+  1   123 Helmholtz psi     T:   7.6246E-04   1.0000E-09   1.0000E+00   0.0000E+00
+  1   124 Helmholtz psi     T:   5.4401E-04   1.0000E-09   1.0000E+00   0.0000E+00
+  1   125 Helmholtz psi     T:   4.1675E-04   1.0000E-09   1.0000E+00   0.0000E+00
+  1   126 Helmholtz psi     T:   3.8329E-04   1.0000E-09   1.0000E+00   0.0000E+00
+  1   127 Helmholtz psi     T:   2.5565E-04   1.0000E-09   1.0000E+00   0.0000E+00
+  1   128 Helmholtz psi     T:   2.2902E-04   1.0000E-09   1.0000E+00   0.0000E+00
+  1   129 Helmholtz psi     T:   1.6761E-04   1.0000E-09   1.0000E+00   0.0000E+00
+  1   130 Helmholtz psi     T:   1.1623E-04   1.0000E-09   1.0000E+00   0.0000E+00
+  1   131 Helmholtz psi     T:   9.0946E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   132 Helmholtz psi     T:   8.0476E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   133 Helmholtz psi     T:   6.1956E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   134 Helmholtz psi     T:   6.4048E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   135 Helmholtz psi     T:   5.3798E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   136 Helmholtz psi     T:   4.8602E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   137 Helmholtz psi     T:   5.2979E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   138 Helmholtz psi     T:   4.4702E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   139 Helmholtz psi     T:   3.3678E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   140 Helmholtz psi     T:   2.6870E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   141 Helmholtz psi     T:   1.9663E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   142 Helmholtz psi     T:   1.6068E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   143 Helmholtz psi     T:   1.2775E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   144 Helmholtz psi     T:   1.1441E-05   1.0000E-09   1.0000E+00   0.0000E+00
+  1   145 Helmholtz psi     T:   8.1946E-06   1.0000E-09   1.0000E+00   0.0000E+00
+  1   146 Helmholtz psi     T:   7.4952E-06   1.0000E-09   1.0000E+00   0.0000E+00
+  1   147 Helmholtz psi     T:   5.6106E-06   1.0000E-09   1.0000E+00   0.0000E+00
+  1   148 Helmholtz psi     T:   4.0065E-06   1.0000E-09   1.0000E+00   0.0000E+00
+  1   149 Helmholtz psi     T:   2.8252E-06   1.0000E-09   1.0000E+00   0.0000E+00
+  1   150 Helmholtz psi     T:   2.4918E-06   1.0000E-09   1.0000E+00   0.0000E+00
+  1   151 Helmholtz psi     T:   2.4497E-06   1.0000E-09   1.0000E+00   0.0000E+00
+  1   152 Helmholtz psi     T:   2.0910E-06   1.0000E-09   1.0000E+00   0.0000E+00
+  1   153 Helmholtz psi     T:   1.4267E-06   1.0000E-09   1.0000E+00   0.0000E+00
+  1   154 Helmholtz psi     T:   1.0380E-06   1.0000E-09   1.0000E+00   0.0000E+00
+  1   155 Helmholtz psi     T:   6.9140E-07   1.0000E-09   1.0000E+00   0.0000E+00
+  1   156 Helmholtz psi     T:   4.9794E-07   1.0000E-09   1.0000E+00   0.0000E+00
+  1   157 Helmholtz psi     T:   4.0040E-07   1.0000E-09   1.0000E+00   0.0000E+00
+  1   158 Helmholtz psi     T:   3.5198E-07   1.0000E-09   1.0000E+00   0.0000E+00
+  1   159 Helmholtz psi     T:   2.8532E-07   1.0000E-09   1.0000E+00   0.0000E+00
+  1   160 Helmholtz psi     T:   2.1347E-07   1.0000E-09   1.0000E+00   0.0000E+00
+  1   161 Helmholtz psi     T:   2.0725E-07   1.0000E-09   1.0000E+00   0.0000E+00
+  1   162 Helmholtz psi     T:   1.3712E-07   1.0000E-09   1.0000E+00   0.0000E+00
+  1   163 Helmholtz psi     T:   1.0535E-07   1.0000E-09   1.0000E+00   0.0000E+00
+  1   164 Helmholtz psi     T:   7.8440E-08   1.0000E-09   1.0000E+00   0.0000E+00
+  1   165 Helmholtz psi     T:   6.1656E-08   1.0000E-09   1.0000E+00   0.0000E+00
+  1   166 Helmholtz psi     T:   4.7837E-08   1.0000E-09   1.0000E+00   0.0000E+00
+  1   167 Helmholtz psi     T:   3.8452E-08   1.0000E-09   1.0000E+00   0.0000E+00
+  1   168 Helmholtz psi     T:   2.4021E-08   1.0000E-09   1.0000E+00   0.0000E+00
+  1   169 Helmholtz psi     T:   1.9779E-08   1.0000E-09   1.0000E+00   0.0000E+00
+  1   170 Helmholtz psi     T:   1.5027E-08   1.0000E-09   1.0000E+00   0.0000E+00
+  1   171 Helmholtz psi     T:   1.1101E-08   1.0000E-09   1.0000E+00   0.0000E+00
+  1   172 Helmholtz psi     T:   8.7182E-09   1.0000E-09   1.0000E+00   0.0000E+00
+  1   173 Helmholtz psi     T:   7.3187E-09   1.0000E-09   1.0000E+00   0.0000E+00
+  1   174 Helmholtz psi     T:   5.9884E-09   1.0000E-09   1.0000E+00   0.0000E+00
+  1   175 Helmholtz psi     T:   5.1090E-09   1.0000E-09   1.0000E+00   0.0000E+00
+  1   176 Helmholtz psi     T:   5.0460E-09   1.0000E-09   1.0000E+00   0.0000E+00
+  1   177 Helmholtz psi     T:   3.3910E-09   1.0000E-09   1.0000E+00   0.0000E+00
+  1   178 Helmholtz psi     T:   2.7215E-09   1.0000E-09   1.0000E+00   0.0000E+00
+  1   179 Helmholtz psi     T:   2.4095E-09   1.0000E-09   1.0000E+00   0.0000E+00
+  1   180 Helmholtz psi     T:   1.8686E-09   1.0000E-09   1.0000E+00   0.0000E+00
+  1   181 Helmholtz psi     T:   1.3903E-09   1.0000E-09   1.0000E+00   0.0000E+00
+  1   182 Helmholtz psi     T:   9.8003E-10   1.0000E-09   1.0000E+00   0.0000E+00
+          1    Hmholtz psi :    181   9.8003E-10   5.8815E+00   1.0000E-09
+    1  2.000000E-03  6.224030E-06  1.995012E+00  1.995006E+00  0.000000E+00  X err
+    1  2.000000E-03  1.581417E+01  1.995006E+00  1.716566E+00  0.000000E+00  Tmax 
+Step      2, t= 4.0000002E-03, DT= 2.0000001E-03, C=  1.002 7.7000E-01 7.7000E-01
+             Solving for heat
+  1.00000000000000006E-009  p22            2           2
+          2    Hmholtz TEMP:     28   4.5035E-10   1.1032E+01   1.0000E-09
+          2   4.0000E-03  1.3000E-01 Heat done
+  1.00000000000000006E-009  p22            2           2
+          2    Hmholtz psi :    181   9.7424E-10   5.8668E+00   1.0000E-09
+    2  4.000000E-03  6.943436E-09  1.990025E+00  1.990025E+00  0.000000E+00  X err
+    2  4.000000E-03  1.577468E+01  1.990025E+00  1.712280E+00  0.000000E+00  Tmax 
+Step      3, t= 6.0000003E-03, DT= 2.0000001E-03, C=  0.999 1.4800E+00 7.1000E-01
+             Solving for heat
+  1.00000000000000006E-009  p22            3           2
+          3    Hmholtz TEMP:     26   8.1530E-10   1.3446E+01   1.0000E-09
+          3   6.0000E-03  1.2000E-01 Heat done
+  1.00000000000000006E-009  p22            3           2
+          3    Hmholtz psi :    181   9.7577E-10   5.8522E+00   1.0000E-09
+    3  6.000000E-03  5.554075E-11  1.985056E+00  1.985056E+00  0.000000E+00  X err
+    3  6.000000E-03  1.573529E+01  1.985056E+00  1.708004E+00  0.000000E+00  Tmax 
+Step      4, t= 8.0000004E-03, DT= 2.0000001E-03, C=  0.997 2.1800E+00 7.0000E-01
+             Solving for heat
+  1.00000000000000006E-009  p22            4           2
+          4    Hmholtz TEMP:     26   8.1327E-10   1.3413E+01   1.0000E-09
+          4   8.0000E-03  1.2000E-01 Heat done
+  1.00000000000000006E-009  p22            4           2
+          4    Hmholtz psi :    181   9.7521E-10   5.8376E+00   1.0000E-09
+    4  8.000000E-03  5.484273E-11  1.980100E+00  1.980100E+00  0.000000E+00  X err
+    4  8.000000E-03  1.569600E+01  1.980100E+00  1.703740E+00  0.000000E+00  Tmax 
+Step      5, t= 1.0000000E-02, DT= 2.0000001E-03, C=  0.994 2.8800E+00 7.0000E-01
+             Solving for heat
+  1.00000000000000006E-009  p22            5           2
+          5    Hmholtz TEMP:     26   8.1124E-10   1.3379E+01   1.0000E-09
+          5   1.0000E-02  1.2000E-01 Heat done
+  1.00000000000000006E-009  p22            5           2
+          5    Hmholtz psi :    181   9.6753E-10   5.8230E+00   1.0000E-09
+    5  1.000000E-02  5.429857E-11  1.975156E+00  1.975156E+00  0.000000E+00  X err
+    5  1.000000E-02  1.565681E+01  1.975156E+00  1.699486E+00  0.000000E+00  Tmax 
+Step      6, t= 1.2000001E-02, DT= 2.0000001E-03, C=  0.992 3.5800E+00 7.0000E-01
+             Solving for heat
+  1.00000000000000006E-009  p22            6           2
+          6    Hmholtz TEMP:     26   8.0921E-10   1.3346E+01   1.0000E-09
+          6   1.2000E-02  1.2000E-01 Heat done
+  1.00000000000000006E-009  p22            6           2
+          6    Hmholtz psi :    181   9.7019E-10   5.8085E+00   1.0000E-09
+    6  1.200000E-02  5.525672E-11  1.970224E+00  1.970224E+00  0.000000E+00  X err
+    6  1.200000E-02  1.561772E+01  1.970224E+00  1.695242E+00  0.000000E+00  Tmax 
+Step      7, t= 1.4000001E-02, DT= 2.0000001E-03, C=  0.989 4.2800E+00 7.0000E-01
+             Solving for heat
+  1.00000000000000006E-009  p22            7           2
+          7    Hmholtz TEMP:     26   8.0719E-10   1.3313E+01   1.0000E-09
+          7   1.4000E-02  1.1000E-01 Heat done
+  1.00000000000000006E-009  p22            7           2
+          7    Hmholtz psi :    181   9.7867E-10   5.7940E+00   1.0000E-09
+    7  1.400000E-02  5.873857E-11  1.965304E+00  1.965304E+00  0.000000E+00  X err
+    7  1.400000E-02  1.557872E+01  1.965304E+00  1.691010E+00  0.000000E+00  Tmax 
+Step      8, t= 1.6000001E-02, DT= 2.0000001E-03, C=  0.987 4.9700E+00 6.9000E-01
+             Solving for heat
+  1.00000000000000006E-009  p22            8           2
+          8    Hmholtz TEMP:     26   8.0518E-10   1.3279E+01   1.0000E-09
+          8   1.6000E-02  1.2000E-01 Heat done
+  1.00000000000000006E-009  p22            8           2
+          8    Hmholtz psi :    182   6.7208E-10   5.7795E+00   1.0000E-09
+    8  1.600000E-02  7.959011E-11  1.960397E+00  1.960397E+00  0.000000E+00  X err
+    8  1.600000E-02  1.553983E+01  1.960397E+00  1.686787E+00  0.000000E+00  Tmax 
+Step      9, t= 1.8000001E-02, DT= 2.0000001E-03, C=  0.984 5.6700E+00 7.0000E-01
+             Solving for heat
+  1.00000000000000006E-009  p22            9           2
+          9    Hmholtz TEMP:     26   8.0317E-10   1.3246E+01   1.0000E-09
+          9   1.8000E-02  1.2000E-01 Heat done
+  1.00000000000000006E-009  p22            9           2
+          9    Hmholtz psi :    182   6.6994E-10   5.7651E+00   1.0000E-09
+    9  1.800000E-02  9.744427E-11  1.955502E+00  1.955502E+00  0.000000E+00  X err
+    9  1.800000E-02  1.550103E+01  1.955502E+00  1.682576E+00  0.000000E+00  Tmax 
+Step     10, t= 2.0000001E-02, DT= 2.0000001E-03, C=  0.982 6.3700E+00 7.0000E-01
+             Solving for heat
+  1.00000000000000006E-009  p22           10           2
+         10    Hmholtz TEMP:     26   8.0116E-10   1.3213E+01   1.0000E-09
+         10   2.0000E-02  1.2000E-01 Heat done
+  1.00000000000000006E-009  p22           10           2
+         10    Hmholtz psi :    182   6.8789E-10   5.7507E+00   1.0000E-09
+   10  2.000000E-02  1.175811E-10  1.950620E+00  1.950620E+00  0.000000E+00  X err
+   10  2.000000E-02  1.546232E+01  1.950620E+00  1.678374E+00  0.000000E+00  Tmax 
+ call outfld: ifpsco: F
+
+       10  2.0000E-02 Write checkpoint:
+
+       10  2.0000E-02 OPEN: psi_omega.fld02                                                               
+
+end of time-step loop
+
+runtime statistics:
+ total time   7.4299998091293338     
+ tgop time        6388   0.0000000000000000        0.0000000000000000     
+ inv3 time           0   0.0000000000000000        0.0000000000000000     
+ invc time          10   0.0000000000000000        0.0000000000000000     
+ mltd time           0   0.0000000000000000        0.0000000000000000     
+backtrace(): obtained 6 stack frames.
+./nek5000() [0x4f762a]
+./nek5000() [0x5d8bdc]
+./nek5000() [0x402b44]
+./nek5000() [0x63c34a]
+/lib/libc.so.6(__libc_start_main+0xfd) [0x7ff365a62c8d]
+./nek5000() [0x401c39]
+ cdtp time           0   0.0000000000000000        0.0000000000000000     
+ eslv time           0   0.0000000000000000        0.0000000000000000     
+ pres time           0   0.0000000000000000        0.0000000000000000     
+ crsl time           0   0.0000000000000000        0.0000000000000000     
+ crsl min    0.0000000000000000     
+ crsl max    0.0000000000000000     
+ crsl avg    0.0000000000000000     
+ hmhz time          21   6.1599993705749512       0.82907126902023376     
+ spro time          11  9.99999046325683594E-003  1.34589377121782997E-003
+ usbc time          39  3.99999618530273438E-002  5.38357508487131986E-003
+ usbc min   3.99999618530273438E-002
+ usbc max   3.99999618530273438E-002
+ usb  avg   3.99999618530273438E-002
+ axhm time        2132   3.8800094723701477       0.52220855612980388     
+ advc time          10  0.12999999523162842       1.74966350701511175E-002
+ vdss time           0   0.0000000000000000        0.0000000000000000     
+ vdss min    0.0000000000000000     
+ vdss max    0.0000000000000000     
+ vdss avg    0.0000000000000000     
+ dsum time        2172  8.00006389617919922E-002  1.07672464356586128E-002
+ dsum min   8.00006389617919922E-002
+ dsum max   8.00006389617919922E-002
+ dsum avg   8.00006389617919922E-002
+ dadd time           0   0.0000000000000000        0.0000000000000000     
+ ddsl time           0   0.0000000000000000        0.0000000000000000     
+ solv time           0   0.0000000000000000        0.0000000000000000     
+ prep time          11  0.40999984741210938       5.51816767085696880E-002
+
+#  nid       tusbc       tdadd       tcrsl       tvdss       tdsum        tgop    qqq    F
+           0  4.0000E-02  0.0000E+00  0.0000E+00  0.0000E+00  8.0001E-02  0.0000E+00 qqq
+  
+call exitt: dying ...
+  
+  
+total elapsed time             :   8.02000E+00 sec
+total solver time incl. I/O    :   7.43000E+00 sec
+time/timestep                  :   7.43000E-01 sec
+CPU seconds/timestep/gridpt    :   1.28993E-05 sec
+

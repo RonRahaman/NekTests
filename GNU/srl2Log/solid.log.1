@@ -1,0 +1,205 @@
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 63300 63300 63300
+   buffer bytes (avg, min, max): 0 0 0
+backtrace(): obtained 8 stack frames.
+./nek5000() [0x4f8d8a]
+./nek5000() [0x5da48c]
+./nek5000() [0x5daa06]
+./nek5000() [0x40480e]
+./nek5000() [0x404286]
+./nek5000() [0x63dbfa]
+/lib/libc.so.6(__libc_start_main+0xfd) [0x7fc3f79e6c8d]
+./nek5000() [0x401c39]
+/----------------------------------------------------------\\
+|      _   __ ______ __ __  ______  ____    ____    ____   |
+|     / | / // ____// //_/ / ____/ / __ \\ / __ \\ / __ \\ |
+|    /  |/ // __/  / ,<   /___ \\  / / / // / / // / / /   |
+|   / /|  // /___ / /| | ____/ / / /_/ // /_/ // /_/ /     |
+|  /_/ |_//_____//_/ |_|/_____/  \\____/ \\____/ \\____/   |
+|                                                          |
+|----------------------------------------------------------|
+|                                                          |
+| NEK5000:  Open Source Spectral Element Solver            |
+| COPYRIGHT (c) 2008-2010 UCHICAGO ARGONNE, LLC            |
+| Version:  1.0rc1 / SVN  r1082                            |
+| Web:      http://nek5000.mcs.anl.gov                     |
+|                                                          |
+\\----------------------------------------------------------/
+                                                              
+
+ Number of processors:           1
+ REAL    wdsize      :           8
+ INTEGER wdsize      :           4
+
+
+  Beginning session:
+  /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/solid/solid.rea  
+
+ 
+ timer accuracy:   0.0000000E+00 sec
+
+ read .rea file
+ nelgt/nelgv/lelt:          24          24          30
+ lx1  /lx2  /lx3 :           8           6           8
+
+ mapping elements to processors
+           0          24          24          24          24  NELV
+ RANK     0 IEG       1       2       3       4       5       6       7       8
+                      9      10      11      12      13      14      15      16
+                     17      18      19      20      21      22      23      24
+ element load imbalance:            0          24          24
+ done :: mapping elements to processors
+  
+           0  objects found
+ done :: read .rea file    0.0000     sec
+
+ setup mesh topology
+   Right-handed check complete for      24 elements. OK.
+   setvert3d:   8        4240        9424        4240        4240
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   0  8        4240          24
+           4  max multiplicity
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ vol_t,vol_v:   3.6651914291874186        3.6651914291874186     
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+ regenerate geometry data           1
+ vol_t,vol_v:   3.6651914291874186        3.6651914291874186     
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -1.0000000000000000        1.0000000000000000       Xrange
+  -1.0000000000000000        1.0000000000000000       Yrange
+  -1.0000000000000000        1.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+ 118   Parameters from file:/homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/solid/solid.rea
+   1          1.000000         p01 DENSITY
+   2         -100.0000         p02 VISCOS
+   8          1.000000         p08 CONDUCT
+  15          50.00000         p15 IOSTEP
+  21         1.0000000E-06     p21 DIVERGENCE
+  22         1.0000000E-08     p22 HELMHOLTZ
+  24         1.0000000E-10     p24 TOLREL
+  25         1.0000000E-10     p25 TOLABS
+  26         0.2500000         p26 COURANT/NTAU
+  27          2.000000         p27 TORDER
+  28         0.0000000E+00     p28 TORDER: mesh velocity (0: p28=p27)
+  43          1.000000         p43 0=semg/1=schwarz
+  65          1.000000         p65 #iofile(eg,0 or 64); <0 --> sep. dirs
+  66          6.000000         p66 write fmt:ONLY postx uses rea value
+  67          6.000000         p67 read fmt: same modes as p66
+  99          3.000000         p99    dealiasing:if <0 disable
+ 103         5.0000001E-02     p103   weight of stabilizing filter (.01)
+  
+ IFTRAN   = T
+ IFFLOW   = T
+ IFHEAT   = F
+ IFSPLIT  = F
+ IFLOMACH = F
+ IFUSERVP = F
+ IFUSERMV = F
+ IFSTRS   = T
+ IFCHAR   = F
+ IFCYCLIC = F
+ IFAXIS   = F
+ IFMVBD   = F
+ IFMELT   = F
+ IFMODEL  = F
+ IFKEPS   = F
+ IFMOAB   = F
+ IFNEKNEK = F
+ IFSYNC   = T
+   
+ IFVCOR   = F
+ IFINTQ   = F
+ IFCWUZ   = F
+ IFSWALL  = F
+ IFGEOM   = F
+ IFSURT   = F
+ IFWCNO   = F
+   
+ IFTMSH for field           1    =  F
+ IFADVC for field           1    =  T
+ IFNONL for field           1    =  F
+   
+ Dealiasing enabled, lxd=          12
+ verify mesh topology
+  -1.0000000000000000        1.0000000000000000       Xrange
+  -1.0000000000000000        1.0000000000000000       Yrange
+  -1.0000000000000000        1.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+ call usrdat3
+ done :: usrdat3
+
+ set initial conditions
+ nekuic (1) for ifld            1
+ call nekuic for vel  
+ xyz min    -1.0000      -1.0000      -1.0000    
+ uvwpt min -0.13376E-20 -0.13376E-20 -0.13376E-20   0.0000     -0.13376E-20
+ PS min     0.99000E+22
+ xyz max     1.0000       1.0000       1.0000    
+ uvwpt max  0.40000E-19  0.40000E-19  0.40000E-19   0.0000      0.40000E-19
+ PS max    -0.99000E+22
+ done :: set initial conditions
+  
+gridpoints unique/tot:          9424        12288
+  dofs:                 9423                 5184
+  
+ Initialization successfully completed   0.30000E-01 sec
+
+ nsteps=0 -> skip time loop
+ running solver in post processing mode
+
+ call userchk
+cg:     0  1.0883E+01
+cg:     1  1.3050E+01  1.3050E-13  1.3050E+01  1.0000E+00
+cg:     2  1.5377E+01  1.3050E-13  1.3050E+01  1.1783E+00
+cg:     3  2.5397E+01  1.3050E-13  1.3050E+01  1.9461E+00
+cg:     4  1.6991E+01  1.3050E-13  1.3050E+01  1.3020E+00
+cg:     5  1.7540E+01  1.3050E-13  1.3050E+01  1.3440E+00
+cg:     6  1.3672E+01  1.3050E-13  1.3050E+01  1.0476E+00
+cg:     7  1.3621E+01  1.3050E-13  1.3050E+01  1.0437E+00
+cg:     8  1.1238E+01  1.3050E-13  1.3050E+01  8.6116E-01
+cg:     9  7.9095E+00  1.3050E-13  1.3050E+01  6.0609E-01
+cg:    50  5.9390E-06  1.3050E-13  1.3050E+01  4.5509E-07
+cg:   100  4.4222E-08  1.3050E-13  1.3050E+01  3.3886E-09
+cg:   150  1.8910E-09  1.3050E-13  1.3050E+01  1.4490E-10
+cg:   200  4.4732E-10  1.3050E-13  1.3050E+01  3.4277E-11
+cg:   250  5.7812E-11  1.3050E-13  1.3050E+01  4.4300E-12
+cg:   300  4.5872E-12  1.3050E-13  1.3050E+01  3.5151E-13
+cg:   350  2.5547E-13  1.3050E-13  1.3050E+01  1.9576E-14
+cg:   358  1.2599E-13  1.3050E-13  1.3050E+01  9.6541E-15
+    0  0.000000E+00  5.133534E-06  7.821228E-05  error
+ schfile:/homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/solid/solid.sch                                                        
+ call outfld: ifpsco: F
+
+        0  0.0000E+00 Write checkpoint:
+       0       0 OPEN: solid0.f00001
+
+        0  0.0000E+00 done :: Write checkpoint
+                              file size =     0.33    MB
+                              avg data-throughput =     0.3MB/s
+                              io-nodes =     1
+
+EXIT: Done elast solve         24
+  
+call exitt: dying ...
+  
+  
+total elapsed time             :   7.30000E-01 sec
+total solver time incl. I/O    :   0.00000E+00 sec
+time/timestep                  :   0.00000E+00 sec
+CPU seconds/timestep/gridpt    :   0.00000E+00 sec
+

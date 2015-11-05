@@ -1,0 +1,1931 @@
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 8020 8020 8020
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 1684 1684 1684
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 4852 4852 4852
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 4852 4852 4852
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 8020 8020 8020
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 1684 1684 1684
+   buffer bytes (avg, min, max): 0 0 0
+/----------------------------------------------------------\\
+|      _   __ ______ __ __  ______  ____    ____    ____   |
+|     / | / // ____// //_/ / ____/ / __ \\ / __ \\ / __ \\ |
+|    /  |/ // __/  / ,<   /___ \\  / / / // / / // / / /   |
+|   / /|  // /___ / /| | ____/ / / /_/ // /_/ // /_/ /     |
+|  /_/ |_//_____//_/ |_|/_____/  \\____/ \\____/ \\____/   |
+|                                                          |
+|----------------------------------------------------------|
+|                                                          |
+| NEK5000:  Open Source Spectral Element Solver            |
+| COPYRIGHT (c) 2008-2010 UCHICAGO ARGONNE, LLC            |
+| Version:  1.0rc1 / SVN  r1082                            |
+| Web:      http://nek5000.mcs.anl.gov                     |
+|                                                          |
+\\----------------------------------------------------------/
+                                                              
+
+ Number of processors:           1
+ REAL    wdsize      :           8
+ INTEGER wdsize      :           4
+
+
+  Beginning session:
+  /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/fs_2/st2.rea     
+
+ 
+ timer accuracy:   0.0000000E+00 sec
+
+ read .rea file
+ nelgt/nelgv/lelt:          36          36          80
+ lx1  /lx2  /lx3 :           6           4           6
+
+ mapping elements to processors
+           0          36          36          36          36  NELV
+ RANK     0 IEG       1       2       3       4       5       6       7       8
+                      9      10      11      12      13      14      15      16
+                     17      18      19      20      21      22      23      24
+                     25      26      27      28      29      30      31      32
+                     33      34      35      36
+ element load imbalance:            0          36          36
+ done :: mapping elements to processors
+  
+           0  objects found
+ done :: read .rea file    0.0000     sec
+
+ setup mesh topology
+   Right-handed check complete for      36 elements. OK.
+   setvert2d:   6         354         930         354         354
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   0  6         354          36
+           4  max multiplicity
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ vol_t,vol_v:   6.0000000000000711        6.0000000000000711     
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+ regenerate geometry data           1
+ vol_t,vol_v:   6.2831853071795933        6.2831853071795933     
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+   0.0000000000000000        6.2831853071795862       Xrange
+  -1.0000000000000000       0.29999999999999999       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+ 120   Parameters from file:/homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/fs_2/st2.rea
+   1          1.000000         p01 DENSITY
+   2         -30000.00         p02 VISCOS
+   8         1.0000000E-02     p08 CONDUCT
+  11          200000.0         p11 NSTEPS
+  12         5.0000000E-03     p12 DT
+  14          1.000000         p14 IOTIME
+  21         1.0000000E-10     p21 DIVERGENCE
+  22         1.0000000E-12     p22 HELMHOLTZ
+  24         1.0000000E-02     p24 TOLREL
+  25         1.0000000E-02     p25 TOLABS
+  26         0.4000000         p26 COURANT/NTAU
+  27          3.000000         p27 TORDER
+  28         0.0000000E+00     p28 TORDER: mesh velocity (0: p28=p27)
+  47         9.5000000E-02     p47 vnu: mesh matieral prop
+  59          1.000000         p59 !=0 --> use std axhelm for all elem
+  65          1.000000         p65 #iofile(eg,0 or 64); <0 --> sep. dirs
+  66          6.000000         p66 write fmt:ONLY postx uses rea value
+  67          6.000000         p67 read fmt: same modes as p66
+  75           0.0001          p75 perturbation amplitude (in .usr)
+  99          3.000000         p99    dealiasing:if <0 disable
+ 101          1.000000         p101   No. of additional filter modes
+ 103         1.0000000E-02     p103   weight of stabilizing filter (.01)
+  
+ IFTRAN   = T
+ IFFLOW   = T
+ IFHEAT   = F
+ IFSPLIT  = F
+ IFLOMACH = F
+ IFUSERVP = F
+ IFUSERMV = F
+ IFSTRS   = T
+ IFCHAR   = F
+ IFCYCLIC = F
+ IFAXIS   = F
+ IFMVBD   = T
+ IFMELT   = F
+ IFMODEL  = F
+ IFKEPS   = F
+ IFMOAB   = F
+ IFNEKNEK = F
+ IFSYNC   = T
+   
+ IFVCOR   = F
+ IFINTQ   = F
+ IFCWUZ   = F
+ IFSWALL  = F
+ IFGEOM   = T
+ IFSURT   = T
+ IFWCNO   = F
+   
+ IFTMSH for field           1    =  F
+ IFADVC for field           1    =  T
+ IFNONL for field           1    =  F
+   
+ Dealiasing enabled, lxd=           9
+  
+ Estimated eigenvalues
+ EIGAA =    3.0450013020974427     
+ EIGGA =    154656.65953529024     
+ EIGAE =   0.25000000000000000     
+ EIGAS =   1.02627213914406306E-002
+ EIGGE =    154656.65953529024     
+ EIGGS =    2.0000000000000000     
+  
+ verify mesh topology
+   0.0000000000000000        6.2831853071795862       Xrange
+  -1.0000000000000000       0.29999999999999999       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+  E-solver strategy:  1 itr
+ mg_nx:           1           3           5
+ mg_ny:           1           3           5
+ mg_nz:           0           0           0
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   1  2          42          36
+   setvert2d:   4         198         342         198         198
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   2  4         198          36
+   setvert2d:   4         198         342         198         198
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   3  4         198          36
+   setvert2d:   6         354         930         354         354
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   4  6         354          36
+ setup h1 coarse grid, nx_crs=           2
+ call usrsetvert
+ done :: usrsetvert
+
+ done :: setup h1 coarse grid    0.0000000000000000       sec
+  
+ call usrdat3
+ done :: usrdat3
+
+ set initial conditions
+ nekuic (1) for ifld            1
+ call nekuic for vel  
+ xyz min     0.0000      -1.0000       0.0000    
+ uvwpt min -0.20000E-19 -0.20000E-19 -0.20000E-19   0.0000     -0.20000E-19
+ PS min      0.0000       0.0000      0.99000E+22
+ xyz max     6.2832      0.30000       0.0000    
+ uvwpt max  0.39785E-19  0.39785E-19  0.39785E-19   0.0000      0.39785E-19
+ PS max      0.0000       0.0000     -0.99000E+22
+ done :: set initial conditions
+  
+ call userchk
+ done :: userchk
+
+gridpoints unique/tot:           930         1296
+  dofs:                  900                  576
+  
+ Initialization successfully completed    0.0000     sec
+
+Starting time loop ...
+
+     DT/DTCFL/DTFS/DTINIT   0.500E-02   0.250E-01   0.730E-01   0.500E-02
+Step      1, t= 5.0000000E-03, DT= 5.0000000E-03, C=  0.000 0.0000E+00 0.0000E+00
+ generate geometry data
+ Solving for fluid F T T
+ dealias, pndoi:           6           9
+ generate geometry data
+ vol_t,vol_v:   6.2831853071795933        6.2831853071795933     
+  E-solver strategy:  1 itr
+ done :: generate geometry data
+  
+ New CG1(stress)-tolerance (RINIT*epsm) =   9.99214929383475111E-014  5.45445618115374385E-027
+  0  1.0000E-12  9.9921E-14  1.0000E-12 tol,matmod
+           1 Helmholtz3/fluid:      5   0.9136E-12   0.1000E-11   0.9470E-03
+    1 1.00000E-10 4.66644E-02 6.41981E-02 7.26881E-01       1 Divergence
+    2 1.00000E-10 1.60130E-02 6.41981E-02 2.49431E-01       1 Divergence
+    3 1.00000E-10 5.18254E-03 6.41981E-02 8.07272E-02       1 Divergence
+    4 1.00000E-10 2.11879E-03 6.41981E-02 3.30038E-02       1 Divergence
+    5 1.00000E-10 9.87427E-04 6.41981E-02 1.53809E-02       1 Divergence
+    6 1.00000E-10 5.07987E-04 6.41981E-02 7.91279E-03       1 Divergence
+    7 1.00000E-10 3.65574E-04 6.41981E-02 5.69446E-03       1 Divergence
+    8 1.00000E-10 2.21158E-04 6.41981E-02 3.44492E-03       1 Divergence
+    9 1.00000E-10 1.20907E-04 6.41981E-02 1.88334E-03       1 Divergence
+   10 1.00000E-10 7.93428E-05 6.41981E-02 1.23590E-03       1 Divergence
+   11 1.00000E-10 4.82858E-05 6.41981E-02 7.52138E-04       1 Divergence
+   12 1.00000E-10 3.17359E-05 6.41981E-02 4.94343E-04       1 Divergence
+   13 1.00000E-10 1.86518E-05 6.41981E-02 2.90535E-04       1 Divergence
+   14 1.00000E-10 9.53481E-06 6.41981E-02 1.48522E-04       1 Divergence
+   15 1.00000E-10 5.84446E-06 6.41981E-02 9.10378E-05       1 Divergence
+   16 1.00000E-10 3.09563E-06 6.41981E-02 4.82199E-05       1 Divergence
+   17 1.00000E-10 1.61852E-06 6.41981E-02 2.52114E-05       1 Divergence
+   18 1.00000E-10 8.96784E-07 6.41981E-02 1.39690E-05       1 Divergence
+   19 1.00000E-10 5.08375E-07 6.41981E-02 7.91884E-06       1 Divergence
+   20 1.00000E-10 3.47163E-07 6.41981E-02 5.40768E-06       1 Divergence
+   21 1.00000E-10 2.68350E-07 6.41981E-02 4.18003E-06       1 Divergence
+   22 1.00000E-10 1.66630E-07 6.41981E-02 2.59556E-06       1 Divergence
+   23 1.00000E-10 1.08313E-07 6.41981E-02 1.68717E-06       1 Divergence
+   24 1.00000E-10 5.45873E-08 6.41981E-02 8.50294E-07       1 Divergence
+   25 1.00000E-10 3.32824E-08 6.41981E-02 5.18432E-07       1 Divergence
+   26 1.00000E-10 1.95716E-08 6.41981E-02 3.04863E-07       1 Divergence
+   27 1.00000E-10 1.10719E-08 6.41981E-02 1.72464E-07       1 Divergence
+   28 1.00000E-10 6.20632E-09 6.41981E-02 9.66745E-08       1 Divergence
+   29 1.00000E-10 3.46827E-09 6.41981E-02 5.40245E-08       1 Divergence
+   30 1.00000E-10 2.20088E-09 6.41981E-02 3.42826E-08       1 Divergence
+   31 1.00000E-10 1.27258E-09 6.41981E-02 1.98227E-08       1 Divergence
+   32 1.00000E-10 7.34748E-10 6.41981E-02 1.14450E-08       1 Divergence
+   33 1.00000E-10 3.76028E-10 6.41981E-02 5.85731E-09       1 Divergence
+   34 1.00000E-10 1.78939E-10 6.41981E-02 2.78729E-09       1 Divergence
+   35 1.00000E-10 9.30392E-11 6.41981E-02 1.44925E-09       1 Divergence
+         1 U-PRES gmres:     35  9.3039E-11  1.0000E-10  6.4198E-02  0.0000E+00  1.0000E-02
+          1   5.0000E-03  1.0000E-02 Fluid done
+ -1  1.0000E-04  2.1244E-05  1.0000E-12 tol,matmod
+           1 Helmholtz3/ Mesh:     43   0.9989E-04   0.1000E-03   0.2870E-01
+filt amp 0.0000 0.0000 0.0000 0.0000 0.0025 0.0100
+filt trn 1.0000 1.0000 1.0000 1.0000 0.9975 0.9900
+    1  5.000000E-03  3.000000E-01  4.565211E-04  1.000000E+00 amp
+ schfile:/homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/fs_2/st2.sch                                                           
+ Output:        -200
+Step      2, t= 1.0000000E-02, DT= 5.0000000E-03, C=  0.001 3.0000E-02 3.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853070908172        6.2831853070908172     
+           2 Helmholtz3/fluid:      5   0.2006E-13   0.1000E-11   0.1596E-03
+         2 U-PRES gmres:     20  7.3041E-11  1.0000E-10  5.8918E-04  0.0000E+00  0.0000E+00
+          2   1.0000E-02  0.0000E+00 Fluid done
+           2 Helmholtz3/ Mesh:     64   0.9219E-04   0.1000E-03   0.2870E-01
+    2  1.000000E-02  2.999910E-01  9.130348E-04  9.999701E-01 amp
+Step      3, t= 1.5000000E-02, DT= 5.0000000E-03, C=  0.001 4.0000E-02 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853069226975        6.2831853069226975     
+           3 Helmholtz3/fluid:      5   0.5469E-13   0.1000E-11   0.6125E-03
+         3 U-PRES gmres:     34  9.7603E-11  1.0000E-10  3.5163E-02  0.0000E+00  1.0000E-02
+          3   1.5000E-02  1.0000E-02 Fluid done
+           3 Helmholtz3/ Mesh:    103   0.9405E-04   0.1000E-03   0.2870E-01
+    3  1.500000E-02  2.999761E-01  1.369521E-03  9.999203E-01 amp
+Step      4, t= 2.0000000E-02, DT= 5.0000000E-03, C=  0.002 6.0000E-02 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853066192469        6.2831853066192469     
+           4 Helmholtz3/fluid:      5   0.1071E-13   0.1000E-11   0.1615E-03
+         4 U-PRES gmres:     18  7.6425E-11  1.0000E-10  5.4094E-04  0.0000E+00  0.0000E+00
+          4   2.0000E-02  1.0000E-02 Fluid done
+           4 Helmholtz3/ Mesh:     43   0.9933E-04   0.1000E-03   0.2870E-01
+    4  2.000000E-02  2.999552E-01  1.825969E-03  9.998506E-01 amp
+Step      5, t= 2.5000000E-02, DT= 5.0000000E-03, C=  0.002 8.0000E-02 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853064981731        6.2831853064981731     
+           5 Helmholtz3/fluid:      5   0.9644E-14   0.1000E-11   0.1600E-03
+         5 U-PRES gmres:     17  9.5930E-11  1.0000E-10  2.5309E-04  0.0000E+00  0.0000E+00
+          5   2.5000E-02  0.0000E+00 Fluid done
+           5 Helmholtz3/ Mesh:     64   0.9792E-04   0.1000E-03   0.2869E-01
+    5  2.500000E-02  2.999282E-01  2.282370E-03  9.997608E-01 amp
+Step      6, t= 3.0000000E-02, DT= 5.0000000E-03, C=  0.003 9.0000E-02 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853060853700        6.2831853060853700     
+           6 Helmholtz3/fluid:      5   0.1000E-13   0.1000E-11   0.1604E-03
+         6 U-PRES gmres:     16  6.0011E-11  1.0000E-10  1.2983E-05  0.0000E+00  1.0000E-02
+          6   3.0000E-02  1.0000E-02 Fluid done
+           6 Helmholtz3/ Mesh:    103   0.8933E-04   0.1000E-03   0.2869E-01
+    6  3.000000E-02  2.998953E-01  2.738708E-03  9.996510E-01 amp
+Step      7, t= 3.5000000E-02, DT= 5.0000000E-03, C=  0.004 1.1000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853055483782        6.2831853055483782     
+           7 Helmholtz3/fluid:      5   0.1002E-13   0.1000E-11   0.1604E-03
+         7 U-PRES gmres:     15  6.4987E-11  1.0000E-10  3.0808E-06  0.0000E+00  0.0000E+00
+          7   3.5000E-02  0.0000E+00 Fluid done
+           7 Helmholtz3/ Mesh:     43   0.9687E-04   0.1000E-03   0.2869E-01
+    7  3.500000E-02  2.998563E-01  3.194972E-03  9.995211E-01 amp
+Step      8, t= 4.0000000E-02, DT= 5.0000000E-03, C=  0.004 1.2000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853054065654        6.2831853054065654     
+           8 Helmholtz3/fluid:      5   0.1001E-13   0.1000E-11   0.1603E-03
+         8 U-PRES gmres:     12  8.6465E-11  1.0000E-10  6.1824E-07  0.0000E+00  0.0000E+00
+          8   4.0000E-02  0.0000E+00 Fluid done
+           8 Helmholtz3/ Mesh:     64   0.9744E-04   0.1000E-03   0.2869E-01
+    8  4.000000E-02  2.998113E-01  3.651154E-03  9.993710E-01 amp
+Step      9, t= 4.5000000E-02, DT= 5.0000000E-03, C=  0.005 1.3000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853047669410        6.2831853047669410     
+           9 Helmholtz3/fluid:      5   0.1001E-13   0.1000E-11   0.1603E-03
+         9 U-PRES gmres:     15  8.1916E-11  1.0000E-10  5.6361E-07  0.0000E+00  1.0000E-02
+          9   4.5000E-02  1.0000E-02 Fluid done
+           9 Helmholtz3/ Mesh:    102   0.9883E-04   0.1000E-03   0.2868E-01
+    9  4.500000E-02  2.997602E-01  4.107236E-03  9.992008E-01 amp
+Step     10, t= 5.0000000E-02, DT= 5.0000000E-03, C=  0.005 1.5000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853040146708        6.2831853040146708     
+          10 Helmholtz3/fluid:      5   0.1000E-13   0.1000E-11   0.1603E-03
+        10 U-PRES gmres:     14  9.7114E-11  1.0000E-10  4.2321E-07  0.0000E+00  0.0000E+00
+         10   5.0000E-02  0.0000E+00 Fluid done
+          10 Helmholtz3/ Mesh:     43   0.9636E-04   0.1000E-03   0.2867E-01
+   10  5.000000E-02  2.997031E-01  4.563207E-03  9.990102E-01 amp
+Step     11, t= 5.5000000E-02, DT= 5.0000000E-03, C=  0.006 1.6000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853038480094        6.2831853038480094     
+          11 Helmholtz3/fluid:      5   0.1000E-13   0.1000E-11   0.1603E-03
+        11 U-PRES gmres:     14  5.6654E-11  1.0000E-10  4.4917E-07  0.0000E+00  0.0000E+00
+         11   5.5000E-02  0.0000E+00 Fluid done
+          11 Helmholtz3/ Mesh:     64   0.9843E-04   0.1000E-03   0.2868E-01
+   11  5.500000E-02  2.996398E-01  5.019060E-03  9.987994E-01 amp
+Step     12, t= 6.0000000E-02, DT= 5.0000000E-03, C=  0.007 1.7000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853029951592        6.2831853029951592     
+          12 Helmholtz3/fluid:      5   0.9994E-14   0.1000E-11   0.1602E-03
+        12 U-PRES gmres:     15  8.3262E-11  1.0000E-10  5.7525E-07  0.0000E+00  0.0000E+00
+         12   6.0000E-02  0.0000E+00 Fluid done
+          12 Helmholtz3/ Mesh:    103   0.8803E-04   0.1000E-03   0.2867E-01
+   12  6.000000E-02  2.995704E-01  5.474776E-03  9.985681E-01 amp
+Step     13, t= 6.5000000E-02, DT= 5.0000000E-03, C=  0.007 1.9000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853020271904        6.2831853020271904     
+          13 Helmholtz3/fluid:      5   0.9987E-14   0.1000E-11   0.1602E-03
+        13 U-PRES gmres:     15  5.4387E-11  1.0000E-10  4.4068E-07  0.0000E+00  0.0000E+00
+         13   6.5000E-02  0.0000E+00 Fluid done
+          13 Helmholtz3/ Mesh:     43   0.9505E-04   0.1000E-03   0.2867E-01
+   13  6.500000E-02  2.994949E-01  5.930346E-03  9.983164E-01 amp
+Step     14, t= 7.0000000E-02, DT= 5.0000000E-03, C=  0.008 2.0000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853018561512        6.2831853018561512     
+          14 Helmholtz3/fluid:      5   0.9978E-14   0.1000E-11   0.1602E-03
+        14 U-PRES gmres:     14  7.4476E-11  1.0000E-10  4.5719E-07  0.0000E+00  0.0000E+00
+         14   7.0000E-02  0.0000E+00 Fluid done
+          14 Helmholtz3/ Mesh:     64   0.9766E-04   0.1000E-03   0.2866E-01
+   14  7.000000E-02  2.994132E-01  6.385761E-03  9.980442E-01 amp
+Step     15, t= 7.5000000E-02, DT= 5.0000000E-03, C=  0.008 2.2000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831853007955898        6.2831853007955898     
+          15 Helmholtz3/fluid:      5   0.9969E-14   0.1000E-11   0.1601E-03
+        15 U-PRES gmres:     15  9.1608E-11  1.0000E-10  6.0296E-07  0.0000E+00  0.0000E+00
+         15   7.5000E-02  0.0000E+00 Fluid done
+          15 Helmholtz3/ Mesh:    102   0.9896E-04   0.1000E-03   0.2866E-01
+   15  7.500000E-02  2.993254E-01  6.841003E-03  9.977514E-01 amp
+Step     16, t= 8.0000000E-02, DT= 5.0000000E-03, C=  0.009 2.3000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852996323967        6.2831852996323967     
+          16 Helmholtz3/fluid:      5   0.9958E-14   0.1000E-11   0.1601E-03
+        16 U-PRES gmres:     14  9.2416E-11  1.0000E-10  4.4495E-07  0.0000E+00  0.0000E+00
+         16   8.0000E-02  0.0000E+00 Fluid done
+          16 Helmholtz3/ Mesh:     43   0.9561E-04   0.1000E-03   0.2865E-01
+   16  8.000000E-02  2.992314E-01  7.296063E-03  9.974380E-01 amp
+Step     17, t= 8.5000000E-02, DT= 5.0000000E-03, C=  0.010 2.5000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852994421569        6.2831852994421569     
+          17 Helmholtz3/fluid:      5   0.9945E-14   0.1000E-11   0.1600E-03
+        17 U-PRES gmres:     14  8.1293E-11  1.0000E-10  4.8728E-07  0.0000E+00  0.0000E+00
+         17   8.5000E-02  0.0000E+00 Fluid done
+          17 Helmholtz3/ Mesh:     64   0.9874E-04   0.1000E-03   0.2865E-01
+   17  8.500000E-02  2.991312E-01  7.750932E-03  9.971041E-01 amp
+Step     18, t= 9.0000000E-02, DT= 5.0000000E-03, C=  0.010 2.6000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852981839464        6.2831852981839464     
+          18 Helmholtz3/fluid:      5   0.9931E-14   0.1000E-11   0.1600E-03
+        18 U-PRES gmres:     15  9.3933E-11  1.0000E-10  5.8559E-07  0.0000E+00  0.0000E+00
+         18   9.0000E-02  0.0000E+00 Fluid done
+          18 Helmholtz3/ Mesh:    102   0.9943E-04   0.1000E-03   0.2864E-01
+   18  9.000000E-02  2.990248E-01  8.205592E-03  9.967495E-01 amp
+Step     19, t= 9.5000000E-02, DT= 5.0000000E-03, C=  0.011 2.8000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852968219088        6.2831852968219088     
+          19 Helmholtz3/fluid:      5   0.9916E-14   0.1000E-11   0.1599E-03
+        19 U-PRES gmres:     14  9.7575E-11  1.0000E-10  4.4605E-07  0.0000E+00  0.0000E+00
+         19   9.5000E-02  0.0000E+00 Fluid done
+          19 Helmholtz3/ Mesh:     43   0.9538E-04   0.1000E-03   0.2863E-01
+   19  9.500000E-02  2.989123E-01  8.660033E-03  9.963743E-01 amp
+Step     20, t= 1.0000000E-01, DT= 5.0000000E-03, C=  0.011 2.9000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852966285169        6.2831852966285169     
+          20 Helmholtz3/fluid:      5   0.9900E-14   0.1000E-11   0.1599E-03
+        20 U-PRES gmres:     14  9.0412E-11  1.0000E-10  4.6682E-07  0.0000E+00  0.0000E+00
+         20   1.0000E-01  0.0000E+00 Fluid done
+          20 Helmholtz3/ Mesh:     64   0.9833E-04   0.1000E-03   0.2863E-01
+   20  1.000000E-01  2.987935E-01  9.114247E-03  9.959784E-01 amp
+Step     21, t= 1.0500000E-01, DT= 5.0000000E-03, C=  0.012 3.0000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852951742091        6.2831852951742091     
+          21 Helmholtz3/fluid:      5   0.9883E-14   0.1000E-11   0.1598E-03
+        21 U-PRES gmres:     16  5.4755E-11  1.0000E-10  5.7871E-07  0.0000E+00  0.0000E+00
+         21   1.0500E-01  0.0000E+00 Fluid done
+          21 Helmholtz3/ Mesh:    102   0.9949E-04   0.1000E-03   0.2862E-01
+   21  1.050000E-01  2.986686E-01  9.568217E-03  9.955618E-01 amp
+Step     22, t= 1.1000000E-01, DT= 5.0000000E-03, C=  0.013 3.2000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852936225392        6.2831852936225392     
+          22 Helmholtz3/fluid:      5   0.9866E-14   0.1000E-11   0.1598E-03
+        22 U-PRES gmres:     15  6.3395E-11  1.0000E-10  4.3370E-07  0.0000E+00  0.0000E+00
+         22   1.1000E-01  0.0000E+00 Fluid done
+          22 Helmholtz3/ Mesh:     43   0.9556E-04   0.1000E-03   0.2861E-01
+   22  1.100000E-01  2.985374E-01  1.002193E-02  9.951247E-01 amp
+Step     23, t= 1.1500000E-01, DT= 5.0000000E-03, C=  0.013 3.3000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852934213366        6.2831852934213366     
+          23 Helmholtz3/fluid:      5   0.9848E-14   0.1000E-11   0.1597E-03
+        23 U-PRES gmres:     14  9.5719E-11  1.0000E-10  4.6494E-07  0.0000E+00  0.0000E+00
+         23   1.1500E-01  0.0000E+00 Fluid done
+          23 Helmholtz3/ Mesh:     64   0.9745E-04   0.1000E-03   0.2860E-01
+   23  1.150000E-01  2.984001E-01  1.047538E-02  9.946670E-01 amp
+Step     24, t= 1.2000000E-01, DT= 5.0000000E-03, C=  0.014 3.4000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852917780884        6.2831852917780884     
+          24 Helmholtz3/fluid:      5   0.9829E-14   0.1000E-11   0.1596E-03
+        24 U-PRES gmres:     16  6.0592E-11  1.0000E-10  5.7946E-07  0.0000E+00  0.0000E+00
+         24   1.2000E-01  0.0000E+00 Fluid done
+          24 Helmholtz3/ Mesh:    103   0.8969E-04   0.1000E-03   0.2860E-01
+   24  1.200000E-01  2.982566E-01  1.092856E-02  9.941887E-01 amp
+Step     25, t= 1.2500000E-01, DT= 5.0000000E-03, C=  0.014 3.6000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852900338525        6.2831852900338525     
+          25 Helmholtz3/fluid:      5   0.9810E-14   0.1000E-11   0.1596E-03
+        25 U-PRES gmres:     15  6.8320E-11  1.0000E-10  4.4787E-07  0.0000E+00  0.0000E+00
+         25   1.2500E-01  0.0000E+00 Fluid done
+          25 Helmholtz3/ Mesh:     43   0.9426E-04   0.1000E-03   0.2859E-01
+   25  1.250000E-01  2.981070E-01  1.138144E-02  9.936899E-01 amp
+Step     26, t= 1.3000000E-01, DT= 5.0000000E-03, C=  0.015 3.7000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852898383938        6.2831852898383938     
+          26 Helmholtz3/fluid:      5   0.9791E-14   0.1000E-11   0.1595E-03
+        26 U-PRES gmres:     14  9.6362E-11  1.0000E-10  4.7715E-07  0.0000E+00  0.0000E+00
+         26   1.3000E-01  0.0000E+00 Fluid done
+          26 Helmholtz3/ Mesh:     64   0.9777E-04   0.1000E-03   0.2858E-01
+   26  1.300000E-01  2.979512E-01  1.183402E-02  9.931706E-01 amp
+Step     27, t= 1.3500000E-01, DT= 5.0000000E-03, C=  0.016 3.9000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852880119365        6.2831852880119365     
+          27 Helmholtz3/fluid:      5   0.9771E-14   0.1000E-11   0.1594E-03
+        27 U-PRES gmres:     16  6.6381E-11  1.0000E-10  6.2882E-07  0.0000E+00  0.0000E+00
+         27   1.3500E-01  0.0000E+00 Fluid done
+          27 Helmholtz3/ Mesh:    103   0.9048E-04   0.1000E-03   0.2857E-01
+   27  1.350000E-01  2.977893E-01  1.228629E-02  9.926310E-01 amp
+Step     28, t= 1.4000000E-01, DT= 5.0000000E-03, C=  0.016 4.0000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852860955442        6.2831852860955442     
+          28 Helmholtz3/fluid:      5   0.9752E-14   0.1000E-11   0.1594E-03
+        28 U-PRES gmres:     15  7.2768E-11  1.0000E-10  4.7332E-07  0.0000E+00  0.0000E+00
+         28   1.4000E-01  0.0000E+00 Fluid done
+          28 Helmholtz3/ Mesh:     43   0.9460E-04   0.1000E-03   0.2856E-01
+   28  1.400000E-01  2.976213E-01  1.273823E-02  9.920711E-01 amp
+Step     29, t= 1.4500000E-01, DT= 5.0000000E-03, C=  0.017 4.1000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852858913289        6.2831852858913289     
+          29 Helmholtz3/fluid:      5   0.9731E-14   0.1000E-11   0.1593E-03
+        29 U-PRES gmres:     14  9.7576E-11  1.0000E-10  4.9161E-07  0.0000E+00  0.0000E+00
+         29   1.4500E-01  0.0000E+00 Fluid done
+          29 Helmholtz3/ Mesh:     64   0.9615E-04   0.1000E-03   0.2855E-01
+   29  1.450000E-01  2.974473E-01  1.318984E-02  9.914909E-01 amp
+Step     30, t= 1.5000000E-01, DT= 5.0000000E-03, C=  0.017 4.3000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852838963194        6.2831852838963194     
+          30 Helmholtz3/fluid:      5   0.9710E-14   0.1000E-11   0.1592E-03
+        30 U-PRES gmres:     16  7.0198E-11  1.0000E-10  6.4460E-07  0.0000E+00  0.0000E+00
+         30   1.5000E-01  0.0000E+00 Fluid done
+          30 Helmholtz3/ Mesh:    103   0.9062E-04   0.1000E-03   0.2854E-01
+   30  1.500000E-01  2.972672E-01  1.364110E-02  9.908905E-01 amp
+Step     31, t= 1.5500000E-01, DT= 5.0000000E-03, C=  0.018 4.5000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852818150757        6.2831852818150757     
+          31 Helmholtz3/fluid:      5   0.9688E-14   0.1000E-11   0.1591E-03
+        31 U-PRES gmres:     15  7.7558E-11  1.0000E-10  4.9334E-07  0.0000E+00  0.0000E+00
+         31   1.5500E-01  0.0000E+00 Fluid done
+          31 Helmholtz3/ Mesh:     43   0.9586E-04   0.1000E-03   0.2853E-01
+   31  1.550000E-01  2.970810E-01  1.409199E-02  9.902701E-01 amp
+Step     32, t= 1.6000000E-01, DT= 5.0000000E-03, C=  0.018 4.6000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852816156015        6.2831852816156015     
+          32 Helmholtz3/fluid:      5   0.9666E-14   0.1000E-11   0.1590E-03
+        32 U-PRES gmres:     14  9.9157E-11  1.0000E-10  4.9517E-07  0.0000E+00  0.0000E+00
+         32   1.6000E-01  0.0000E+00 Fluid done
+          32 Helmholtz3/ Mesh:     64   0.9450E-04   0.1000E-03   0.2852E-01
+   32  1.600000E-01  2.968889E-01  1.454252E-02  9.896297E-01 amp
+Step     33, t= 1.6500000E-01, DT= 5.0000000E-03, C=  0.019 4.7000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852794638063        6.2831852794638063     
+          33 Helmholtz3/fluid:      5   0.9643E-14   0.1000E-11   0.1589E-03
+        33 U-PRES gmres:     16  7.3368E-11  1.0000E-10  6.4328E-07  0.0000E+00  0.0000E+00
+         33   1.6500E-01  0.0000E+00 Fluid done
+          33 Helmholtz3/ Mesh:     90   0.9845E-04   0.1000E-03   0.2851E-01
+   33  1.650000E-01  2.966908E-01  1.499266E-02  9.889693E-01 amp
+Step     34, t= 1.7000000E-01, DT= 5.0000000E-03, C=  0.020 4.9000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852775368393        6.2831852775368393     
+          34 Helmholtz3/fluid:      5   0.9620E-14   0.1000E-11   0.1588E-03
+        34 U-PRES gmres:     15  7.9168E-11  1.0000E-10  4.9822E-07  0.0000E+00  0.0000E+00
+         34   1.7000E-01  0.0000E+00 Fluid done
+          34 Helmholtz3/ Mesh:     43   0.9147E-04   0.1000E-03   0.2849E-01
+   34  1.700000E-01  2.964867E-01  1.544241E-02  9.882891E-01 amp
+Step     35, t= 1.7500000E-01, DT= 5.0000000E-03, C=  0.020 5.0000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852769444190        6.2831852769444190     
+          35 Helmholtz3/fluid:      5   0.9596E-14   0.1000E-11   0.1587E-03
+        35 U-PRES gmres:     13  6.5375E-11  1.0000E-10  5.4968E-07  0.0000E+00  0.0000E+00
+         35   1.7500E-01  0.0000E+00 Fluid done
+          35 Helmholtz3/ Mesh:     72   0.9883E-04   0.1000E-03   0.2849E-01
+   35  1.750000E-01  2.962767E-01  1.589175E-02  9.875891E-01 amp
+Step     36, t= 1.8000000E-01, DT= 5.0000000E-03, C=  0.021 5.1000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852745732961        6.2831852745732961     
+          36 Helmholtz3/fluid:      5   0.9572E-14   0.1000E-11   0.1586E-03
+        36 U-PRES gmres:     16  5.4357E-11  1.0000E-10  6.6986E-07  0.0000E+00  0.0000E+00
+         36   1.8000E-01  0.0000E+00 Fluid done
+          36 Helmholtz3/ Mesh:     93   0.9916E-04   0.1000E-03   0.2847E-01
+   36  1.800000E-01  2.960608E-01  1.634067E-02  9.868693E-01 amp
+Step     37, t= 1.8500000E-01, DT= 5.0000000E-03, C=  0.021 5.3000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852725783515        6.2831852725783515     
+          37 Helmholtz3/fluid:      5   0.9548E-14   0.1000E-11   0.1586E-03
+        37 U-PRES gmres:     16  8.7143E-11  1.0000E-10  6.9811E-07  0.0000E+00  0.0000E+00
+         37   1.8500E-01  0.0000E+00 Fluid done
+          37 Helmholtz3/ Mesh:     43   0.8995E-04   0.1000E-03   0.2846E-01
+   37  1.850000E-01  2.958390E-01  1.678916E-02  9.861300E-01 amp
+Step     38, t= 1.9000000E-01, DT= 5.0000000E-03, C=  0.022 5.4000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852721698862        6.2831852721698862     
+          38 Helmholtz3/fluid:      5   0.9522E-14   0.1000E-11   0.1584E-03
+        38 U-PRES gmres:     15  8.2660E-11  1.0000E-10  5.3096E-07  0.0000E+00  0.0000E+00
+         38   1.9000E-01  0.0000E+00 Fluid done
+          38 Helmholtz3/ Mesh:     65   0.9875E-04   0.1000E-03   0.2845E-01
+   38  1.900000E-01  2.956113E-01  1.723722E-02  9.853711E-01 amp
+Step     39, t= 1.9500000E-01, DT= 5.0000000E-03, C=  0.022 5.5000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852697323143        6.2831852697323143     
+          39 Helmholtz3/fluid:      5   0.9497E-14   0.1000E-11   0.1583E-03
+        39 U-PRES gmres:     16  5.6034E-11  1.0000E-10  7.3346E-07  0.0000E+00  1.0000E-02
+         39   1.9500E-01  1.0000E-02 Fluid done
+          39 Helmholtz3/ Mesh:     91   0.9709E-04   0.1000E-03   0.2843E-01
+   39  1.950000E-01  2.953778E-01  1.768482E-02  9.845926E-01 amp
+Step     40, t= 2.0000000E-01, DT= 5.0000000E-03, C=  0.023 5.7000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852675143933        6.2831852675143933     
+          40 Helmholtz3/fluid:      5   0.9471E-14   0.1000E-11   0.1582E-03
+        40 U-PRES gmres:     16  7.0372E-11  1.0000E-10  5.3813E-07  0.0000E+00  0.0000E+00
+         40   2.0000E-01  0.0000E+00 Fluid done
+          40 Helmholtz3/ Mesh:     43   0.8908E-04   0.1000E-03   0.2842E-01
+   40  2.000000E-01  2.951384E-01  1.813195E-02  9.837946E-01 amp
+Step     41, t= 2.0500000E-01, DT= 5.0000000E-03, C=  0.024 5.8000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852671237307        6.2831852671237307     
+          41 Helmholtz3/fluid:      5   0.9444E-14   0.1000E-11   0.1581E-03
+        41 U-PRES gmres:     15  5.6919E-11  1.0000E-10  5.6578E-07  1.0000E-02  1.0000E-02
+         41   2.0500E-01  1.0000E-02 Fluid done
+          41 Helmholtz3/ Mesh:     72   0.8964E-04   0.1000E-03   0.2840E-01
+   41  2.050000E-01  2.948932E-01  1.857862E-02  9.829772E-01 amp
+Step     42, t= 2.1000000E-01, DT= 5.0000000E-03, C=  0.024 6.0000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852644575648        6.2831852644575648     
+          42 Helmholtz3/fluid:      5   0.9417E-14   0.1000E-11   0.1580E-03
+        42 U-PRES gmres:     15  9.1050E-11  1.0000E-10  6.6783E-07  0.0000E+00  0.0000E+00
+         42   2.1000E-01  0.0000E+00 Fluid done
+          42 Helmholtz3/ Mesh:     45   0.9920E-04   0.1000E-03   0.2838E-01
+   42  2.100000E-01  2.946421E-01  1.902479E-02  9.821404E-01 amp
+Step     43, t= 2.1500000E-01, DT= 5.0000000E-03, C=  0.025 6.1000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852634373719        6.2831852634373719     
+          43 Helmholtz3/fluid:      5   0.9389E-14   0.1000E-11   0.1579E-03
+        43 U-PRES gmres:     16  8.7812E-11  1.0000E-10  6.3803E-07  0.0000E+00  0.0000E+00
+         43   2.1500E-01  0.0000E+00 Fluid done
+          43 Helmholtz3/ Mesh:    105   0.8452E-04   0.1000E-03   0.2837E-01
+   43  2.150000E-01  2.943852E-01  1.947047E-02  9.812841E-01 amp
+Step     44, t= 2.2000000E-01, DT= 5.0000000E-03, C=  0.025 6.3000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852595323419        6.2831852595323419     
+          44 Helmholtz3/fluid:      5   0.9359E-14   0.1000E-11   0.1578E-03
+        44 U-PRES gmres:     16  8.0834E-11  1.0000E-10  5.6923E-07  0.0000E+00  0.0000E+00
+         44   2.2000E-01  0.0000E+00 Fluid done
+          44 Helmholtz3/ Mesh:     43   0.9324E-04   0.1000E-03   0.2836E-01
+   44  2.200000E-01  2.941226E-01  1.991563E-02  9.804085E-01 amp
+Step     45, t= 2.2500000E-01, DT= 5.0000000E-03, C=  0.026 6.4000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852603998835        6.2831852603998835     
+          45 Helmholtz3/fluid:      5   0.9330E-14   0.1000E-11   0.1576E-03
+        45 U-PRES gmres:     16  6.1529E-11  1.0000E-10  7.3158E-07  0.0000E+00  0.0000E+00
+         45   2.2500E-01  0.0000E+00 Fluid done
+          45 Helmholtz3/ Mesh:     63   0.9619E-04   0.1000E-03   0.2834E-01
+   45  2.250000E-01  2.938541E-01  2.036029E-02  9.795135E-01 amp
+Step     46, t= 2.3000000E-01, DT= 5.0000000E-03, C=  0.027 6.5000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852574832663        6.2831852574832663     
+          46 Helmholtz3/fluid:      5   0.9299E-14   0.1000E-11   0.1575E-03
+        46 U-PRES gmres:     17  7.2265E-11  1.0000E-10  6.5238E-07  0.0000E+00  1.0000E-02
+         46   2.3000E-01  1.0000E-02 Fluid done
+          46 Helmholtz3/ Mesh:     65   0.9875E-04   0.1000E-03   0.2833E-01
+   46  2.300000E-01  2.935798E-01  2.080440E-02  9.785992E-01 amp
+Step     47, t= 2.3500000E-01, DT= 5.0000000E-03, C=  0.027 6.7000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852558547014        6.2831852558547014     
+          47 Helmholtz3/fluid:      5   0.9267E-14   0.1000E-11   0.1574E-03
+        47 U-PRES gmres:     16  5.6485E-11  1.0000E-10  6.3005E-07  0.0000E+00  0.0000E+00
+         47   2.3500E-01  0.0000E+00 Fluid done
+          47 Helmholtz3/ Mesh:     90   0.9914E-04   0.1000E-03   0.2831E-01
+   47  2.350000E-01  2.932996E-01  2.124798E-02  9.776655E-01 amp
+Step     48, t= 2.4000000E-01, DT= 5.0000000E-03, C=  0.028 6.8000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852531424213        6.2831852531424213     
+          48 Helmholtz3/fluid:      5   0.9234E-14   0.1000E-11   0.1573E-03
+        48 U-PRES gmres:     15  8.3353E-11  1.0000E-10  4.9742E-07  1.0000E-02  1.0000E-02
+         48   2.4000E-01  1.0000E-02 Fluid done
+          48 Helmholtz3/ Mesh:     43   0.8792E-04   0.1000E-03   0.2829E-01
+   48  2.400000E-01  2.930137E-01  2.169100E-02  9.767124E-01 amp
+Step     49, t= 2.4500000E-01, DT= 5.0000000E-03, C=  0.028 6.9000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852528170788        6.2831852528170788     
+          49 Helmholtz3/fluid:      5   0.9201E-14   0.1000E-11   0.1571E-03
+        49 U-PRES gmres:     15  9.2377E-11  1.0000E-10  7.5963E-07  0.0000E+00  1.0000E-02
+         49   2.4500E-01  1.0000E-02 Fluid done
+          49 Helmholtz3/ Mesh:     65   0.9697E-04   0.1000E-03   0.2828E-01
+   49  2.450000E-01  2.927220E-01  2.213346E-02  9.757399E-01 amp
+Step     50, t= 2.5000000E-01, DT= 5.0000000E-03, C=  0.029 7.1000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852499921004        6.2831852499921004     
+          50 Helmholtz3/fluid:      5   0.9165E-14   0.1000E-11   0.1570E-03
+        50 U-PRES gmres:     16  7.0819E-11  1.0000E-10  6.7626E-07  0.0000E+00  0.0000E+00
+         50   2.5000E-01  0.0000E+00 Fluid done
+          50 Helmholtz3/ Mesh:     90   0.9994E-04   0.1000E-03   0.2826E-01
+   50  2.500000E-01  2.924244E-01  2.257535E-02  9.747480E-01 amp
+Step     51, t= 2.5500000E-01, DT= 5.0000000E-03, C=  0.030 7.3000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852474834866        6.2831852474834866     
+          51 Helmholtz3/fluid:      5   0.9131E-14   0.1000E-11   0.1569E-03
+        51 U-PRES gmres:     16  8.9183E-11  1.0000E-10  6.7829E-07  0.0000E+00  0.0000E+00
+         51   2.5500E-01  0.0000E+00 Fluid done
+          51 Helmholtz3/ Mesh:     43   0.8662E-04   0.1000E-03   0.2824E-01
+   51  2.550000E-01  2.921210E-01  2.301664E-02  9.737368E-01 amp
+Step     52, t= 2.6000000E-01, DT= 5.0000000E-03, C=  0.030 7.4000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852471740390        6.2831852471740390     
+          52 Helmholtz3/fluid:      5   0.9094E-14   0.1000E-11   0.1567E-03
+        52 U-PRES gmres:     15  7.7252E-11  1.0000E-10  5.5751E-07  0.0000E+00  0.0000E+00
+         52   2.6000E-01  0.0000E+00 Fluid done
+          52 Helmholtz3/ Mesh:     65   0.9529E-04   0.1000E-03   0.2822E-01
+   52  2.600000E-01  2.918118E-01  2.345735E-02  9.727061E-01 amp
+Step     53, t= 2.6500000E-01, DT= 5.0000000E-03, C=  0.031 7.5000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852442528060        6.2831852442528060     
+          53 Helmholtz3/fluid:      5   0.9057E-14   0.1000E-11   0.1566E-03
+        53 U-PRES gmres:     15  7.8498E-11  1.0000E-10  6.4023E-07  0.0000E+00  0.0000E+00
+         53   2.6500E-01  0.0000E+00 Fluid done
+          53 Helmholtz3/ Mesh:     91   0.9446E-04   0.1000E-03   0.2820E-01
+   53  2.650000E-01  2.914968E-01  2.389744E-02  9.716560E-01 amp
+Step     54, t= 2.7000000E-01, DT= 5.0000000E-03, C=  0.031 7.7000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852416753859        6.2831852416753859     
+          54 Helmholtz3/fluid:      5   0.9021E-14   0.1000E-11   0.1564E-03
+        54 U-PRES gmres:     16  9.4471E-11  1.0000E-10  6.7693E-07  0.0000E+00  0.0000E+00
+         54   2.7000E-01  0.0000E+00 Fluid done
+          54 Helmholtz3/ Mesh:     43   0.8777E-04   0.1000E-03   0.2818E-01
+   54  2.700000E-01  2.911759E-01  2.433692E-02  9.705865E-01 amp
+Step     55, t= 2.7500000E-01, DT= 5.0000000E-03, C=  0.032 7.8000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852413735199        6.2831852413735199     
+          55 Helmholtz3/fluid:      5   0.8983E-14   0.1000E-11   0.1563E-03
+        55 U-PRES gmres:     15  8.3164E-11  1.0000E-10  5.8883E-07  0.0000E+00  0.0000E+00
+         55   2.7500E-01  0.0000E+00 Fluid done
+          55 Helmholtz3/ Mesh:     65   0.9386E-04   0.1000E-03   0.2817E-01
+   55  2.750000E-01  2.908493E-01  2.477577E-02  9.694975E-01 amp
+Step     56, t= 2.8000000E-01, DT= 5.0000000E-03, C=  0.033 7.9000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852383767739        6.2831852383767739     
+          56 Helmholtz3/fluid:      5   0.8945E-14   0.1000E-11   0.1561E-03
+        56 U-PRES gmres:     15  7.9042E-11  1.0000E-10  7.1199E-07  1.0000E-02  1.0000E-02
+         56   2.8000E-01  1.0000E-02 Fluid done
+          56 Helmholtz3/ Mesh:     91   0.9238E-04   0.1000E-03   0.2814E-01
+   56  2.800000E-01  2.905167E-01  2.521398E-02  9.683891E-01 amp
+Step     57, t= 2.8500000E-01, DT= 5.0000000E-03, C=  0.033 8.1000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852357471476        6.2831852357471476     
+          57 Helmholtz3/fluid:      5   0.8908E-14   0.1000E-11   0.1560E-03
+        57 U-PRES gmres:     16  9.3971E-11  1.0000E-10  5.5770E-07  0.0000E+00  0.0000E+00
+         57   2.8500E-01  0.0000E+00 Fluid done
+          57 Helmholtz3/ Mesh:     43   0.8698E-04   0.1000E-03   0.2813E-01
+   57  2.850000E-01  2.901784E-01  2.565155E-02  9.672613E-01 amp
+Step     58, t= 2.9000000E-01, DT= 5.0000000E-03, C=  0.034 8.2000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852354234083        6.2831852354234083     
+          58 Helmholtz3/fluid:      5   0.8869E-14   0.1000E-11   0.1558E-03
+        58 U-PRES gmres:     15  8.5940E-11  1.0000E-10  5.7933E-07  1.0000E-02  1.0000E-02
+         58   2.9000E-01  1.0000E-02 Fluid done
+          58 Helmholtz3/ Mesh:     65   0.9334E-04   0.1000E-03   0.2811E-01
+   58  2.900000E-01  2.898342E-01  2.608845E-02  9.661141E-01 amp
+Step     59, t= 2.9500000E-01, DT= 5.0000000E-03, C=  0.034 8.3000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852323609958        6.2831852323609958     
+          59 Helmholtz3/fluid:      5   0.8830E-14   0.1000E-11   0.1556E-03
+        59 U-PRES gmres:     15  7.7119E-11  1.0000E-10  6.9224E-07  0.0000E+00  0.0000E+00
+         59   2.9500E-01  1.0000E-02 Fluid done
+          59 Helmholtz3/ Mesh:     45   0.9870E-04   0.1000E-03   0.2808E-01
+   59  2.950000E-01  2.894842E-01  2.652468E-02  9.649474E-01 amp
+Step     60, t= 3.0000000E-01, DT= 5.0000000E-03, C=  0.035 8.5000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852310508305        6.2831852310508305     
+          60 Helmholtz3/fluid:      5   0.8792E-14   0.1000E-11   0.1555E-03
+        60 U-PRES gmres:     16  9.5658E-11  1.0000E-10  6.0198E-07  0.0000E+00  0.0000E+00
+         60   3.0000E-01  0.0000E+00 Fluid done
+          60 Helmholtz3/ Mesh:    104   0.9505E-04   0.1000E-03   0.2806E-01
+   60  3.000000E-01  2.891284E-01  2.696023E-02  9.637614E-01 amp
+Step     61, t= 3.0500000E-01, DT= 5.0000000E-03, C=  0.035 8.6000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852264150712        6.2831852264150712     
+          61 Helmholtz3/fluid:      5   0.8752E-14   0.1000E-11   0.1553E-03
+        61 U-PRES gmres:     16  7.6518E-11  1.0000E-10  6.9596E-07  0.0000E+00  0.0000E+00
+         61   3.0500E-01  1.0000E-02 Fluid done
+          61 Helmholtz3/ Mesh:     43   0.9094E-04   0.1000E-03   0.2805E-01
+   61  3.050000E-01  2.887668E-01  2.739509E-02  9.625560E-01 amp
+Step     62, t= 3.1000000E-01, DT= 5.0000000E-03, C=  0.036 8.8000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852276675111        6.2831852276675111     
+          62 Helmholtz3/fluid:      5   0.8713E-14   0.1000E-11   0.1551E-03
+        62 U-PRES gmres:     16  5.6472E-11  1.0000E-10  5.8498E-07  0.0000E+00  0.0000E+00
+         62   3.1000E-01  0.0000E+00 Fluid done
+          62 Helmholtz3/ Mesh:     60   0.9369E-04   0.1000E-03   0.2803E-01
+   62  3.100000E-01  2.883994E-01  2.782926E-02  9.613314E-01 amp
+Step     63, t= 3.1500000E-01, DT= 5.0000000E-03, C=  0.037 8.9000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852242617074        6.2831852242617074     
+          63 Helmholtz3/fluid:      5   0.8672E-14   0.1000E-11   0.1550E-03
+        63 U-PRES gmres:     17  7.9276E-11  1.0000E-10  7.6945E-07  0.0000E+00  0.0000E+00
+         63   3.1500E-01  0.0000E+00 Fluid done
+          63 Helmholtz3/ Mesh:     44   0.9985E-04   0.1000E-03   0.2800E-01
+   63  3.150000E-01  2.880262E-01  2.826271E-02  9.600874E-01 amp
+Step     64, t= 3.2000000E-01, DT= 5.0000000E-03, C=  0.037 9.0000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852227707667        6.2831852227707667     
+          64 Helmholtz3/fluid:      5   0.8632E-14   0.1000E-11   0.1548E-03
+        64 U-PRES gmres:     16  6.4622E-11  1.0000E-10  8.1973E-07  0.0000E+00  0.0000E+00
+         64   3.2000E-01  0.0000E+00 Fluid done
+          64 Helmholtz3/ Mesh:     72   0.9558E-04   0.1000E-03   0.2798E-01
+   64  3.200000E-01  2.876473E-01  2.869543E-02  9.588243E-01 amp
+Step     65, t= 3.2500000E-01, DT= 5.0000000E-03, C=  0.038 9.2000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852197819353        6.2831852197819353     
+          65 Helmholtz3/fluid:      5   0.8591E-14   0.1000E-11   0.1546E-03
+        65 U-PRES gmres:     16  6.4431E-11  1.0000E-10  6.8753E-07  0.0000E+00  0.0000E+00
+         65   3.2500E-01  0.0000E+00 Fluid done
+          65 Helmholtz3/ Mesh:     43   0.9560E-04   0.1000E-03   0.2795E-01
+   65  3.250000E-01  2.872626E-01  2.912743E-02  9.575420E-01 amp
+Step     66, t= 3.3000000E-01, DT= 5.0000000E-03, C=  0.038 9.3000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852187571391        6.2831852187571391     
+          66 Helmholtz3/fluid:      5   0.8550E-14   0.1000E-11   0.1544E-03
+        66 U-PRES gmres:     16  8.2910E-11  1.0000E-10  9.7877E-07  0.0000E+00  0.0000E+00
+         66   3.3000E-01  0.0000E+00 Fluid done
+          66 Helmholtz3/ Mesh:    104   0.9265E-04   0.1000E-03   0.2793E-01
+   66  3.300000E-01  2.868722E-01  2.955869E-02  9.562406E-01 amp
+Step     67, t= 3.3500000E-01, DT= 5.0000000E-03, C=  0.039 9.4000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852136746642        6.2831852136746642     
+          67 Helmholtz3/fluid:      5   0.8508E-14   0.1000E-11   0.1542E-03
+        67 U-PRES gmres:     16  7.5775E-11  1.0000E-10  6.8693E-07  0.0000E+00  0.0000E+00
+         67   3.3500E-01  0.0000E+00 Fluid done
+          67 Helmholtz3/ Mesh:     43   0.8882E-04   0.1000E-03   0.2791E-01
+   67  3.350000E-01  2.864760E-01  2.998919E-02  9.549202E-01 amp
+Step     68, t= 3.4000000E-01, DT= 5.0000000E-03, C=  0.039 9.6000E-01 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852152411454        6.2831852152411454     
+          68 Helmholtz3/fluid:      5   0.8467E-14   0.1000E-11   0.1540E-03
+        68 U-PRES gmres:     16  8.1410E-11  1.0000E-10  1.0712E-06  0.0000E+00  0.0000E+00
+         68   3.4000E-01  0.0000E+00 Fluid done
+          68 Helmholtz3/ Mesh:     60   0.8860E-04   0.1000E-03   0.2788E-01
+   68  3.400000E-01  2.860742E-01  3.041894E-02  9.535808E-01 amp
+Step     69, t= 3.4500000E-01, DT= 5.0000000E-03, C=  0.040 9.7000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852116859066        6.2831852116859066     
+          69 Helmholtz3/fluid:      5   0.8424E-14   0.1000E-11   0.1539E-03
+        69 U-PRES gmres:     17  9.5262E-11  1.0000E-10  9.3628E-07  0.0000E+00  0.0000E+00
+         69   3.4500E-01  0.0000E+00 Fluid done
+          69 Helmholtz3/ Mesh:     43   0.9823E-04   0.1000E-03   0.2786E-01
+   69  3.450000E-01  2.856668E-01  3.084792E-02  9.522226E-01 amp
+Step     70, t= 3.5000000E-01, DT= 5.0000000E-03, C=  0.041 9.8000E-01 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852102015464        6.2831852102015464     
+          70 Helmholtz3/fluid:      5   0.8382E-14   0.1000E-11   0.1537E-03
+        70 U-PRES gmres:     15  9.2798E-11  1.0000E-10  1.1117E-06  0.0000E+00  0.0000E+00
+         70   3.5000E-01  0.0000E+00 Fluid done
+          70 Helmholtz3/ Mesh:     65   0.9972E-04   0.1000E-03   0.2784E-01
+   70  3.500000E-01  2.852537E-01  3.127611E-02  9.508456E-01 amp
+Step     71, t= 3.5500000E-01, DT= 5.0000000E-03, C=  0.041 1.0000E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852073306749        6.2831852073306749     
+          71 Helmholtz3/fluid:      5   0.8339E-14   0.1000E-11   0.1535E-03
+        71 U-PRES gmres:     16  6.9601E-11  1.0000E-10  1.0327E-06  0.0000E+00  0.0000E+00
+         71   3.5500E-01  0.0000E+00 Fluid done
+          71 Helmholtz3/ Mesh:     43   0.9701E-04   0.1000E-03   0.2781E-01
+   71  3.550000E-01  2.848350E-01  3.170352E-02  9.494499E-01 amp
+Step     72, t= 3.6000000E-01, DT= 5.0000000E-03, C=  0.042 1.0100E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852060760438        6.2831852060760438     
+          72 Helmholtz3/fluid:      5   0.8296E-14   0.1000E-11   0.1533E-03
+        72 U-PRES gmres:     16  9.2197E-11  1.0000E-10  1.1734E-06  0.0000E+00  0.0000E+00
+         72   3.6000E-01  0.0000E+00 Fluid done
+          72 Helmholtz3/ Mesh:    103   0.9492E-04   0.1000E-03   0.2778E-01
+   72  3.600000E-01  2.844107E-01  3.213012E-02  9.480356E-01 amp
+Step     73, t= 3.6500000E-01, DT= 5.0000000E-03, C=  0.042 1.0200E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852009776981        6.2831852009776981     
+          73 Helmholtz3/fluid:      5   0.8252E-14   0.1000E-11   0.1531E-03
+        73 U-PRES gmres:     16  5.1510E-11  1.0000E-10  1.1371E-06  0.0000E+00  0.0000E+00
+         73   3.6500E-01  0.0000E+00 Fluid done
+          73 Helmholtz3/ Mesh:     43   0.8695E-04   0.1000E-03   0.2776E-01
+   73  3.650000E-01  2.839808E-01  3.255592E-02  9.466027E-01 amp
+Step     74, t= 3.7000000E-01, DT= 5.0000000E-03, C=  0.043 1.0400E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831852026623469        6.2831852026623469     
+          74 Helmholtz3/fluid:      5   0.8207E-14   0.1000E-11   0.1529E-03
+        74 U-PRES gmres:     16  5.1633E-11  1.0000E-10  1.1049E-06  0.0000E+00  0.0000E+00
+         74   3.7000E-01  0.0000E+00 Fluid done
+          74 Helmholtz3/ Mesh:     43   0.9844E-04   0.1000E-03   0.2773E-01
+   74  3.700000E-01  2.835454E-01  3.298090E-02  9.451515E-01 amp
+Step     75, t= 3.7500000E-01, DT= 5.0000000E-03, C=  0.044 1.0500E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851993224168        6.2831851993224168     
+          75 Helmholtz3/fluid:      5   0.8162E-14   0.1000E-11   0.1527E-03
+        75 U-PRES gmres:     17  9.5656E-11  1.0000E-10  1.1087E-06  0.0000E+00  0.0000E+00
+         75   3.7500E-01  0.0000E+00 Fluid done
+          75 Helmholtz3/ Mesh:     61   0.9974E-04   0.1000E-03   0.2770E-01
+   75  3.750000E-01  2.831045E-01  3.340505E-02  9.436818E-01 amp
+Step     76, t= 3.8000000E-01, DT= 5.0000000E-03, C=  0.044 1.0600E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851970928465        6.2831851970928465     
+          76 Helmholtz3/fluid:      5   0.8117E-14   0.1000E-11   0.1525E-03
+        76 U-PRES gmres:     16  8.5001E-11  1.0000E-10  8.5953E-07  0.0000E+00  0.0000E+00
+         76   3.8000E-01  0.0000E+00 Fluid done
+          76 Helmholtz3/ Mesh:     43   0.9698E-04   0.1000E-03   0.2768E-01
+   76  3.800000E-01  2.826582E-01  3.382837E-02  9.421939E-01 amp
+Step     77, t= 3.8500000E-01, DT= 5.0000000E-03, C=  0.045 1.0700E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851955736147        6.2831851955736147     
+          77 Helmholtz3/fluid:      5   0.8070E-14   0.1000E-11   0.1522E-03
+        77 U-PRES gmres:     16  6.0938E-11  1.0000E-10  5.5818E-07  0.0000E+00  0.0000E+00
+         77   3.8500E-01  0.0000E+00 Fluid done
+          77 Helmholtz3/ Mesh:     65   0.9925E-04   0.1000E-03   0.2765E-01
+   77  3.850000E-01  2.822064E-01  3.425084E-02  9.406879E-01 amp
+Step     78, t= 3.9000000E-01, DT= 5.0000000E-03, C=  0.045 1.0900E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851925740603        6.2831851925740603     
+          78 Helmholtz3/fluid:      5   0.8024E-14   0.1000E-11   0.1520E-03
+        78 U-PRES gmres:     15  8.4599E-11  1.0000E-10  8.8724E-07  0.0000E+00  0.0000E+00
+         78   3.9000E-01  0.0000E+00 Fluid done
+          78 Helmholtz3/ Mesh:     43   0.9479E-04   0.1000E-03   0.2762E-01
+   78  3.900000E-01  2.817491E-01  3.467245E-02  9.391637E-01 amp
+Step     79, t= 3.9500000E-01, DT= 5.0000000E-03, C=  0.046 1.1000E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851915318992        6.2831851915318992     
+          79 Helmholtz3/fluid:      5   0.7975E-14   0.1000E-11   0.1518E-03
+        79 U-PRES gmres:     16  8.4246E-11  1.0000E-10  9.4674E-07  0.0000E+00  0.0000E+00
+         79   3.9500E-01  0.0000E+00 Fluid done
+          79 Helmholtz3/ Mesh:     72   0.9639E-04   0.1000E-03   0.2759E-01
+   79  3.950000E-01  2.812864E-01  3.509321E-02  9.376215E-01 amp
+Step     80, t= 4.0000000E-01, DT= 5.0000000E-03, C=  0.047 1.1100E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851880791705        6.2831851880791705     
+          80 Helmholtz3/fluid:      5   0.7928E-14   0.1000E-11   0.1516E-03
+        80 U-PRES gmres:     16  6.2771E-11  1.0000E-10  1.1694E-06  0.0000E+00  0.0000E+00
+         80   4.0000E-01  0.0000E+00 Fluid done
+          80 Helmholtz3/ Mesh:     43   0.8950E-04   0.1000E-03   0.2756E-01
+   80  4.000000E-01  2.808184E-01  3.551309E-02  9.360613E-01 amp
+Step     81, t= 4.0500000E-01, DT= 5.0000000E-03, C=  0.047 1.1200E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851875799707        6.2831851875799707     
+          81 Helmholtz3/fluid:      5   0.7879E-14   0.1000E-11   0.1514E-03
+        81 U-PRES gmres:     16  8.0733E-11  1.0000E-10  1.2237E-06  0.0000E+00  0.0000E+00
+         81   4.0500E-01  1.0000E-02 Fluid done
+          81 Helmholtz3/ Mesh:     72   0.9629E-04   0.1000E-03   0.2753E-01
+   81  4.050000E-01  2.803450E-01  3.593209E-02  9.344832E-01 amp
+Step     82, t= 4.1000000E-01, DT= 5.0000000E-03, C=  0.048 1.1400E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851839781496        6.2831851839781496     
+          82 Helmholtz3/fluid:      5   0.7829E-14   0.1000E-11   0.1511E-03
+        82 U-PRES gmres:     16  9.0055E-11  1.0000E-10  1.1458E-06  0.0000E+00  0.0000E+00
+         82   4.1000E-01  0.0000E+00 Fluid done
+          82 Helmholtz3/ Mesh:     43   0.8935E-04   0.1000E-03   0.2750E-01
+   82  4.100000E-01  2.798662E-01  3.635019E-02  9.328873E-01 amp
+Step     83, t= 4.1500000E-01, DT= 5.0000000E-03, C=  0.048 1.1500E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851835401649        6.2831851835401649     
+          83 Helmholtz3/fluid:      5   0.7781E-14   0.1000E-11   0.1509E-03
+        83 U-PRES gmres:     17  6.7931E-11  1.0000E-10  1.5659E-06  0.0000E+00  0.0000E+00
+         83   4.1500E-01  0.0000E+00 Fluid done
+          83 Helmholtz3/ Mesh:     72   0.9292E-04   0.1000E-03   0.2748E-01
+   83  4.150000E-01  2.793821E-01  3.676740E-02  9.312737E-01 amp
+Step     84, t= 4.2000000E-01, DT= 5.0000000E-03, C=  0.049 1.1700E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851799796103        6.2831851799796103     
+          84 Helmholtz3/fluid:      5   0.7730E-14   0.1000E-11   0.1507E-03
+        84 U-PRES gmres:     17  6.4855E-11  1.0000E-10  1.3075E-06  0.0000E+00  0.0000E+00
+         84   4.2000E-01  0.0000E+00 Fluid done
+          84 Helmholtz3/ Mesh:     43   0.8851E-04   0.1000E-03   0.2744E-01
+   84  4.200000E-01  2.788927E-01  3.718371E-02  9.296423E-01 amp
+Step     85, t= 4.2500000E-01, DT= 5.0000000E-03, C=  0.050 1.1800E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851795338451        6.2831851795338451     
+          85 Helmholtz3/fluid:      5   0.7681E-14   0.1000E-11   0.1504E-03
+        85 U-PRES gmres:     17  7.3000E-11  1.0000E-10  1.6574E-06  0.0000E+00  0.0000E+00
+         85   4.2500E-01  0.0000E+00 Fluid done
+          85 Helmholtz3/ Mesh:     72   0.8965E-04   0.1000E-03   0.2742E-01
+   85  4.250000E-01  2.783980E-01  3.759909E-02  9.279933E-01 amp
+Step     86, t= 4.3000000E-01, DT= 5.0000000E-03, C=  0.050 1.1900E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851760290913        6.2831851760290913     
+          86 Helmholtz3/fluid:      5   0.7630E-14   0.1000E-11   0.1502E-03
+        86 U-PRES gmres:     17  6.5237E-11  1.0000E-10  1.3061E-06  0.0000E+00  0.0000E+00
+         86   4.3000E-01  0.0000E+00 Fluid done
+          86 Helmholtz3/ Mesh:     43   0.8811E-04   0.1000E-03   0.2738E-01
+   86  4.300000E-01  2.778980E-01  3.801355E-02  9.263266E-01 amp
+Step     87, t= 4.3500000E-01, DT= 5.0000000E-03, C=  0.051 1.2000E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851755723829        6.2831851755723829     
+          87 Helmholtz3/fluid:      5   0.7580E-14   0.1000E-11   0.1500E-03
+        87 U-PRES gmres:     17  7.3061E-11  1.0000E-10  1.6597E-06  1.0000E-02  1.0000E-02
+         87   4.3500E-01  1.0000E-02 Fluid done
+          87 Helmholtz3/ Mesh:     65   0.9881E-04   0.1000E-03   0.2735E-01
+   87  4.350000E-01  2.773927E-01  3.842708E-02  9.246424E-01 amp
+Step     88, t= 4.4000000E-01, DT= 5.0000000E-03, C=  0.051 1.2200E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851723195653        6.2831851723195653     
+          88 Helmholtz3/fluid:      5   0.7529E-14   0.1000E-11   0.1497E-03
+        88 U-PRES gmres:     17  6.2119E-11  1.0000E-10  1.2564E-06  0.0000E+00  0.0000E+00
+         88   4.4000E-01  0.0000E+00 Fluid done
+          88 Helmholtz3/ Mesh:     43   0.9194E-04   0.1000E-03   0.2732E-01
+   88  4.400000E-01  2.768822E-01  3.883967E-02  9.229406E-01 amp
+Step     89, t= 4.4500000E-01, DT= 5.0000000E-03, C=  0.052 1.2300E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851715653446        6.2831851715653446     
+          89 Helmholtz3/fluid:      5   0.7479E-14   0.1000E-11   0.1495E-03
+        89 U-PRES gmres:     16  9.9889E-11  1.0000E-10  1.4626E-06  0.0000E+00  0.0000E+00
+         89   4.4500E-01  0.0000E+00 Fluid done
+          89 Helmholtz3/ Mesh:     65   0.9761E-04   0.1000E-03   0.2729E-01
+   89  4.450000E-01  2.763664E-01  3.925131E-02  9.212213E-01 amp
+Step     90, t= 4.5000000E-01, DT= 5.0000000E-03, C=  0.052 1.2400E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851684132651        6.2831851684132651     
+          90 Helmholtz3/fluid:      5   0.7428E-14   0.1000E-11   0.1492E-03
+        90 U-PRES gmres:     16  7.7150E-11  1.0000E-10  1.1459E-06  1.0000E-02  1.0000E-02
+         90   4.5000E-01  1.0000E-02 Fluid done
+          90 Helmholtz3/ Mesh:     43   0.9162E-04   0.1000E-03   0.2725E-01
+   90  4.500000E-01  2.758454E-01  3.966199E-02  9.194846E-01 amp
+Step     91, t= 4.5500000E-01, DT= 5.0000000E-03, C=  0.053 1.2600E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851677102923        6.2831851677102923     
+          91 Helmholtz3/fluid:      5   0.7377E-14   0.1000E-11   0.1490E-03
+        91 U-PRES gmres:     16  8.5897E-11  1.0000E-10  1.4194E-06  0.0000E+00  0.0000E+00
+         91   4.5500E-01  0.0000E+00 Fluid done
+          91 Helmholtz3/ Mesh:     65   0.9615E-04   0.1000E-03   0.2722E-01
+   91  4.550000E-01  2.753191E-01  4.007171E-02  9.177304E-01 amp
+Step     92, t= 4.6000000E-01, DT= 5.0000000E-03, C=  0.053 1.2700E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851645597609        6.2831851645597609     
+          92 Helmholtz3/fluid:      5   0.7326E-14   0.1000E-11   0.1487E-03
+        92 U-PRES gmres:     16  8.0133E-11  1.0000E-10  1.4018E-06  0.0000E+00  0.0000E+00
+         92   4.6000E-01  0.0000E+00 Fluid done
+          92 Helmholtz3/ Mesh:     43   0.9072E-04   0.1000E-03   0.2719E-01
+   92  4.600000E-01  2.747876E-01  4.048045E-02  9.159588E-01 amp
+Step     93, t= 4.6500000E-01, DT= 5.0000000E-03, C=  0.054 1.2800E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851638985512        6.2831851638985512     
+          93 Helmholtz3/fluid:      5   0.7275E-14   0.1000E-11   0.1485E-03
+        93 U-PRES gmres:     16  9.0196E-11  1.0000E-10  1.5081E-06  0.0000E+00  0.0000E+00
+         93   4.6500E-01  0.0000E+00 Fluid done
+          93 Helmholtz3/ Mesh:     65   0.9458E-04   0.1000E-03   0.2716E-01
+   93  4.650000E-01  2.742510E-01  4.088821E-02  9.141699E-01 amp
+Step     94, t= 4.7000000E-01, DT= 5.0000000E-03, C=  0.055 1.3000E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851607811702        6.2831851607811702     
+          94 Helmholtz3/fluid:      5   0.7224E-14   0.1000E-11   0.1482E-03
+        94 U-PRES gmres:     16  7.9562E-11  1.0000E-10  1.4348E-06  0.0000E+00  0.0000E+00
+         94   4.7000E-01  0.0000E+00 Fluid done
+          94 Helmholtz3/ Mesh:     43   0.8989E-04   0.1000E-03   0.2712E-01
+   94  4.700000E-01  2.737091E-01  4.129498E-02  9.123636E-01 amp
+Step     95, t= 4.7500000E-01, DT= 5.0000000E-03, C=  0.055 1.3100E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851601339785        6.2831851601339785     
+          95 Helmholtz3/fluid:      5   0.7172E-14   0.1000E-11   0.1479E-03
+        95 U-PRES gmres:     16  8.8513E-11  1.0000E-10  1.5197E-06  0.0000E+00  0.0000E+00
+         95   4.7500E-01  0.0000E+00 Fluid done
+          95 Helmholtz3/ Mesh:     65   0.9087E-04   0.1000E-03   0.2709E-01
+   95  4.750000E-01  2.731620E-01  4.170076E-02  9.105400E-01 amp
+Step     96, t= 4.8000000E-01, DT= 5.0000000E-03, C=  0.056 1.3200E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851570710411        6.2831851570710411     
+          96 Helmholtz3/fluid:      5   0.7121E-14   0.1000E-11   0.1477E-03
+        96 U-PRES gmres:     16  7.6444E-11  1.0000E-10  1.4478E-06  0.0000E+00  0.0000E+00
+         96   4.8000E-01  0.0000E+00 Fluid done
+          96 Helmholtz3/ Mesh:     43   0.8869E-04   0.1000E-03   0.2705E-01
+   96  4.800000E-01  2.726097E-01  4.210553E-02  9.086992E-01 amp
+Step     97, t= 4.8500000E-01, DT= 5.0000000E-03, C=  0.056 1.3300E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851564250503        6.2831851564250503     
+          97 Helmholtz3/fluid:      5   0.7069E-14   0.1000E-11   0.1474E-03
+        97 U-PRES gmres:     16  8.6849E-11  1.0000E-10  1.5108E-06  0.0000E+00  1.0000E-02
+         97   4.8500E-01  1.0000E-02 Fluid done
+          97 Helmholtz3/ Mesh:     43   0.9962E-04   0.1000E-03   0.2702E-01
+   97  4.850000E-01  2.720523E-01  4.250929E-02  9.068411E-01 amp
+Step     98, t= 4.9000000E-01, DT= 5.0000000E-03, C=  0.057 1.3400E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851541267048        6.2831851541267048     
+          98 Helmholtz3/fluid:      5   0.7017E-14   0.1000E-11   0.1471E-03
+        98 U-PRES gmres:     16  6.7942E-11  1.0000E-10  1.3808E-06  1.0000E-02  1.0000E-02
+         98   4.9000E-01  1.0000E-02 Fluid done
+          98 Helmholtz3/ Mesh:     65   0.9085E-04   0.1000E-03   0.2698E-01
+   98  4.900000E-01  2.714897E-01  4.291203E-02  9.049658E-01 amp
+Step     99, t= 4.9500000E-01, DT= 5.0000000E-03, C=  0.057 1.3600E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851516356370        6.2831851516356370     
+          99 Helmholtz3/fluid:      5   0.6965E-14   0.1000E-11   0.1469E-03
+        99 U-PRES gmres:     15  9.1066E-11  1.0000E-10  1.0622E-06  0.0000E+00  0.0000E+00
+         99   4.9500E-01  0.0000E+00 Fluid done
+          99 Helmholtz3/ Mesh:     42   0.9959E-04   0.1000E-03   0.2694E-01
+   99  4.950000E-01  2.709220E-01  4.331374E-02  9.030734E-01 amp
+Step    100, t= 5.0000000E-01, DT= 5.0000000E-03, C=  0.058 1.3700E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851510009677        6.2831851510009677     
+         100 Helmholtz3/fluid:      5   0.6913E-14   0.1000E-11   0.1466E-03
+       100 U-PRES gmres:     14  9.3021E-11  1.0000E-10  3.9008E-07  0.0000E+00  0.0000E+00
+        100   5.0000E-01  0.0000E+00 Fluid done
+         100 Helmholtz3/ Mesh:     43   0.9768E-04   0.1000E-03   0.2690E-01
+  100  5.000000E-01  2.703492E-01  4.371442E-02  9.011639E-01 amp
+Step    101, t= 5.0500000E-01, DT= 5.0000000E-03, C=  0.058 1.3800E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851487446171        6.2831851487446171     
+         101 Helmholtz3/fluid:      5   0.6861E-14   0.1000E-11   0.1463E-03
+       101 U-PRES gmres:     16  5.3853E-11  1.0000E-10  8.1596E-07  0.0000E+00  0.0000E+00
+        101   5.0500E-01  0.0000E+00 Fluid done
+         101 Helmholtz3/ Mesh:     64   0.9920E-04   0.1000E-03   0.2687E-01
+  101  5.050000E-01  2.697712E-01  4.411406E-02  8.992374E-01 amp
+Step    102, t= 5.1000000E-01, DT= 5.0000000E-03, C=  0.059 1.3900E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851463587176        6.2831851463587176     
+         102 Helmholtz3/fluid:      5   0.6808E-14   0.1000E-11   0.1460E-03
+       102 U-PRES gmres:     15  9.7320E-11  1.0000E-10  7.8899E-07  1.0000E-02  1.0000E-02
+        102   5.1000E-01  1.0000E-02 Fluid done
+         102 Helmholtz3/ Mesh:     42   0.9944E-04   0.1000E-03   0.2683E-01
+  102  5.100000E-01  2.691882E-01  4.451266E-02  8.972939E-01 amp
+Step    103, t= 5.1500000E-01, DT= 5.0000000E-03, C=  0.060 1.4100E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851457434835        6.2831851457434835     
+         103 Helmholtz3/fluid:      5   0.6756E-14   0.1000E-11   0.1457E-03
+       103 U-PRES gmres:     14  9.3457E-11  1.0000E-10  9.6843E-07  0.0000E+00  0.0000E+00
+        103   5.1500E-01  0.0000E+00 Fluid done
+         103 Helmholtz3/ Mesh:     43   0.9562E-04   0.1000E-03   0.2679E-01
+  103  5.150000E-01  2.686000E-01  4.491019E-02  8.953335E-01 amp
+Step    104, t= 5.2000000E-01, DT= 5.0000000E-03, C=  0.060 1.4200E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851435772048        6.2831851435772048     
+         104 Helmholtz3/fluid:      5   0.6703E-14   0.1000E-11   0.1454E-03
+       104 U-PRES gmres:     15  9.6403E-11  1.0000E-10  9.1815E-07  0.0000E+00  0.0000E+00
+        104   5.2000E-01  0.0000E+00 Fluid done
+         104 Helmholtz3/ Mesh:     63   0.9997E-04   0.1000E-03   0.2676E-01
+  104  5.200000E-01  2.680069E-01  4.530667E-02  8.933562E-01 amp
+Step    105, t= 5.2500000E-01, DT= 5.0000000E-03, C=  0.061 1.4300E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851413271487        6.2831851413271487     
+         105 Helmholtz3/fluid:      5   0.6650E-14   0.1000E-11   0.1452E-03
+       105 U-PRES gmres:     15  9.6946E-11  1.0000E-10  9.2704E-07  0.0000E+00  1.0000E-02
+        105   5.2500E-01  1.0000E-02 Fluid done
+         105 Helmholtz3/ Mesh:     42   0.9819E-04   0.1000E-03   0.2671E-01
+  105  5.250000E-01  2.674086E-01  4.570207E-02  8.913622E-01 amp
+Step    106, t= 5.3000000E-01, DT= 5.0000000E-03, C=  0.061 1.4400E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851406995156        6.2831851406995156     
+         106 Helmholtz3/fluid:      5   0.6597E-14   0.1000E-11   0.1449E-03
+       106 U-PRES gmres:     14  9.3030E-11  1.0000E-10  1.3091E-06  0.0000E+00  1.0000E-02
+        106   5.3000E-01  1.0000E-02 Fluid done
+         106 Helmholtz3/ Mesh:     43   0.9418E-04   0.1000E-03   0.2667E-01
+  106  5.300000E-01  2.668054E-01  4.609640E-02  8.893514E-01 amp
+Step    107, t= 5.3500000E-01, DT= 5.0000000E-03, C=  0.062 1.4500E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851386523985        6.2831851386523985     
+         107 Helmholtz3/fluid:      5   0.6543E-14   0.1000E-11   0.1446E-03
+       107 U-PRES gmres:     15  8.4149E-11  1.0000E-10  9.3016E-07  0.0000E+00  1.0000E-02
+        107   5.3500E-01  1.0000E-02 Fluid done
+         107 Helmholtz3/ Mesh:     61   0.9632E-04   0.1000E-03   0.2664E-01
+  107  5.350000E-01  2.661972E-01  4.648965E-02  8.873240E-01 amp
+Step    108, t= 5.4000000E-01, DT= 5.0000000E-03, C=  0.063 1.4700E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851365708991        6.2831851365708991     
+         108 Helmholtz3/fluid:      5   0.6490E-14   0.1000E-11   0.1443E-03
+       108 U-PRES gmres:     15  9.6555E-11  1.0000E-10  1.0603E-06  0.0000E+00  0.0000E+00
+        108   5.4000E-01  0.0000E+00 Fluid done
+         108 Helmholtz3/ Mesh:     43   0.8561E-04   0.1000E-03   0.2660E-01
+  108  5.400000E-01  2.655840E-01  4.688181E-02  8.852801E-01 amp
+Step    109, t= 5.4500000E-01, DT= 5.0000000E-03, C=  0.063 1.4800E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851359020003        6.2831851359020003     
+         109 Helmholtz3/fluid:      5   0.6436E-14   0.1000E-11   0.1440E-03
+       109 U-PRES gmres:     14  9.3607E-11  1.0000E-10  1.1869E-06  0.0000E+00  0.0000E+00
+        109   5.4500E-01  0.0000E+00 Fluid done
+         109 Helmholtz3/ Mesh:     43   0.9320E-04   0.1000E-03   0.2656E-01
+  109  5.450000E-01  2.649659E-01  4.727288E-02  8.832197E-01 amp
+Step    110, t= 5.5000000E-01, DT= 5.0000000E-03, C=  0.064 1.4900E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851340010365        6.2831851340010365     
+         110 Helmholtz3/fluid:      5   0.6381E-14   0.1000E-11   0.1437E-03
+       110 U-PRES gmres:     15  8.9523E-11  1.0000E-10  1.3260E-06  0.0000E+00  0.0000E+00
+        110   5.5000E-01  0.0000E+00 Fluid done
+         110 Helmholtz3/ Mesh:     43   0.9862E-04   0.1000E-03   0.2651E-01
+  110  5.500000E-01  2.643429E-01  4.766284E-02  8.811430E-01 amp
+Step    111, t= 5.5500000E-01, DT= 5.0000000E-03, C=  0.064 1.5000E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851325716022        6.2831851325716022     
+         111 Helmholtz3/fluid:      5   0.6326E-14   0.1000E-11   0.1433E-03
+       111 U-PRES gmres:     15  9.8285E-11  1.0000E-10  1.0753E-06  0.0000E+00  0.0000E+00
+        111   5.5500E-01  0.0000E+00 Fluid done
+         111 Helmholtz3/ Mesh:     43   0.9994E-04   0.1000E-03   0.2647E-01
+  111  5.550000E-01  2.637150E-01  4.805170E-02  8.790499E-01 amp
+Step    112, t= 5.6000000E-01, DT= 5.0000000E-03, C=  0.065 1.5100E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851310986275        6.2831851310986275     
+         112 Helmholtz3/fluid:      5   0.6272E-14   0.1000E-11   0.1430E-03
+       112 U-PRES gmres:     14  9.7865E-11  1.0000E-10  8.2312E-07  0.0000E+00  0.0000E+00
+        112   5.6000E-01  0.0000E+00 Fluid done
+         112 Helmholtz3/ Mesh:     61   0.9463E-04   0.1000E-03   0.2643E-01
+  112  5.600000E-01  2.630822E-01  4.843944E-02  8.769407E-01 amp
+Step    113, t= 5.6500000E-01, DT= 5.0000000E-03, C=  0.065 1.5200E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851291303771        6.2831851291303771     
+         113 Helmholtz3/fluid:      5   0.6217E-14   0.1000E-11   0.1427E-03
+       113 U-PRES gmres:     14  7.2777E-11  1.0000E-10  5.0237E-07  0.0000E+00  0.0000E+00
+        113   5.6500E-01  0.0000E+00 Fluid done
+         113 Helmholtz3/ Mesh:     42   0.9832E-04   0.1000E-03   0.2639E-01
+  113  5.650000E-01  2.624446E-01  4.882606E-02  8.748154E-01 amp
+Step    114, t= 5.7000000E-01, DT= 5.0000000E-03, C=  0.066 1.5400E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851286008575        6.2831851286008575     
+         114 Helmholtz3/fluid:      5   0.6161E-14   0.1000E-11   0.1424E-03
+       114 U-PRES gmres:     14  9.9182E-11  1.0000E-10  5.3466E-07  0.0000E+00  0.0000E+00
+        114   5.7000E-01  0.0000E+00 Fluid done
+         114 Helmholtz3/ Mesh:     42   0.9777E-04   0.1000E-03   0.2634E-01
+  114  5.700000E-01  2.618022E-01  4.921156E-02  8.726741E-01 amp
+Step    115, t= 5.7500000E-01, DT= 5.0000000E-03, C=  0.067 1.5500E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851268849990        6.2831851268849990     
+         115 Helmholtz3/fluid:      5   0.6107E-14   0.1000E-11   0.1421E-03
+       115 U-PRES gmres:     15  9.3700E-11  1.0000E-10  1.1419E-06  0.0000E+00  0.0000E+00
+        115   5.7500E-01  0.0000E+00 Fluid done
+         115 Helmholtz3/ Mesh:     43   0.9615E-04   0.1000E-03   0.2630E-01
+  115  5.750000E-01  2.611551E-01  4.959593E-02  8.705169E-01 amp
+Step    116, t= 5.8000000E-01, DT= 5.0000000E-03, C=  0.067 1.5600E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851256186324        6.2831851256186324     
+         116 Helmholtz3/fluid:      5   0.6051E-14   0.1000E-11   0.1418E-03
+       116 U-PRES gmres:     15  9.7932E-11  1.0000E-10  1.0063E-06  0.0000E+00  0.0000E+00
+        116   5.8000E-01  0.0000E+00 Fluid done
+         116 Helmholtz3/ Mesh:     43   0.9779E-04   0.1000E-03   0.2626E-01
+  116  5.800000E-01  2.605032E-01  4.997916E-02  8.683439E-01 amp
+Step    117, t= 5.8500000E-01, DT= 5.0000000E-03, C=  0.068 1.5700E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851243177841        6.2831851243177841     
+         117 Helmholtz3/fluid:      5   0.5996E-14   0.1000E-11   0.1414E-03
+       117 U-PRES gmres:     15  5.6651E-11  1.0000E-10  8.0749E-07  0.0000E+00  0.0000E+00
+        117   5.8500E-01  0.0000E+00 Fluid done
+         117 Helmholtz3/ Mesh:     43   0.9735E-04   0.1000E-03   0.2621E-01
+  117  5.850000E-01  2.598466E-01  5.036124E-02  8.661552E-01 amp
+Step    118, t= 5.9000000E-01, DT= 5.0000000E-03, C=  0.068 1.5800E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851230532081        6.2831851230532081     
+         118 Helmholtz3/fluid:      5   0.5941E-14   0.1000E-11   0.1411E-03
+       118 U-PRES gmres:     15  4.8116E-11  1.0000E-10  8.0355E-07  0.0000E+00  0.0000E+00
+        118   5.9000E-01  0.0000E+00 Fluid done
+         118 Helmholtz3/ Mesh:     43   0.9775E-04   0.1000E-03   0.2617E-01
+  118  5.900000E-01  2.591853E-01  5.074218E-02  8.639509E-01 amp
+Step    119, t= 5.9500000E-01, DT= 5.0000000E-03, C=  0.069 1.5900E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851218236112        6.2831851218236112     
+         119 Helmholtz3/fluid:      5   0.5886E-14   0.1000E-11   0.1408E-03
+       119 U-PRES gmres:     14  6.5048E-11  1.0000E-10  4.6885E-07  0.0000E+00  0.0000E+00
+        119   5.9500E-01  0.0000E+00 Fluid done
+         119 Helmholtz3/ Mesh:     43   0.9709E-04   0.1000E-03   0.2613E-01
+  119  5.950000E-01  2.585193E-01  5.112196E-02  8.617310E-01 amp
+Step    120, t= 6.0000000E-01, DT= 5.0000000E-03, C=  0.069 1.6000E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851206269951        6.2831851206269951     
+         120 Helmholtz3/fluid:      5   0.5831E-14   0.1000E-11   0.1404E-03
+       120 U-PRES gmres:     14  6.0608E-11  1.0000E-10  5.5221E-07  0.0000E+00  0.0000E+00
+        120   6.0000E-01  0.0000E+00 Fluid done
+         120 Helmholtz3/ Mesh:     43   0.9714E-04   0.1000E-03   0.2608E-01
+  120  6.000000E-01  2.578487E-01  5.150059E-02  8.594957E-01 amp
+Step    121, t= 6.0500000E-01, DT= 5.0000000E-03, C=  0.070 1.6200E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851194625301        6.2831851194625301     
+         121 Helmholtz3/fluid:      5   0.5776E-14   0.1000E-11   0.1401E-03
+       121 U-PRES gmres:     14  5.3145E-11  1.0000E-10  4.4753E-07  0.0000E+00  0.0000E+00
+        121   6.0500E-01  0.0000E+00 Fluid done
+         121 Helmholtz3/ Mesh:     43   0.9654E-04   0.1000E-03   0.2603E-01
+  121  6.050000E-01  2.571735E-01  5.187805E-02  8.572450E-01 amp
+Step    122, t= 6.1000000E-01, DT= 5.0000000E-03, C=  0.070 1.6300E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851183296950        6.2831851183296950     
+         122 Helmholtz3/fluid:      5   0.5721E-14   0.1000E-11   0.1398E-03
+       122 U-PRES gmres:     14  5.4935E-11  1.0000E-10  4.4169E-07  0.0000E+00  0.0000E+00
+        122   6.1000E-01  0.0000E+00 Fluid done
+         122 Helmholtz3/ Mesh:     43   0.9645E-04   0.1000E-03   0.2599E-01
+  122  6.100000E-01  2.564937E-01  5.225434E-02  8.549791E-01 amp
+Step    123, t= 6.1500000E-01, DT= 5.0000000E-03, C=  0.071 1.6400E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851172280357        6.2831851172280357     
+         123 Helmholtz3/fluid:      5   0.5667E-14   0.1000E-11   0.1394E-03
+       123 U-PRES gmres:     14  5.3509E-11  1.0000E-10  4.6344E-07  0.0000E+00  0.0000E+00
+        123   6.1500E-01  0.0000E+00 Fluid done
+         123 Helmholtz3/ Mesh:     43   0.9594E-04   0.1000E-03   0.2594E-01
+  123  6.150000E-01  2.558094E-01  5.262945E-02  8.526979E-01 amp
+Step    124, t= 6.2000000E-01, DT= 5.0000000E-03, C=  0.071 1.6500E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851161574086        6.2831851161574086     
+         124 Helmholtz3/fluid:      5   0.5612E-14   0.1000E-11   0.1391E-03
+       124 U-PRES gmres:     14  5.3433E-11  1.0000E-10  4.4930E-07  0.0000E+00  0.0000E+00
+        124   6.2000E-01  0.0000E+00 Fluid done
+         124 Helmholtz3/ Mesh:     43   0.9579E-04   0.1000E-03   0.2590E-01
+  124  6.200000E-01  2.551205E-01  5.300339E-02  8.504017E-01 amp
+Step    125, t= 6.2500000E-01, DT= 5.0000000E-03, C=  0.072 1.6600E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851151178562        6.2831851151178562     
+         125 Helmholtz3/fluid:      5   0.5558E-14   0.1000E-11   0.1387E-03
+       125 U-PRES gmres:     14  5.2672E-11  1.0000E-10  4.6474E-07  0.0000E+00  0.0000E+00
+        125   6.2500E-01  0.0000E+00 Fluid done
+         125 Helmholtz3/ Mesh:     43   0.9536E-04   0.1000E-03   0.2585E-01
+  125  6.250000E-01  2.544271E-01  5.337614E-02  8.480904E-01 amp
+Step    126, t= 6.3000000E-01, DT= 5.0000000E-03, C=  0.073 1.6700E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851141096049        6.2831851141096049     
+         126 Helmholtz3/fluid:      5   0.5504E-14   0.1000E-11   0.1384E-03
+       126 U-PRES gmres:     14  5.2879E-11  1.0000E-10  4.5529E-07  0.0000E+00  0.0000E+00
+        126   6.3000E-01  0.0000E+00 Fluid done
+         126 Helmholtz3/ Mesh:     43   0.9520E-04   0.1000E-03   0.2580E-01
+  126  6.300000E-01  2.537292E-01  5.374770E-02  8.457642E-01 amp
+Step    127, t= 6.3500000E-01, DT= 5.0000000E-03, C=  0.073 1.6800E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851131332099        6.2831851131332099     
+         127 Helmholtz3/fluid:      5   0.5450E-14   0.1000E-11   0.1380E-03
+       127 U-PRES gmres:     14  5.1985E-11  1.0000E-10  4.6537E-07  0.0000E+00  0.0000E+00
+        127   6.3500E-01  0.0000E+00 Fluid done
+         127 Helmholtz3/ Mesh:     43   0.9488E-04   0.1000E-03   0.2575E-01
+  127  6.350000E-01  2.530269E-01  5.411806E-02  8.434230E-01 amp
+Step    128, t= 6.4000000E-01, DT= 5.0000000E-03, C=  0.074 1.6900E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851121894200        6.2831851121894200     
+         128 Helmholtz3/fluid:      5   0.5396E-14   0.1000E-11   0.1377E-03
+       128 U-PRES gmres:     14  5.2385E-11  1.0000E-10  4.5898E-07  0.0000E+00  0.0000E+00
+        128   6.4000E-01  0.0000E+00 Fluid done
+         128 Helmholtz3/ Mesh:     43   0.9475E-04   0.1000E-03   0.2570E-01
+  128  6.400000E-01  2.523201E-01  5.448723E-02  8.410671E-01 amp
+Step    129, t= 6.4500000E-01, DT= 5.0000000E-03, C=  0.074 1.7000E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851112791615        6.2831851112791615     
+         129 Helmholtz3/fluid:      5   0.5342E-14   0.1000E-11   0.1373E-03
+       129 U-PRES gmres:     14  5.1600E-11  1.0000E-10  4.6587E-07  0.0000E+00  0.0000E+00
+        129   6.4500E-01  0.0000E+00 Fluid done
+         129 Helmholtz3/ Mesh:     43   0.9455E-04   0.1000E-03   0.2565E-01
+  129  6.450000E-01  2.516089E-01  5.485519E-02  8.386964E-01 amp
+Step    130, t= 6.5000000E-01, DT= 5.0000000E-03, C=  0.075 1.7200E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851104036192        6.2831851104036192     
+         130 Helmholtz3/fluid:      5   0.5288E-14   0.1000E-11   0.1369E-03
+       130 U-PRES gmres:     14  5.2016E-11  1.0000E-10  4.6307E-07  0.0000E+00  0.0000E+00
+        130   6.5000E-01  0.0000E+00 Fluid done
+         130 Helmholtz3/ Mesh:     43   0.9452E-04   0.1000E-03   0.2560E-01
+  130  6.500000E-01  2.508933E-01  5.522194E-02  8.363110E-01 amp
+Step    131, t= 6.5500000E-01, DT= 5.0000000E-03, C=  0.075 1.7300E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851095641627        6.2831851095641627     
+         131 Helmholtz3/fluid:      5   0.5235E-14   0.1000E-11   0.1366E-03
+       131 U-PRES gmres:     14  5.1220E-11  1.0000E-10  4.6992E-07  0.0000E+00  0.0000E+00
+        131   6.5500E-01  0.0000E+00 Fluid done
+         131 Helmholtz3/ Mesh:     43   0.9449E-04   0.1000E-03   0.2555E-01
+  131  6.550000E-01  2.501733E-01  5.558749E-02  8.339110E-01 amp
+Step    132, t= 6.6000000E-01, DT= 5.0000000E-03, C=  0.076 1.7400E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851087622459        6.2831851087622459     
+         132 Helmholtz3/fluid:      5   0.5181E-14   0.1000E-11   0.1362E-03
+       132 U-PRES gmres:     14  5.1595E-11  1.0000E-10  4.7212E-07  0.0000E+00  0.0000E+00
+        132   6.6000E-01  0.0000E+00 Fluid done
+         132 Helmholtz3/ Mesh:     43   0.9461E-04   0.1000E-03   0.2550E-01
+  132  6.600000E-01  2.494489E-01  5.595181E-02  8.314964E-01 amp
+Step    133, t= 6.6500000E-01, DT= 5.0000000E-03, C=  0.076 1.7500E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851079994827        6.2831851079994827     
+         133 Helmholtz3/fluid:      5   0.5128E-14   0.1000E-11   0.1358E-03
+       133 U-PRES gmres:     14  5.0715E-11  1.0000E-10  4.8161E-07  0.0000E+00  0.0000E+00
+        133   6.6500E-01  0.0000E+00 Fluid done
+         133 Helmholtz3/ Mesh:     43   0.9477E-04   0.1000E-03   0.2545E-01
+  133  6.650000E-01  2.487202E-01  5.631491E-02  8.290674E-01 amp
+Step    134, t= 6.7000000E-01, DT= 5.0000000E-03, C=  0.077 1.7600E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851072774638        6.2831851072774638     
+         134 Helmholtz3/fluid:      5   0.5075E-14   0.1000E-11   0.1355E-03
+       134 U-PRES gmres:     14  5.1015E-11  1.0000E-10  4.8938E-07  0.0000E+00  0.0000E+00
+        134   6.7000E-01  0.0000E+00 Fluid done
+         134 Helmholtz3/ Mesh:     43   0.9508E-04   0.1000E-03   0.2539E-01
+  134  6.700000E-01  2.479872E-01  5.667679E-02  8.266239E-01 amp
+Step    135, t= 6.7500000E-01, DT= 5.0000000E-03, C=  0.077 1.7700E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851065978475        6.2831851065978475     
+         135 Helmholtz3/fluid:      5   0.5022E-14   0.1000E-11   0.1351E-03
+       135 U-PRES gmres:     14  5.0073E-11  1.0000E-10  5.0220E-07  0.0000E+00  0.0000E+00
+        135   6.7500E-01  0.0000E+00 Fluid done
+         135 Helmholtz3/ Mesh:     43   0.9545E-04   0.1000E-03   0.2534E-01
+  135  6.750000E-01  2.472498E-01  5.703744E-02  8.241660E-01 amp
+Step    136, t= 6.8000000E-01, DT= 5.0000000E-03, C=  0.078 1.7800E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851059621950        6.2831851059621950     
+         136 Helmholtz3/fluid:      5   0.4968E-14   0.1000E-11   0.1347E-03
+       136 U-PRES gmres:     14  5.0353E-11  1.0000E-10  5.1410E-07  1.0000E-02  1.0000E-02
+        136   6.8000E-01  1.0000E-02 Fluid done
+         136 Helmholtz3/ Mesh:     43   0.9597E-04   0.1000E-03   0.2529E-01
+  136  6.800000E-01  2.465081E-01  5.739686E-02  8.216938E-01 amp
+Step    137, t= 6.8500000E-01, DT= 5.0000000E-03, C=  0.078 1.7900E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851053719383        6.2831851053719383     
+         137 Helmholtz3/fluid:      5   0.4915E-14   0.1000E-11   0.1343E-03
+       137 U-PRES gmres:     14  4.9420E-11  1.0000E-10  5.2860E-07  0.0000E+00  1.0000E-02
+        137   6.8500E-01  1.0000E-02 Fluid done
+         137 Helmholtz3/ Mesh:     43   0.9658E-04   0.1000E-03   0.2524E-01
+  137  6.850000E-01  2.457622E-01  5.775504E-02  8.192074E-01 amp
+Step    138, t= 6.9000000E-01, DT= 5.0000000E-03, C=  0.079 1.8100E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851048283998        6.2831851048283998     
+         138 Helmholtz3/fluid:      5   0.4862E-14   0.1000E-11   0.1339E-03
+       138 U-PRES gmres:     14  4.9774E-11  1.0000E-10  5.4156E-07  0.0000E+00  0.0000E+00
+        138   6.9000E-01  0.0000E+00 Fluid done
+         138 Helmholtz3/ Mesh:     43   0.9731E-04   0.1000E-03   0.2518E-01
+  138  6.900000E-01  2.450120E-01  5.811198E-02  8.167068E-01 amp
+Step    139, t= 6.9500000E-01, DT= 5.0000000E-03, C=  0.080 1.8200E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851043325910        6.2831851043325910     
+         139 Helmholtz3/fluid:      5   0.4809E-14   0.1000E-11   0.1336E-03
+       139 U-PRES gmres:     14  4.8942E-11  1.0000E-10  5.5476E-07  0.0000E+00  0.0000E+00
+        139   6.9500E-01  0.0000E+00 Fluid done
+         139 Helmholtz3/ Mesh:     43   0.9813E-04   0.1000E-03   0.2513E-01
+  139  6.950000E-01  2.442576E-01  5.846768E-02  8.141921E-01 amp
+Step    140, t= 7.0000000E-01, DT= 5.0000000E-03, C=  0.080 1.8300E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851038853381        6.2831851038853381     
+         140 Helmholtz3/fluid:      5   0.4756E-14   0.1000E-11   0.1332E-03
+       140 U-PRES gmres:     14  4.9447E-11  1.0000E-10  5.6536E-07  0.0000E+00  0.0000E+00
+        140   7.0000E-01  0.0000E+00 Fluid done
+         140 Helmholtz3/ Mesh:     43   0.9907E-04   0.1000E-03   0.2507E-01
+  140  7.000000E-01  2.434990E-01  5.882213E-02  8.116634E-01 amp
+Step    141, t= 7.0500000E-01, DT= 5.0000000E-03, C=  0.081 1.8400E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851034870878        6.2831851034870878     
+         141 Helmholtz3/fluid:      5   0.4703E-14   0.1000E-11   0.1328E-03
+       141 U-PRES gmres:     14  4.8774E-11  1.0000E-10  5.7447E-07  0.0000E+00  0.0000E+00
+        141   7.0500E-01  0.0000E+00 Fluid done
+         141 Helmholtz3/ Mesh:     62   0.9772E-04   0.1000E-03   0.2502E-01
+  141  7.050000E-01  2.427362E-01  5.917533E-02  8.091207E-01 amp
+Step    142, t= 7.1000000E-01, DT= 5.0000000E-03, C=  0.081 1.8500E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851033373640        6.2831851033373640     
+         142 Helmholtz3/fluid:      5   0.4650E-14   0.1000E-11   0.1324E-03
+       142 U-PRES gmres:     13  7.8639E-11  1.0000E-10  5.5954E-07  1.0000E-02  1.0000E-02
+        142   7.1000E-01  1.0000E-02 Fluid done
+         142 Helmholtz3/ Mesh:     42   0.8996E-04   0.1000E-03   0.2496E-01
+  142  7.100000E-01  2.419693E-01  5.952728E-02  8.065642E-01 amp
+Step    143, t= 7.1500000E-01, DT= 5.0000000E-03, C=  0.082 1.8600E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851028644783        6.2831851028644783     
+         143 Helmholtz3/fluid:      5   0.4598E-14   0.1000E-11   0.1320E-03
+       143 U-PRES gmres:     16  6.5779E-11  1.0000E-10  8.4154E-07  1.0000E-02  1.0000E-02
+        143   7.1500E-01  1.0000E-02 Fluid done
+         143 Helmholtz3/ Mesh:     42   0.9416E-04   0.1000E-03   0.2490E-01
+  143  7.150000E-01  2.411981E-01  5.987796E-02  8.039938E-01 amp
+Step    144, t= 7.2000000E-01, DT= 5.0000000E-03, C=  0.082 1.8700E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851025862759        6.2831851025862759     
+         144 Helmholtz3/fluid:      5   0.4544E-14   0.1000E-11   0.1316E-03
+       144 U-PRES gmres:     16  8.7926E-11  1.0000E-10  9.9919E-07  1.0000E-02  1.0000E-02
+        144   7.2000E-01  1.0000E-02 Fluid done
+         144 Helmholtz3/ Mesh:     43   0.9707E-04   0.1000E-03   0.2485E-01
+  144  7.200000E-01  2.404229E-01  6.022739E-02  8.014097E-01 amp
+Step    145, t= 7.2500000E-01, DT= 5.0000000E-03, C=  0.083 1.8900E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851023767031        6.2831851023767031     
+         145 Helmholtz3/fluid:      5   0.4492E-14   0.1000E-11   0.1312E-03
+       145 U-PRES gmres:     17  7.2218E-11  1.0000E-10  1.2619E-06  0.0000E+00  0.0000E+00
+        145   7.2500E-01  0.0000E+00 Fluid done
+         145 Helmholtz3/ Mesh:     63   0.9945E-04   0.1000E-03   0.2479E-01
+  145  7.250000E-01  2.396436E-01  6.057555E-02  7.988120E-01 amp
+Step    146, t= 7.3000000E-01, DT= 5.0000000E-03, C=  0.083 1.9000E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851026093783        6.2831851026093783     
+         146 Helmholtz3/fluid:      5   0.4439E-14   0.1000E-11   0.1308E-03
+       146 U-PRES gmres:     15  7.4933E-11  1.0000E-10  7.4213E-07  0.0000E+00  0.0000E+00
+        146   7.3000E-01  0.0000E+00 Fluid done
+         146 Helmholtz3/ Mesh:     42   0.8833E-04   0.1000E-03   0.2473E-01
+  146  7.300000E-01  2.388602E-01  6.092245E-02  7.962007E-01 amp
+Step    147, t= 7.3500000E-01, DT= 5.0000000E-03, C=  0.084 1.9100E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851020358247        6.2831851020358247     
+         147 Helmholtz3/fluid:      5   0.4387E-14   0.1000E-11   0.1304E-03
+       147 U-PRES gmres:     16  7.7140E-11  1.0000E-10  1.2784E-06  0.0000E+00  1.0000E-02
+        147   7.3500E-01  1.0000E-02 Fluid done
+         147 Helmholtz3/ Mesh:     42   0.9552E-04   0.1000E-03   0.2467E-01
+  147  7.350000E-01  2.380728E-01  6.126808E-02  7.935759E-01 amp
+Step    148, t= 7.4000000E-01, DT= 5.0000000E-03, C=  0.084 1.9200E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851020271108        6.2831851020271108     
+         148 Helmholtz3/fluid:      5   0.4335E-14   0.1000E-11   0.1299E-03
+       148 U-PRES gmres:     16  9.7834E-11  1.0000E-10  1.2828E-06  1.0000E-02  1.0000E-02
+        148   7.4000E-01  1.0000E-02 Fluid done
+         148 Helmholtz3/ Mesh:     64   0.9686E-04   0.1000E-03   0.2461E-01
+  148  7.400000E-01  2.372813E-01  6.161244E-02  7.909377E-01 amp
+Step    149, t= 7.4500000E-01, DT= 5.0000000E-03, C=  0.085 1.9400E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851025294352        6.2831851025294352     
+         149 Helmholtz3/fluid:      5   0.4283E-14   0.1000E-11   0.1295E-03
+       149 U-PRES gmres:     17  7.3987E-11  1.0000E-10  1.4397E-06  0.0000E+00  0.0000E+00
+        149   7.4500E-01  0.0000E+00 Fluid done
+         149 Helmholtz3/ Mesh:     42   0.8798E-04   0.1000E-03   0.2456E-01
+  149  7.450000E-01  2.364859E-01  6.195552E-02  7.882863E-01 amp
+Step    150, t= 7.5000000E-01, DT= 5.0000000E-03, C=  0.086 1.9500E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851018519975        6.2831851018519975     
+         150 Helmholtz3/fluid:      5   0.4232E-14   0.1000E-11   0.1291E-03
+       150 U-PRES gmres:     15  9.3506E-11  1.0000E-10  9.8242E-07  0.0000E+00  0.0000E+00
+        150   7.5000E-01  0.0000E+00 Fluid done
+         150 Helmholtz3/ Mesh:     42   0.9569E-04   0.1000E-03   0.2450E-01
+  150  7.500000E-01  2.356865E-01  6.229732E-02  7.856217E-01 amp
+Step    151, t= 7.5500000E-01, DT= 5.0000000E-03, C=  0.086 1.9600E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851020277805        6.2831851020277805     
+         151 Helmholtz3/fluid:      5   0.4181E-14   0.1000E-11   0.1287E-03
+       151 U-PRES gmres:     17  9.2361E-11  1.0000E-10  1.6678E-06  1.0000E-02  1.0000E-02
+        151   7.5500E-01  1.0000E-02 Fluid done
+         151 Helmholtz3/ Mesh:     65   0.9284E-04   0.1000E-03   0.2444E-01
+  151  7.550000E-01  2.348832E-01  6.263785E-02  7.829439E-01 amp
+Step    152, t= 7.6000000E-01, DT= 5.0000000E-03, C=  0.087 1.9700E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851027957608        6.2831851027957608     
+         152 Helmholtz3/fluid:      5   0.4129E-14   0.1000E-11   0.1283E-03
+       152 U-PRES gmres:     17  9.2835E-11  1.0000E-10  1.4000E-06  0.0000E+00  0.0000E+00
+        152   7.6000E-01  0.0000E+00 Fluid done
+         152 Helmholtz3/ Mesh:     42   0.8741E-04   0.1000E-03   0.2437E-01
+  152  7.600000E-01  2.340760E-01  6.297709E-02  7.802532E-01 amp
+Step    153, t= 7.6500000E-01, DT= 5.0000000E-03, C=  0.087 1.9900E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851019860157        6.2831851019860157     
+         153 Helmholtz3/fluid:      5   0.4079E-14   0.1000E-11   0.1278E-03
+       153 U-PRES gmres:     15  8.6751E-11  1.0000E-10  1.0344E-06  0.0000E+00  0.0000E+00
+        153   7.6500E-01  0.0000E+00 Fluid done
+         153 Helmholtz3/ Mesh:     42   0.9875E-04   0.1000E-03   0.2432E-01
+  153  7.650000E-01  2.332649E-01  6.331505E-02  7.775496E-01 amp
+Step    154, t= 7.7000000E-01, DT= 5.0000000E-03, C=  0.088 2.0000E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851023372236        6.2831851023372236     
+         154 Helmholtz3/fluid:      5   0.4029E-14   0.1000E-11   0.1274E-03
+       154 U-PRES gmres:     18  6.8870E-11  1.0000E-10  1.2006E-06  0.0000E+00  0.0000E+00
+        154   7.7000E-01  1.0000E-02 Fluid done
+         154 Helmholtz3/ Mesh:     65   0.9825E-04   0.1000E-03   0.2425E-01
+  154  7.700000E-01  2.324499E-01  6.365172E-02  7.748331E-01 amp
+Step    155, t= 7.7500000E-01, DT= 5.0000000E-03, C=  0.088 2.0100E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851033505446        6.2831851033505446     
+         155 Helmholtz3/fluid:      5   0.3979E-14   0.1000E-11   0.1270E-03
+       155 U-PRES gmres:     18  6.8803E-11  1.0000E-10  1.0863E-06  0.0000E+00  0.0000E+00
+        155   7.7500E-01  1.0000E-02 Fluid done
+         155 Helmholtz3/ Mesh:     42   0.8780E-04   0.1000E-03   0.2419E-01
+  155  7.750000E-01  2.316312E-01  6.398710E-02  7.721040E-01 amp
+Step    156, t= 7.8000000E-01, DT= 5.0000000E-03, C=  0.089 2.0300E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851023989733        6.2831851023989733     
+         156 Helmholtz3/fluid:      5   0.3929E-14   0.1000E-11   0.1265E-03
+       156 U-PRES gmres:     15  7.7179E-11  1.0000E-10  6.0264E-07  0.0000E+00  0.0000E+00
+        156   7.8000E-01  0.0000E+00 Fluid done
+         156 Helmholtz3/ Mesh:     43   0.9506E-04   0.1000E-03   0.2413E-01
+  156  7.800000E-01  2.308087E-01  6.432119E-02  7.693622E-01 amp
+Step    157, t= 7.8500000E-01, DT= 5.0000000E-03, C=  0.089 2.0400E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851029198811        6.2831851029198811     
+         157 Helmholtz3/fluid:      5   0.3880E-14   0.1000E-11   0.1261E-03
+       157 U-PRES gmres:     18  7.2854E-11  1.0000E-10  1.2636E-06  0.0000E+00  0.0000E+00
+        157   7.8500E-01  0.0000E+00 Fluid done
+         157 Helmholtz3/ Mesh:     91   0.9390E-04   0.1000E-03   0.2407E-01
+  157  7.850000E-01  2.299824E-01  6.465399E-02  7.666080E-01 amp
+Step    158, t= 7.9000000E-01, DT= 5.0000000E-03, C=  0.090 2.0500E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851068373528        6.2831851068373528     
+         158 Helmholtz3/fluid:      5   0.3831E-14   0.1000E-11   0.1257E-03
+       158 U-PRES gmres:     18  7.1026E-11  1.0000E-10  1.4104E-06  0.0000E+00  0.0000E+00
+        158   7.9000E-01  0.0000E+00 Fluid done
+         158 Helmholtz3/ Mesh:     42   0.8499E-04   0.1000E-03   0.2400E-01
+  158  7.900000E-01  2.291524E-01  6.498550E-02  7.638413E-01 amp
+Step    159, t= 7.9500000E-01, DT= 5.0000000E-03, C=  0.090 2.0700E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851019558105        6.2831851019558105     
+         159 Helmholtz3/fluid:      5   0.3783E-14   0.1000E-11   0.1252E-03
+       159 U-PRES gmres:     17  6.8416E-11  1.0000E-10  1.6681E-06  0.0000E+00  0.0000E+00
+        159   7.9500E-01  0.0000E+00 Fluid done
+         159 Helmholtz3/ Mesh:     42   0.8856E-04   0.1000E-03   0.2394E-01
+  159  7.950000E-01  2.283187E-01  6.531570E-02  7.610624E-01 amp
+Step    160, t= 8.0000000E-01, DT= 5.0000000E-03, C=  0.091 2.0800E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851038744162        6.2831851038744162     
+         160 Helmholtz3/fluid:      5   0.3734E-14   0.1000E-11   0.1248E-03
+       160 U-PRES gmres:     18  7.9887E-11  1.0000E-10  1.3113E-06  0.0000E+00  0.0000E+00
+        160   8.0000E-01  0.0000E+00 Fluid done
+         160 Helmholtz3/ Mesh:     42   0.9910E-04   0.1000E-03   0.2387E-01
+  160  8.000000E-01  2.274814E-01  6.564461E-02  7.582712E-01 amp
+Step    161, t= 8.0500000E-01, DT= 5.0000000E-03, C=  0.091 2.0900E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851038677318        6.2831851038677318     
+         161 Helmholtz3/fluid:      5   0.3686E-14   0.1000E-11   0.1243E-03
+       161 U-PRES gmres:     18  8.4818E-11  1.0000E-10  1.3170E-06  0.0000E+00  0.0000E+00
+        161   8.0500E-01  0.0000E+00 Fluid done
+         161 Helmholtz3/ Mesh:     64   0.9968E-04   0.1000E-03   0.2381E-01
+  161  8.050000E-01  2.266404E-01  6.597222E-02  7.554679E-01 amp
+Step    162, t= 8.1000000E-01, DT= 5.0000000E-03, C=  0.091 2.1000E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851050665524        6.2831851050665524     
+         162 Helmholtz3/fluid:      5   0.3638E-14   0.1000E-11   0.1239E-03
+       162 U-PRES gmres:     17  5.8024E-11  1.0000E-10  9.9943E-07  0.0000E+00  0.0000E+00
+        162   8.1000E-01  0.0000E+00 Fluid done
+         162 Helmholtz3/ Mesh:     42   0.8920E-04   0.1000E-03   0.2374E-01
+  162  8.100000E-01  2.257958E-01  6.629853E-02  7.526526E-01 amp
+Step    163, t= 8.1500000E-01, DT= 5.0000000E-03, C=  0.092 2.1200E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851044666358        6.2831851044666358     
+         163 Helmholtz3/fluid:      5   0.3591E-14   0.1000E-11   0.1234E-03
+       163 U-PRES gmres:     16  9.6263E-11  1.0000E-10  8.9271E-07  0.0000E+00  0.0000E+00
+        163   8.1500E-01  0.0000E+00 Fluid done
+         163 Helmholtz3/ Mesh:     42   0.9911E-04   0.1000E-03   0.2367E-01
+  163  8.150000E-01  2.249476E-01  6.662354E-02  7.498254E-01 amp
+Step    164, t= 8.2000000E-01, DT= 5.0000000E-03, C=  0.092 2.1300E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851052139918        6.2831851052139918     
+         164 Helmholtz3/fluid:      5   0.3544E-14   0.1000E-11   0.1230E-03
+       164 U-PRES gmres:     18  7.7664E-11  1.0000E-10  1.9091E-06  0.0000E+00  0.0000E+00
+        164   8.2000E-01  0.0000E+00 Fluid done
+         164 Helmholtz3/ Mesh:     90   0.9791E-04   0.1000E-03   0.2361E-01
+  164  8.200000E-01  2.240959E-01  6.694724E-02  7.469863E-01 amp
+Step    165, t= 8.2500000E-01, DT= 5.0000000E-03, C=  0.093 2.1500E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851097573344        6.2831851097573344     
+         165 Helmholtz3/fluid:      5   0.3497E-14   0.1000E-11   0.1225E-03
+       165 U-PRES gmres:     18  7.2238E-11  1.0000E-10  1.6043E-06  0.0000E+00  0.0000E+00
+        165   8.2500E-01  0.0000E+00 Fluid done
+         165 Helmholtz3/ Mesh:     41   0.9937E-04   0.1000E-03   0.2353E-01
+  165  8.250000E-01  2.232406E-01  6.726964E-02  7.441354E-01 amp
+Step    166, t= 8.3000000E-01, DT= 5.0000000E-03, C=  0.093 2.1600E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851046475666        6.2831851046475666     
+         166 Helmholtz3/fluid:      5   0.3452E-14   0.1000E-11   0.1220E-03
+       166 U-PRES gmres:     17  6.4950E-11  1.0000E-10  1.5448E-06  0.0000E+00  0.0000E+00
+        166   8.3000E-01  0.0000E+00 Fluid done
+         166 Helmholtz3/ Mesh:     41   0.9760E-04   0.1000E-03   0.2347E-01
+  166  8.300000E-01  2.223819E-01  6.759072E-02  7.412730E-01 amp
+Step    167, t= 8.3500000E-01, DT= 5.0000000E-03, C=  0.094 2.1700E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851070145701        6.2831851070145701     
+         167 Helmholtz3/fluid:      5   0.3405E-14   0.1000E-11   0.1216E-03
+       167 U-PRES gmres:     18  6.8208E-11  1.0000E-10  1.2223E-06  0.0000E+00  0.0000E+00
+        167   8.3500E-01  0.0000E+00 Fluid done
+         167 Helmholtz3/ Mesh:     42   0.9800E-04   0.1000E-03   0.2340E-01
+  167  8.350000E-01  2.215197E-01  6.791051E-02  7.383989E-01 amp
+Step    168, t= 8.4000000E-01, DT= 5.0000000E-03, C=  0.094 2.1800E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851072864557        6.2831851072864557     
+         168 Helmholtz3/fluid:      5   0.3360E-14   0.1000E-11   0.1211E-03
+       168 U-PRES gmres:     18  6.7099E-11  1.0000E-10  1.6388E-06  0.0000E+00  0.0000E+00
+        168   8.4000E-01  0.0000E+00 Fluid done
+         168 Helmholtz3/ Mesh:     90   0.9100E-04   0.1000E-03   0.2333E-01
+  168  8.400000E-01  2.206540E-01  6.822898E-02  7.355134E-01 amp
+Step    169, t= 8.4500000E-01, DT= 5.0000000E-03, C=  0.095 2.2000E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851117766995        6.2831851117766995     
+         169 Helmholtz3/fluid:      5   0.3314E-14   0.1000E-11   0.1206E-03
+       169 U-PRES gmres:     17  5.9659E-11  1.0000E-10  1.0796E-06  0.0000E+00  0.0000E+00
+        169   8.4500E-01  0.0000E+00 Fluid done
+         169 Helmholtz3/ Mesh:     41   0.9703E-04   0.1000E-03   0.2326E-01
+  169  8.450000E-01  2.197849E-01  6.854614E-02  7.326164E-01 amp
+Step    170, t= 8.5000000E-01, DT= 5.0000000E-03, C=  0.095 2.2100E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851073241074        6.2831851073241074     
+         170 Helmholtz3/fluid:      5   0.3269E-14   0.1000E-11   0.1202E-03
+       170 U-PRES gmres:     17  9.6456E-11  1.0000E-10  1.4074E-06  0.0000E+00  0.0000E+00
+        170   8.5000E-01  0.0000E+00 Fluid done
+         170 Helmholtz3/ Mesh:     41   0.9681E-04   0.1000E-03   0.2319E-01
+  170  8.500000E-01  2.189124E-01  6.886199E-02  7.297082E-01 amp
+Step    171, t= 8.5500000E-01, DT= 5.0000000E-03, C=  0.096 2.2200E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851097900566        6.2831851097900566     
+         171 Helmholtz3/fluid:      5   0.3223E-14   0.1000E-11   0.1197E-03
+       171 U-PRES gmres:     17  9.8101E-11  1.0000E-10  1.4542E-06  0.0000E+00  0.0000E+00
+        171   8.5500E-01  0.0000E+00 Fluid done
+         171 Helmholtz3/ Mesh:     42   0.9928E-04   0.1000E-03   0.2312E-01
+  171  8.550000E-01  2.180366E-01  6.917653E-02  7.267887E-01 amp
+Step    172, t= 8.6000000E-01, DT= 5.0000000E-03, C=  0.097 2.2300E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851103278451        6.2831851103278451     
+         172 Helmholtz3/fluid:      5   0.3179E-14   0.1000E-11   0.1192E-03
+       172 U-PRES gmres:     17  9.2348E-11  1.0000E-10  1.6218E-06  0.0000E+00  0.0000E+00
+        172   8.6000E-01  0.0000E+00 Fluid done
+         172 Helmholtz3/ Mesh:     90   0.8934E-04   0.1000E-03   0.2305E-01
+  172  8.600000E-01  2.171574E-01  6.948976E-02  7.238580E-01 amp
+Step    173, t= 8.6500000E-01, DT= 5.0000000E-03, C=  0.097 2.2500E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851154271474        6.2831851154271474     
+         173 Helmholtz3/fluid:      5   0.3134E-14   0.1000E-11   0.1187E-03
+       173 U-PRES gmres:     17  6.2232E-11  1.0000E-10  1.1007E-06  0.0000E+00  0.0000E+00
+        173   8.6500E-01  0.0000E+00 Fluid done
+         173 Helmholtz3/ Mesh:     41   0.9480E-04   0.1000E-03   0.2297E-01
+  173  8.650000E-01  2.162749E-01  6.980167E-02  7.209163E-01 amp
+Step    174, t= 8.7000000E-01, DT= 5.0000000E-03, C=  0.098 2.2600E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851106875476        6.2831851106875476     
+         174 Helmholtz3/fluid:      5   0.3090E-14   0.1000E-11   0.1182E-03
+       174 U-PRES gmres:     17  7.4491E-11  1.0000E-10  1.4452E-06  0.0000E+00  0.0000E+00
+        174   8.7000E-01  0.0000E+00 Fluid done
+         174 Helmholtz3/ Mesh:     41   0.9591E-04   0.1000E-03   0.2291E-01
+  174  8.700000E-01  2.153891E-01  7.011226E-02  7.179636E-01 amp
+Step    175, t= 8.7500000E-01, DT= 5.0000000E-03, C=  0.098 2.2800E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851135608332        6.2831851135608332     
+         175 Helmholtz3/fluid:      5   0.3045E-14   0.1000E-11   0.1178E-03
+       175 U-PRES gmres:     18  5.8985E-11  1.0000E-10  1.4934E-06  0.0000E+00  0.0000E+00
+        175   8.7500E-01  0.0000E+00 Fluid done
+         175 Helmholtz3/ Mesh:     43   0.9989E-04   0.1000E-03   0.2283E-01
+  175  8.750000E-01  2.145000E-01  7.042155E-02  7.150000E-01 amp
+Step    176, t= 8.8000000E-01, DT= 5.0000000E-03, C=  0.099 2.2900E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851143062858        6.2831851143062858     
+         176 Helmholtz3/fluid:      5   0.3002E-14   0.1000E-11   0.1173E-03
+       176 U-PRES gmres:     18  5.1314E-11  1.0000E-10  1.6227E-06  0.0000E+00  0.0000E+00
+        176   8.8000E-01  0.0000E+00 Fluid done
+         176 Helmholtz3/ Mesh:     90   0.9918E-04   0.1000E-03   0.2276E-01
+  176  8.800000E-01  2.136077E-01  7.072952E-02  7.120256E-01 amp
+Step    177, t= 8.8500000E-01, DT= 5.0000000E-03, C=  0.099 2.3000E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851200802893        6.2831851200802893     
+         177 Helmholtz3/fluid:      5   0.2958E-14   0.1000E-11   0.1168E-03
+       177 U-PRES gmres:     17  7.1063E-11  1.0000E-10  1.0225E-06  1.0000E-02  1.0000E-02
+        177   8.8500E-01  1.0000E-02 Fluid done
+         177 Helmholtz3/ Mesh:     41   0.9519E-04   0.1000E-03   0.2268E-01
+  177  8.850000E-01  2.127121E-01  7.103618E-02  7.090404E-01 amp
+Step    178, t= 8.9000000E-01, DT= 5.0000000E-03, C=  0.099 2.3200E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851149165336        6.2831851149165336     
+         178 Helmholtz3/fluid:      5   0.2916E-14   0.1000E-11   0.1163E-03
+       178 U-PRES gmres:     17  8.5973E-11  1.0000E-10  1.8024E-06  0.0000E+00  0.0000E+00
+        178   8.9000E-01  0.0000E+00 Fluid done
+         178 Helmholtz3/ Mesh:     41   0.9553E-04   0.1000E-03   0.2261E-01
+  178  8.900000E-01  2.118134E-01  7.134151E-02  7.060445E-01 amp
+Step    179, t= 8.9500000E-01, DT= 5.0000000E-03, C=  0.100 2.3300E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851182032290        6.2831851182032290     
+         179 Helmholtz3/fluid:      5   0.2872E-14   0.1000E-11   0.1158E-03
+       179 U-PRES gmres:     18  6.6723E-11  1.0000E-10  1.6963E-06  0.0000E+00  0.0000E+00
+        179   8.9500E-01  0.0000E+00 Fluid done
+         179 Helmholtz3/ Mesh:     90   0.9504E-04   0.1000E-03   0.2254E-01
+  179  8.950000E-01  2.109114E-01  7.164553E-02  7.030381E-01 amp
+Step    180, t= 9.0000000E-01, DT= 5.0000000E-03, C=  0.100 2.3500E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851233510205        6.2831851233510205     
+         180 Helmholtz3/fluid:      5   0.2830E-14   0.1000E-11   0.1153E-03
+       180 U-PRES gmres:     18  5.0391E-11  1.0000E-10  1.8534E-06  0.0000E+00  0.0000E+00
+        180   9.0000E-01  0.0000E+00 Fluid done
+         180 Helmholtz3/ Mesh:     41   0.9187E-04   0.1000E-03   0.2246E-01
+  180  9.000000E-01  2.100064E-01  7.194824E-02  7.000212E-01 amp
+Step    181, t= 9.0500000E-01, DT= 5.0000000E-03, C=  0.101 2.3600E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851187488548        6.2831851187488548     
+         181 Helmholtz3/fluid:      5   0.2788E-14   0.1000E-11   0.1148E-03
+       181 U-PRES gmres:     17  6.8566E-11  1.0000E-10  7.3889E-07  0.0000E+00  0.0000E+00
+        181   9.0500E-01  0.0000E+00 Fluid done
+         181 Helmholtz3/ Mesh:     41   0.9543E-04   0.1000E-03   0.2239E-01
+  181  9.050000E-01  2.090982E-01  7.224962E-02  6.969938E-01 amp
+Step    182, t= 9.1000000E-01, DT= 5.0000000E-03, C=  0.101 2.3700E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851220300523        6.2831851220300523     
+         182 Helmholtz3/fluid:      5   0.2746E-14   0.1000E-11   0.1143E-03
+       182 U-PRES gmres:     18  6.2342E-11  1.0000E-10  1.0186E-06  0.0000E+00  0.0000E+00
+        182   9.1000E-01  0.0000E+00 Fluid done
+         182 Helmholtz3/ Mesh:     90   0.9456E-04   0.1000E-03   0.2231E-01
+  182  9.100000E-01  2.081869E-01  7.254970E-02  6.939562E-01 amp
+Step    183, t= 9.1500000E-01, DT= 5.0000000E-03, C=  0.102 2.3900E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851272993369        6.2831851272993369     
+         183 Helmholtz3/fluid:      5   0.2705E-14   0.1000E-11   0.1138E-03
+       183 U-PRES gmres:     17  7.8393E-11  1.0000E-10  1.6562E-06  0.0000E+00  0.0000E+00
+        183   9.1500E-01  0.0000E+00 Fluid done
+         183 Helmholtz3/ Mesh:     41   0.9361E-04   0.1000E-03   0.2223E-01
+  183  9.150000E-01  2.072725E-01  7.284846E-02  6.909083E-01 amp
+Step    184, t= 9.2000000E-01, DT= 5.0000000E-03, C=  0.102 2.4000E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851228012354        6.2831851228012354     
+         184 Helmholtz3/fluid:      5   0.2664E-14   0.1000E-11   0.1133E-03
+       184 U-PRES gmres:     16  8.8448E-11  1.0000E-10  7.2893E-07  0.0000E+00  0.0000E+00
+        184   9.2000E-01  0.0000E+00 Fluid done
+         184 Helmholtz3/ Mesh:     41   0.9630E-04   0.1000E-03   0.2216E-01
+  184  9.200000E-01  2.063551E-01  7.314589E-02  6.878502E-01 amp
+Step    185, t= 9.2500000E-01, DT= 5.0000000E-03, C=  0.103 2.4100E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851261541685        6.2831851261541685     
+         185 Helmholtz3/fluid:      5   0.2624E-14   0.1000E-11   0.1127E-03
+       185 U-PRES gmres:     18  5.2731E-11  1.0000E-10  1.0270E-06  0.0000E+00  0.0000E+00
+        185   9.2500E-01  0.0000E+00 Fluid done
+         185 Helmholtz3/ Mesh:     90   0.9744E-04   0.1000E-03   0.2208E-01
+  185  9.250000E-01  2.054346E-01  7.344201E-02  6.847821E-01 amp
+Step    186, t= 9.3000000E-01, DT= 5.0000000E-03, C=  0.103 2.4300E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851318012113        6.2831851318012113     
+         186 Helmholtz3/fluid:      5   0.2584E-14   0.1000E-11   0.1122E-03
+       186 U-PRES gmres:     17  9.2881E-11  1.0000E-10  1.6543E-06  0.0000E+00  0.0000E+00
+        186   9.3000E-01  0.0000E+00 Fluid done
+         186 Helmholtz3/ Mesh:     41   0.9559E-04   0.1000E-03   0.2200E-01
+  186  9.300000E-01  2.045112E-01  7.373682E-02  6.817040E-01 amp
+Step    187, t= 9.3500000E-01, DT= 5.0000000E-03, C=  0.104 2.4400E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851268935477        6.2831851268935477     
+         187 Helmholtz3/fluid:      5   0.2545E-14   0.1000E-11   0.1117E-03
+       187 U-PRES gmres:     16  9.3627E-11  1.0000E-10  6.9923E-07  0.0000E+00  0.0000E+00
+        187   9.3500E-01  0.0000E+00 Fluid done
+         187 Helmholtz3/ Mesh:     41   0.9713E-04   0.1000E-03   0.2193E-01
+  187  9.350000E-01  2.035848E-01  7.403030E-02  6.786160E-01 amp
+Step    188, t= 9.4000000E-01, DT= 5.0000000E-03, C=  0.104 2.4500E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851304336563        6.2831851304336563     
+         188 Helmholtz3/fluid:      5   0.2505E-14   0.1000E-11   0.1112E-03
+       188 U-PRES gmres:     18  5.3460E-11  1.0000E-10  1.0893E-06  0.0000E+00  0.0000E+00
+        188   9.4000E-01  0.0000E+00 Fluid done
+         188 Helmholtz3/ Mesh:     90   0.9897E-04   0.1000E-03   0.2185E-01
+  188  9.400000E-01  2.026555E-01  7.432248E-02  6.755183E-01 amp
+Step    189, t= 9.4500000E-01, DT= 5.0000000E-03, C=  0.104 2.4700E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851363636808        6.2831851363636808     
+         189 Helmholtz3/fluid:      5   0.2467E-14   0.1000E-11   0.1107E-03
+       189 U-PRES gmres:     18  4.9625E-11  1.0000E-10  1.7001E-06  0.0000E+00  0.0000E+00
+        189   9.4500E-01  0.0000E+00 Fluid done
+         189 Helmholtz3/ Mesh:     41   0.9573E-04   0.1000E-03   0.2176E-01
+  189  9.450000E-01  2.017232E-01  7.461334E-02  6.724108E-01 amp
+Step    190, t= 9.5000000E-01, DT= 5.0000000E-03, C=  0.105 2.4800E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851310769826        6.2831851310769826     
+         190 Helmholtz3/fluid:      5   0.2429E-14   0.1000E-11   0.1101E-03
+       190 U-PRES gmres:     16  9.7085E-11  1.0000E-10  7.2427E-07  0.0000E+00  0.0000E+00
+        190   9.5000E-01  0.0000E+00 Fluid done
+         190 Helmholtz3/ Mesh:     41   0.9642E-04   0.1000E-03   0.2169E-01
+  190  9.500000E-01  2.007881E-01  7.490287E-02  6.692938E-01 amp
+Step    191, t= 9.5500000E-01, DT= 5.0000000E-03, C=  0.105 2.4900E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851347807399        6.2831851347807399     
+         191 Helmholtz3/fluid:      5   0.2391E-14   0.1000E-11   0.1096E-03
+       191 U-PRES gmres:     18  5.6292E-11  1.0000E-10  1.1328E-06  0.0000E+00  1.0000E-02
+        191   9.5500E-01  1.0000E-02 Fluid done
+         191 Helmholtz3/ Mesh:     91   0.9432E-04   0.1000E-03   0.2160E-01
+  191  9.550000E-01  1.998502E-01  7.519110E-02  6.661672E-01 amp
+Step    192, t= 9.6000000E-01, DT= 5.0000000E-03, C=  0.106 2.5100E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851410427122        6.2831851410427122     
+         192 Helmholtz3/fluid:      5   0.2354E-14   0.1000E-11   0.1091E-03
+       192 U-PRES gmres:     18  5.5509E-11  1.0000E-10  1.8785E-06  0.0000E+00  0.0000E+00
+        192   9.6000E-01  0.0000E+00 Fluid done
+         192 Helmholtz3/ Mesh:     41   0.9314E-04   0.1000E-03   0.2151E-01
+  192  9.600000E-01  1.989094E-01  7.547802E-02  6.630313E-01 amp
+Step    193, t= 9.6500000E-01, DT= 5.0000000E-03, C=  0.106 2.5200E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851353198775        6.2831851353198775     
+         193 Helmholtz3/fluid:      4   0.9946E-12   0.1000E-11   0.1086E-03
+       193 U-PRES gmres:     17  7.3871E-11  1.0000E-10  9.1558E-07  1.0000E-02  1.0000E-02
+        193   9.6500E-01  1.0000E-02 Fluid done
+         193 Helmholtz3/ Mesh:     41   0.9489E-04   0.1000E-03   0.2144E-01
+  193  9.650000E-01  1.979658E-01  7.576361E-02  6.598860E-01 amp
+Step    194, t= 9.7000000E-01, DT= 5.0000000E-03, C=  0.107 2.5300E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851392334297        6.2831851392334297     
+         194 Helmholtz3/fluid:      4   0.9820E-12   0.1000E-11   0.1080E-03
+       194 U-PRES gmres:     18  6.2037E-11  1.0000E-10  1.6710E-06  1.0000E-02  1.0000E-02
+        194   9.7000E-01  1.0000E-02 Fluid done
+         194 Helmholtz3/ Mesh:     91   0.9785E-04   0.1000E-03   0.2135E-01
+  194  9.700000E-01  1.970195E-01  7.604790E-02  6.567316E-01 amp
+Step    195, t= 9.7500000E-01, DT= 5.0000000E-03, C=  0.107 2.5500E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851457664980        6.2831851457664980     
+         195 Helmholtz3/fluid:      4   0.9694E-12   0.1000E-11   0.1075E-03
+       195 U-PRES gmres:     18  6.0231E-11  1.0000E-10  1.7447E-06  0.0000E+00  1.0000E-02
+        195   9.7500E-01  1.0000E-02 Fluid done
+         195 Helmholtz3/ Mesh:     41   0.8882E-04   0.1000E-03   0.2126E-01
+  195  9.750000E-01  1.960704E-01  7.633087E-02  6.535680E-01 amp
+Step    196, t= 9.8000000E-01, DT= 5.0000000E-03, C=  0.107 2.5600E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851397674807        6.2831851397674807     
+         196 Helmholtz3/fluid:      4   0.9572E-12   0.1000E-11   0.1069E-03
+       196 U-PRES gmres:     17  7.1815E-11  1.0000E-10  8.1529E-07  1.0000E-02  1.0000E-02
+backtrace(): obtained 6 stack frames.
+./nek5000() [0x4f6dba]
+./nek5000() [0x5d835c]
+./nek5000() [0x402244]
+./nek5000() [0x63baba]
+/lib/libc.so.6(__libc_start_main+0xfd) [0x7f250506fc8d]
+./nek5000() [0x401c39]
+        196   9.8000E-01  1.0000E-02 Fluid done
+         196 Helmholtz3/ Mesh:     41   0.9362E-04   0.1000E-03   0.2119E-01
+  196  9.800000E-01  1.951186E-01  7.661252E-02  6.503954E-01 amp
+Step    197, t= 9.8500000E-01, DT= 5.0000000E-03, C=  0.108 2.5700E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851438949631        6.2831851438949631     
+         197 Helmholtz3/fluid:      4   0.9448E-12   0.1000E-11   0.1064E-03
+       197 U-PRES gmres:     18  6.5859E-11  1.0000E-10  1.5229E-06  0.0000E+00  0.0000E+00
+        197   9.8500E-01  1.0000E-02 Fluid done
+         197 Helmholtz3/ Mesh:    102   0.8536E-04   0.1000E-03   0.2110E-01
+  197  9.850000E-01  1.941642E-01  7.689287E-02  6.472140E-01 amp
+Step    198, t= 9.9000000E-01, DT= 5.0000000E-03, C=  0.108 2.5900E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851516582979        6.2831851516582979     
+         198 Helmholtz3/fluid:      4   0.9325E-12   0.1000E-11   0.1059E-03
+       198 U-PRES gmres:     18  7.3084E-11  1.0000E-10  1.8718E-06  1.0000E-02  1.0000E-02
+        198   9.9000E-01  1.0000E-02 Fluid done
+         198 Helmholtz3/ Mesh:     41   0.8489E-04   0.1000E-03   0.2101E-01
+  198  9.900000E-01  1.932071E-01  7.717191E-02  6.440237E-01 amp
+Step    199, t= 9.9500000E-01, DT= 5.0000000E-03, C=  0.109 2.6000E+00 1.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851442223829        6.2831851442223829     
+         199 Helmholtz3/fluid:      4   0.9206E-12   0.1000E-11   0.1053E-03
+       199 U-PRES gmres:     19  7.8046E-11  1.0000E-10  1.2306E-06  0.0000E+00  0.0000E+00
+        199   9.9500E-01  0.0000E+00 Fluid done
+         199 Helmholtz3/ Mesh:     41   0.9097E-04   0.1000E-03   0.2093E-01
+  199  9.950000E-01  1.922474E-01  7.744963E-02  6.408247E-01 amp
+Step    200, t= 1.0000000E+00, DT= 5.0000000E-03, C=  0.109 2.6200E+00 2.0000E-02
+ Solving for fluid F T T
+ vol_t,vol_v:   6.2831851489563446        6.2831851489563446     
+         200 Helmholtz3/fluid:      4   0.9084E-12   0.1000E-11   0.1047E-03
+       200 U-PRES gmres:     20  7.5321E-11  1.0000E-10  1.6668E-06  0.0000E+00  0.0000E+00
+        200   1.0000E+00  0.0000E+00 Fluid done
+         200 Helmholtz3/ Mesh:     91   0.9970E-04   0.1000E-03   0.2084E-01
+  200  1.000000E+00  1.912851E-01  7.772604E-02  6.376171E-01 amp
+ call outfld: ifpsco: F
+
+      200  1.0000E+00 Write checkpoint:
+       0     200 OPEN: st20.f00001
+
+      200  1.0000E+00 done :: Write checkpoint
+                              file size =     250.E-04MB
+                              avg data-throughput =     0.0MB/s
+                              io-nodes =     1
+
+
+end of time-step loop
+
+runtime statistics:
+ total time   2.6299999667091130     
+ tgop time       53080   0.0000000000000000        0.0000000000000000     
+ inv3 time        3397   0.0000000000000000        0.0000000000000000     
+ invc time        1403   0.0000000000000000        0.0000000000000000     
+ mltd time        6794  7.99999553710222244E-002  3.04182343664152963E-002
+ cdtp time        7194  6.00000023841857910E-002  2.28136894082409704E-002
+ eslv time         200  0.34000001288950443       0.12927757307728879     
+ pres time         200  0.35999999381601810       0.13688212865891466     
+ crsl time        3197   0.0000000000000000        0.0000000000000000     
+ crsl min    0.0000000000000000     
+ crsl max    0.0000000000000000     
+ crsl avg    0.0000000000000000     
+ hmhz time           0   0.0000000000000000        0.0000000000000000     
+ spro time         202   0.0000000000000000        0.0000000000000000     
+ usbc time         201   0.0000000000000000        0.0000000000000000     
+ usbc min    0.0000000000000000     
+ usbc max    0.0000000000000000     
+ usb  avg    0.0000000000000000     
+ axhm time       23120  0.83000034280121326       0.31558948794960734     
+ advc time         400  9.99999046325683594E-003  3.80227779081294178E-003
+ vdss time       16723  3.99999693036079407E-002  1.52091139961721810E-002
+ vdss min   3.99999693036079407E-002
+ vdss max   3.99999693036079407E-002
+ vdss avg   3.99999693036079407E-002
+ dsum time       13013   0.0000000000000000        0.0000000000000000     
+ dsum min    0.0000000000000000     
+ dsum max    0.0000000000000000     
+ dsum avg    0.0000000000000000     
+ dadd time           0  2.00001001358032227E-002  7.60460090835252209E-003
+ ddsl time        3197  0.19000005722045898       7.22433686788991614E-002
+ solv time        3197  4.99999523162841797E-002  1.90113889540647063E-002
+ prep time         200  0.98999952711164951       0.37642568047269748     
+
+#  nid       tusbc       tdadd       tcrsl       tvdss       tdsum        tgop    qqq    F
+           0  0.0000E+00  2.0000E-02  0.0000E+00  4.0000E-02  0.0000E+00  0.0000E+00 qqq
+  
+call exitt: dying ...
+  
+  
+total elapsed time             :   2.63000E+00 sec
+total solver time incl. I/O    :   2.63000E+00 sec
+time/timestep                  :   1.31500E-02 sec
+CPU seconds/timestep/gridpt    :   1.41398E-05 sec
+

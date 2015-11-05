@@ -1,0 +1,797 @@
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 96452 96452 96452
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 10436 10436 10436
+   buffer bytes (avg, min, max): 0 0 0
+/----------------------------------------------------------\\
+|      _   __ ______ __ __  ______  ____    ____    ____   |
+|     / | / // ____// //_/ / ____/ / __ \\ / __ \\ / __ \\ |
+|    /  |/ // __/  / ,<   /___ \\  / / / // / / // / / /   |
+|   / /|  // /___ / /| | ____/ / / /_/ // /_/ // /_/ /     |
+|  /_/ |_//_____//_/ |_|/_____/  \\____/ \\____/ \\____/   |
+|                                                          |
+|----------------------------------------------------------|
+|                                                          |
+| NEK5000:  Open Source Spectral Element Solver            |
+| COPYRIGHT (c) 2008-2010 UCHICAGO ARGONNE, LLC            |
+| Version:  1.0rc1 / SVN  r1082                            |
+| Web:      http://nek5000.mcs.anl.gov                     |
+|                                                          |
+\\----------------------------------------------------------/
+                                                              
+
+ Number of processors:           1
+ REAL    wdsize      :           8
+ INTEGER wdsize      :           4
+
+
+  Beginning session:
+  /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/shear4/thin.rea  
+
+ 
+ timer accuracy:   0.0000000E+00 sec
+
+ read .rea file
+ nelgt/nelgv/lelt:         256         256         300
+ lx1  /lx2  /lx3 :           9           7           9
+
+ mapping elements to processors
+           0         256         256         256         256  NELV
+ RANK     0 IEG       1       2       3       4       5       6       7       8
+                      9      10      11      12      13      14      15      16
+                     17      18      19      20      21      22      23      24
+                     25      26      27      28      29      30      31      32
+                     33      34      35      36      37      38      39      40
+                     41      42      43      44      45      46      47      48
+                     49      50      51      52      53      54      55      56
+                     57      58      59      60      61      62      63      64
+                     65      66      67      68      69      70      71      72
+                     73      74      75      76      77      78      79      80
+                     81      82      83      84      85      86      87      88
+                     89      90      91      92      93      94      95      96
+                     97      98      99     100     101     102     103     104
+                    105     106     107     108     109     110     111     112
+                    113     114     115     116     117     118     119     120
+                    121     122     123     124     125     126     127     128
+                    129     130     131     132     133     134     135     136
+                    137     138     139     140     141     142     143     144
+                    145     146     147     148     149     150     151     152
+                    153     154     155     156     157     158     159     160
+                    161     162     163     164     165     166     167     168
+                    169     170     171     172     173     174     175     176
+                    177     178     179     180     181     182     183     184
+                    185     186     187     188     189     190     191     192
+                    193     194     195     196     197     198     199     200
+                    201     202     203     204     205     206     207     208
+                    209     210     211     212     213     214     215     216
+                    217     218     219     220     221     222     223     224
+                    225     226     227     228     229     230     231     232
+                    233     234     235     236     237     238     239     240
+                    241     242     243     244     245     246     247     248
+                    249     250     251     252     253     254     255     256
+ element load imbalance:            0         256         256
+ done :: mapping elements to processors
+  
+           0  objects found
+ done :: read .rea file   0.10000E-01 sec
+
+ setup mesh topology
+   Right-handed check complete for     256 elements. OK.
+   setvert2d:   9        3840       16384        3840        3840
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   0  9        3840         256
+           4  max multiplicity
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ vol_t,vol_v:   1.0000000000001021        1.0000000000001021     
+ done :: generate geometry data
+  
+ call usrdat2
+
+ NOTE: FOR THE THIN CASE, recommend lx1=16
+
+ done :: usrdat2
+
+ regenerate geometry data           1
+ vol_t,vol_v:   1.0000000000001010        1.0000000000001010     
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+   0.0000000000000000        1.0000000000000000       Xrange
+   0.0000000000000000        1.0000000000000000       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+ 118   Parameters from file:/homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/shear4/thin.rea
+   1          1.000000         p01 DENSITY
+   2         -40000.00         p02 VISCOS
+   7          1.000000         p07 RHOCP
+   8          1.000000         p08 CONDUCT
+  11          2000.000         p11 NSTEPS
+  12        -1.0000000E-03     p12 DT
+  15          500.0000         p15 IOSTEP
+  21         1.0000000E-07     p21 DIVERGENCE
+  22         1.0000000E-09     p22 HELMHOLTZ
+  23          3.000000         p23 NPSCAL
+  24         1.0000000E-02     p24 TOLREL
+  25         1.0000000E-02     p25 TOLABS
+  26          1.000000         p26 COURANT/NTAU
+  27          3.000000         p27 TORDER
+  28         0.0000000E+00     p28 TORDER: mesh velocity (0: p28=p27)
+  43          1.000000         p43 0=semg/1=schwarz
+  66          6.000000         p66 write fmt:ONLY postx uses rea value
+  67          6.000000         p67 read fmt: same modes as p66
+  93          80.00000         p93 Numbr of prev pressure solns saved
+  94          3.000000         p94 start projecting vel. after p94 step
+  95          5.000000         p95 start projecting pr after p95 step
+  99          3.000000         p99    dealiasing:if <0 disable
+  
+ IFTRAN   = T
+ IFFLOW   = T
+ IFHEAT   = T
+ IFSPLIT  = F
+ IFLOMACH = F
+ IFUSERVP = F
+ IFUSERMV = F
+ IFSTRS   = F
+ IFCHAR   = T
+ IFCYCLIC = F
+ IFAXIS   = F
+ IFMVBD   = F
+ IFMELT   = F
+ IFMODEL  = F
+ IFKEPS   = F
+ IFMOAB   = F
+ IFNEKNEK = F
+ IFSYNC   = T
+   
+ IFVCOR   = T
+ IFINTQ   = F
+ IFCWUZ   = F
+ IFSWALL  = F
+ IFGEOM   = F
+ IFSURT   = F
+ IFWCNO   = F
+   
+ IFTMSH for field           1    =  F
+ IFADVC for field           1    =  T
+ IFNONL for field           1    =  F
+   
+ IFTMSH for field           2    =  T
+ IFADVC for field           2    =  T
+ IFNONL for field           2    =  F
+   
+ IFTMSH for field           3    =  T
+ IFADVC for field           3    =  T
+ IFNONL for field           3    =  F
+   
+ IFTMSH for field           4    =  T
+ IFADVC for field           4    =  T
+ IFNONL for field           4    =  F
+   
+ IFTMSH for field           5    =  T
+ IFADVC for field           5    =  T
+ IFNONL for field           5    =  F
+   
+ Dealiasing enabled, lxd=          13
+  
+ Estimated eigenvalues
+ EIGAA =    9.8696044010893580     
+ EIGGA =    1103269.9749947069     
+ EIGAE =    9.8696044010893580     
+ EIGAS =   0.12500000000000000     
+ EIGGE =    1103269.9749947069     
+ EIGGS =    2.0000000000000000     
+  
+ verify mesh topology
+   0.0000000000000000        1.0000000000000000       Xrange
+   0.0000000000000000        1.0000000000000000       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+  E-solver strategy:  1 itr
+ setup h1 coarse grid, nx_crs=           2
+ call usrsetvert
+ done :: usrsetvert
+
+ done :: setup h1 coarse grid    0.0000000000000000       sec
+  
+ call usrdat3
+ done :: usrdat3
+
+ set initial conditions
+ nekuic (1) for ifld            1
+ Shear layer delta:  5.00000000000000028E-002
+ Shear layer rho:     100.00000000000000     
+ nekuic (1) for ifld            2
+ nekuic (1) for ifld            3
+ nekuic (1) for ifld            4
+ nekuic (1) for ifld            5
+ call nekuic for ifld            2
+ call nekuic for ifld            3
+ call nekuic for ifld            4
+ call nekuic for ifld            5
+ call nekuic for vel  
+ xyz min     0.0000       0.0000       0.0000    
+ uvwpt min  -1.0000     -0.50000E-01  0.99093E-20   0.0000      -2.0000    
+ PS min     -1.9997      -2.0000      -1.9943    
+ xyz max     1.0000       1.0000       0.0000    
+ uvwpt max   1.0000      0.50000E-01  0.40000E-19   0.0000       2.0000    
+ PS max      1.9997       2.0000       1.9943    
+ done :: set initial conditions
+  
+ call userchk
+        0  0.000000E+00  1.005943E+02 peak vorticity
+ done :: userchk
+
+gridpoints unique/tot:         16384        20736
+  dofs:                16384                12544
+  
+ Initialization successfully completed   0.15000     sec
+
+Starting time loop ...
+
+     DT/DTCFL/DTFS/DTINIT   0.100E-02   0.303-316   0.109-321   0.100E-02
+Step      1, t= 1.0000000E-03, DT= 1.0000000E-03, C=  0.335 0.0000E+00 0.0000E+00
+             Solving for heat
+ Solving for fluid F T T
+  Temperature/Passive scalar solution
+  1.00000000000000006E-009  p22            1           2
+  1     1 Helmholtz TEMP    F:   1.1134E+03   1.0000E-09   1.0000E+00   1.0000E+03
+  1     2 Helmholtz TEMP    F:   1.6782E+03   1.0000E-09   1.0000E+00   1.0000E+03
+  1     3 Helmholtz TEMP    F:   1.0627E+03   1.0000E-09   1.0000E+00   1.0000E+03
+  1     4 Helmholtz TEMP    F:   1.1445E+03   1.0000E-09   1.0000E+00   1.0000E+03
+  1     5 Helmholtz TEMP    F:   8.2867E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1     6 Helmholtz TEMP    F:   1.0438E+03   1.0000E-09   1.0000E+00   1.0000E+03
+  1     7 Helmholtz TEMP    F:   7.4712E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1     8 Helmholtz TEMP    F:   7.4536E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1     9 Helmholtz TEMP    F:   6.2352E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    10 Helmholtz TEMP    F:   5.9044E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    11 Helmholtz TEMP    F:   5.7430E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    12 Helmholtz TEMP    F:   5.2700E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    13 Helmholtz TEMP    F:   4.5535E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    14 Helmholtz TEMP    F:   5.0405E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    15 Helmholtz TEMP    F:   4.5031E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    16 Helmholtz TEMP    F:   3.4534E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    17 Helmholtz TEMP    F:   3.4988E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    18 Helmholtz TEMP    F:   2.6613E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    19 Helmholtz TEMP    F:   2.6135E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    20 Helmholtz TEMP    F:   2.0742E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    21 Helmholtz TEMP    F:   1.5914E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    22 Helmholtz TEMP    F:   1.5556E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    23 Helmholtz TEMP    F:   1.1554E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    24 Helmholtz TEMP    F:   1.0853E+02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    25 Helmholtz TEMP    F:   9.6325E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    26 Helmholtz TEMP    F:   8.2896E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    27 Helmholtz TEMP    F:   9.0451E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    28 Helmholtz TEMP    F:   6.4617E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    29 Helmholtz TEMP    F:   6.3688E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    30 Helmholtz TEMP    F:   5.5849E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    31 Helmholtz TEMP    F:   5.0624E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    32 Helmholtz TEMP    F:   5.1158E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    33 Helmholtz TEMP    F:   4.3488E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    34 Helmholtz TEMP    F:   4.0777E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    35 Helmholtz TEMP    F:   3.4259E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    36 Helmholtz TEMP    F:   2.6917E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    37 Helmholtz TEMP    F:   2.2790E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    38 Helmholtz TEMP    F:   1.7248E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    39 Helmholtz TEMP    F:   1.5568E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    40 Helmholtz TEMP    F:   1.3433E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    41 Helmholtz TEMP    F:   1.1998E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    42 Helmholtz TEMP    F:   1.1200E+01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    43 Helmholtz TEMP    F:   9.9165E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    44 Helmholtz TEMP    F:   8.4892E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    45 Helmholtz TEMP    F:   7.7584E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    46 Helmholtz TEMP    F:   6.9936E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    47 Helmholtz TEMP    F:   6.8146E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    48 Helmholtz TEMP    F:   6.8898E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    49 Helmholtz TEMP    F:   5.3369E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    50 Helmholtz TEMP    F:   5.0268E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    51 Helmholtz TEMP    F:   4.5981E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    52 Helmholtz TEMP    F:   3.7717E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    53 Helmholtz TEMP    F:   3.3739E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    54 Helmholtz TEMP    F:   2.8427E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    55 Helmholtz TEMP    F:   2.2956E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    56 Helmholtz TEMP    F:   2.0844E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    57 Helmholtz TEMP    F:   1.5117E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    58 Helmholtz TEMP    F:   1.4218E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    59 Helmholtz TEMP    F:   1.5334E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    60 Helmholtz TEMP    F:   1.3234E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    61 Helmholtz TEMP    F:   1.1604E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    62 Helmholtz TEMP    F:   1.2612E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    63 Helmholtz TEMP    F:   1.1158E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    64 Helmholtz TEMP    F:   1.0784E+00   1.0000E-09   1.0000E+00   1.0000E+03
+  1    65 Helmholtz TEMP    F:   8.0451E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    66 Helmholtz TEMP    F:   8.2502E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    67 Helmholtz TEMP    F:   6.9125E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    68 Helmholtz TEMP    F:   6.7126E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    69 Helmholtz TEMP    F:   4.5502E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    70 Helmholtz TEMP    F:   4.3069E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    71 Helmholtz TEMP    F:   2.8003E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    72 Helmholtz TEMP    F:   1.9000E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    73 Helmholtz TEMP    F:   1.8641E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    74 Helmholtz TEMP    F:   1.4238E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    75 Helmholtz TEMP    F:   1.2039E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    76 Helmholtz TEMP    F:   1.0134E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    77 Helmholtz TEMP    F:   1.1808E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    78 Helmholtz TEMP    F:   1.3283E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    79 Helmholtz TEMP    F:   1.3661E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    80 Helmholtz TEMP    F:   1.4482E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    81 Helmholtz TEMP    F:   1.1577E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    82 Helmholtz TEMP    F:   1.2075E-01   1.0000E-09   1.0000E+00   1.0000E+03
+  1    83 Helmholtz TEMP    F:   7.4566E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    84 Helmholtz TEMP    F:   5.5360E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    85 Helmholtz TEMP    F:   4.0963E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    86 Helmholtz TEMP    F:   3.2702E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    87 Helmholtz TEMP    F:   3.6630E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    88 Helmholtz TEMP    F:   2.7366E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    89 Helmholtz TEMP    F:   2.9987E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    90 Helmholtz TEMP    F:   2.3778E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    91 Helmholtz TEMP    F:   2.0170E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    92 Helmholtz TEMP    F:   2.1928E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    93 Helmholtz TEMP    F:   2.0920E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    94 Helmholtz TEMP    F:   1.9862E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    95 Helmholtz TEMP    F:   1.5387E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    96 Helmholtz TEMP    F:   1.5283E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    97 Helmholtz TEMP    F:   1.3732E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    98 Helmholtz TEMP    F:   1.0250E-02   1.0000E-09   1.0000E+00   1.0000E+03
+  1    99 Helmholtz TEMP    F:   8.2023E-03   1.0000E-09   1.0000E+00   1.0000E+03
+  1   100 Helmholtz TEMP    F:   5.9609E-03   1.0000E-09   1.0000E+00   1.0000E+03
+     1   100 **ERROR**: Failed in HMHOLTZ: TEMP   5.9609E-03   1.1134E+03   1.0000E-09
+  1.00000000000000006E-009  p22            1           2
+  1     1 Helmholtz PS 1    F:   3.4278E+02   1.0000E-09   1.0000E-01   1.0000E+03
+  1     2 Helmholtz PS 1    F:   2.4289E+02   1.0000E-09   1.0000E-01   1.0000E+03
+  1     3 Helmholtz PS 1    F:   1.7402E+02   1.0000E-09   1.0000E-01   1.0000E+03
+  1     4 Helmholtz PS 1    F:   1.1956E+02   1.0000E-09   1.0000E-01   1.0000E+03
+  1     5 Helmholtz PS 1    F:   8.1444E+01   1.0000E-09   1.0000E-01   1.0000E+03
+  1     6 Helmholtz PS 1    F:   6.4966E+01   1.0000E-09   1.0000E-01   1.0000E+03
+  1     7 Helmholtz PS 1    F:   3.6047E+01   1.0000E-09   1.0000E-01   1.0000E+03
+  1     8 Helmholtz PS 1    F:   2.8057E+01   1.0000E-09   1.0000E-01   1.0000E+03
+  1     9 Helmholtz PS 1    F:   2.0615E+01   1.0000E-09   1.0000E-01   1.0000E+03
+  1    10 Helmholtz PS 1    F:   1.6195E+01   1.0000E-09   1.0000E-01   1.0000E+03
+  1    11 Helmholtz PS 1    F:   1.3693E+01   1.0000E-09   1.0000E-01   1.0000E+03
+  1    12 Helmholtz PS 1    F:   8.8125E+00   1.0000E-09   1.0000E-01   1.0000E+03
+  1    13 Helmholtz PS 1    F:   8.3627E+00   1.0000E-09   1.0000E-01   1.0000E+03
+  1    14 Helmholtz PS 1    F:   5.2434E+00   1.0000E-09   1.0000E-01   1.0000E+03
+  1    15 Helmholtz PS 1    F:   4.0501E+00   1.0000E-09   1.0000E-01   1.0000E+03
+  1    16 Helmholtz PS 1    F:   2.4715E+00   1.0000E-09   1.0000E-01   1.0000E+03
+  1    17 Helmholtz PS 1    F:   1.9929E+00   1.0000E-09   1.0000E-01   1.0000E+03
+  1    18 Helmholtz PS 1    F:   1.5221E+00   1.0000E-09   1.0000E-01   1.0000E+03
+  1    19 Helmholtz PS 1    F:   8.6151E-01   1.0000E-09   1.0000E-01   1.0000E+03
+  1    20 Helmholtz PS 1    F:   5.7661E-01   1.0000E-09   1.0000E-01   1.0000E+03
+  1    21 Helmholtz PS 1    F:   3.4330E-01   1.0000E-09   1.0000E-01   1.0000E+03
+  1    22 Helmholtz PS 1    F:   2.4481E-01   1.0000E-09   1.0000E-01   1.0000E+03
+  1    23 Helmholtz PS 1    F:   1.5794E-01   1.0000E-09   1.0000E-01   1.0000E+03
+  1    24 Helmholtz PS 1    F:   9.6685E-02   1.0000E-09   1.0000E-01   1.0000E+03
+  1    25 Helmholtz PS 1    F:   7.8597E-02   1.0000E-09   1.0000E-01   1.0000E+03
+  1    26 Helmholtz PS 1    F:   5.0653E-02   1.0000E-09   1.0000E-01   1.0000E+03
+  1    27 Helmholtz PS 1    F:   3.6496E-02   1.0000E-09   1.0000E-01   1.0000E+03
+  1    28 Helmholtz PS 1    F:   2.7350E-02   1.0000E-09   1.0000E-01   1.0000E+03
+  1    29 Helmholtz PS 1    F:   1.8906E-02   1.0000E-09   1.0000E-01   1.0000E+03
+  1    30 Helmholtz PS 1    F:   1.3645E-02   1.0000E-09   1.0000E-01   1.0000E+03
+  1    31 Helmholtz PS 1    F:   1.0139E-02   1.0000E-09   1.0000E-01   1.0000E+03
+  1    32 Helmholtz PS 1    F:   8.2285E-03   1.0000E-09   1.0000E-01   1.0000E+03
+  1    33 Helmholtz PS 1    F:   6.3714E-03   1.0000E-09   1.0000E-01   1.0000E+03
+  1    34 Helmholtz PS 1    F:   4.5493E-03   1.0000E-09   1.0000E-01   1.0000E+03
+  1    35 Helmholtz PS 1    F:   3.1746E-03   1.0000E-09   1.0000E-01   1.0000E+03
+  1    36 Helmholtz PS 1    F:   2.3832E-03   1.0000E-09   1.0000E-01   1.0000E+03
+  1    37 Helmholtz PS 1    F:   1.5891E-03   1.0000E-09   1.0000E-01   1.0000E+03
+  1    38 Helmholtz PS 1    F:   1.2275E-03   1.0000E-09   1.0000E-01   1.0000E+03
+  1    39 Helmholtz PS 1    F:   7.7765E-04   1.0000E-09   1.0000E-01   1.0000E+03
+  1    40 Helmholtz PS 1    F:   5.3065E-04   1.0000E-09   1.0000E-01   1.0000E+03
+  1    41 Helmholtz PS 1    F:   3.2937E-04   1.0000E-09   1.0000E-01   1.0000E+03
+  1    42 Helmholtz PS 1    F:   2.1007E-04   1.0000E-09   1.0000E-01   1.0000E+03
+  1    43 Helmholtz PS 1    F:   1.3673E-04   1.0000E-09   1.0000E-01   1.0000E+03
+  1    44 Helmholtz PS 1    F:   9.7282E-05   1.0000E-09   1.0000E-01   1.0000E+03
+  1    45 Helmholtz PS 1    F:   6.7271E-05   1.0000E-09   1.0000E-01   1.0000E+03
+  1    46 Helmholtz PS 1    F:   5.3819E-05   1.0000E-09   1.0000E-01   1.0000E+03
+  1    47 Helmholtz PS 1    F:   3.7215E-05   1.0000E-09   1.0000E-01   1.0000E+03
+  1    48 Helmholtz PS 1    F:   2.7015E-05   1.0000E-09   1.0000E-01   1.0000E+03
+  1    49 Helmholtz PS 1    F:   2.2151E-05   1.0000E-09   1.0000E-01   1.0000E+03
+  1    50 Helmholtz PS 1    F:   1.5086E-05   1.0000E-09   1.0000E-01   1.0000E+03
+  1    51 Helmholtz PS 1    F:   1.1636E-05   1.0000E-09   1.0000E-01   1.0000E+03
+  1    52 Helmholtz PS 1    F:   9.4145E-06   1.0000E-09   1.0000E-01   1.0000E+03
+  1    53 Helmholtz PS 1    F:   6.3332E-06   1.0000E-09   1.0000E-01   1.0000E+03
+  1    54 Helmholtz PS 1    F:   5.4895E-06   1.0000E-09   1.0000E-01   1.0000E+03
+  1    55 Helmholtz PS 1    F:   3.2306E-06   1.0000E-09   1.0000E-01   1.0000E+03
+  1    56 Helmholtz PS 1    F:   2.0389E-06   1.0000E-09   1.0000E-01   1.0000E+03
+  1    57 Helmholtz PS 1    F:   1.6687E-06   1.0000E-09   1.0000E-01   1.0000E+03
+  1    58 Helmholtz PS 1    F:   9.6147E-07   1.0000E-09   1.0000E-01   1.0000E+03
+  1    59 Helmholtz PS 1    F:   7.1027E-07   1.0000E-09   1.0000E-01   1.0000E+03
+  1    60 Helmholtz PS 1    F:   4.5145E-07   1.0000E-09   1.0000E-01   1.0000E+03
+  1    61 Helmholtz PS 1    F:   3.1378E-07   1.0000E-09   1.0000E-01   1.0000E+03
+  1    62 Helmholtz PS 1    F:   1.9826E-07   1.0000E-09   1.0000E-01   1.0000E+03
+  1    63 Helmholtz PS 1    F:   1.2628E-07   1.0000E-09   1.0000E-01   1.0000E+03
+  1    64 Helmholtz PS 1    F:   9.4104E-08   1.0000E-09   1.0000E-01   1.0000E+03
+  1    65 Helmholtz PS 1    F:   7.6313E-08   1.0000E-09   1.0000E-01   1.0000E+03
+  1    66 Helmholtz PS 1    F:   5.3836E-08   1.0000E-09   1.0000E-01   1.0000E+03
+  1    67 Helmholtz PS 1    F:   4.1773E-08   1.0000E-09   1.0000E-01   1.0000E+03
+  1    68 Helmholtz PS 1    F:   3.1587E-08   1.0000E-09   1.0000E-01   1.0000E+03
+  1    69 Helmholtz PS 1    F:   2.4616E-08   1.0000E-09   1.0000E-01   1.0000E+03
+  1    70 Helmholtz PS 1    F:   1.5925E-08   1.0000E-09   1.0000E-01   1.0000E+03
+  1    71 Helmholtz PS 1    F:   1.1962E-08   1.0000E-09   1.0000E-01   1.0000E+03
+  1    72 Helmholtz PS 1    F:   9.0196E-09   1.0000E-09   1.0000E-01   1.0000E+03
+  1    73 Helmholtz PS 1    F:   5.8835E-09   1.0000E-09   1.0000E-01   1.0000E+03
+  1    74 Helmholtz PS 1    F:   4.5588E-09   1.0000E-09   1.0000E-01   1.0000E+03
+  1    75 Helmholtz PS 1    F:   3.2243E-09   1.0000E-09   1.0000E-01   1.0000E+03
+  1    76 Helmholtz PS 1    F:   1.9206E-09   1.0000E-09   1.0000E-01   1.0000E+03
+  1    77 Helmholtz PS 1    F:   1.4322E-09   1.0000E-09   1.0000E-01   1.0000E+03
+  1    78 Helmholtz PS 1    F:   8.9528E-10   1.0000E-09   1.0000E-01   1.0000E+03
+          1    Hmholtz PS 1:     77   8.9528E-10   3.4278E+02   1.0000E-09
+  1.00000000000000006E-009  p22            1           2
+  1     1 Helmholtz PS 2    F:   4.0777E+01   1.0000E-09   1.0000E-02   1.0000E+03
+  1     2 Helmholtz PS 2    F:   1.6872E+01   1.0000E-09   1.0000E-02   1.0000E+03
+  1     3 Helmholtz PS 2    F:   7.0929E+00   1.0000E-09   1.0000E-02   1.0000E+03
+  1     4 Helmholtz PS 2    F:   3.3929E+00   1.0000E-09   1.0000E-02   1.0000E+03
+  1     5 Helmholtz PS 2    F:   1.2415E+00   1.0000E-09   1.0000E-02   1.0000E+03
+  1     6 Helmholtz PS 2    F:   7.1467E-01   1.0000E-09   1.0000E-02   1.0000E+03
+  1     7 Helmholtz PS 2    F:   3.4590E-01   1.0000E-09   1.0000E-02   1.0000E+03
+  1     8 Helmholtz PS 2    F:   1.2016E-01   1.0000E-09   1.0000E-02   1.0000E+03
+  1     9 Helmholtz PS 2    F:   4.3205E-02   1.0000E-09   1.0000E-02   1.0000E+03
+  1    10 Helmholtz PS 2    F:   1.6457E-02   1.0000E-09   1.0000E-02   1.0000E+03
+  1    11 Helmholtz PS 2    F:   6.9970E-03   1.0000E-09   1.0000E-02   1.0000E+03
+  1    12 Helmholtz PS 2    F:   1.9936E-03   1.0000E-09   1.0000E-02   1.0000E+03
+  1    13 Helmholtz PS 2    F:   9.5755E-04   1.0000E-09   1.0000E-02   1.0000E+03
+  1    14 Helmholtz PS 2    F:   3.4237E-04   1.0000E-09   1.0000E-02   1.0000E+03
+  1    15 Helmholtz PS 2    F:   1.3654E-04   1.0000E-09   1.0000E-02   1.0000E+03
+  1    16 Helmholtz PS 2    F:   5.5535E-05   1.0000E-09   1.0000E-02   1.0000E+03
+  1    17 Helmholtz PS 2    F:   1.7379E-05   1.0000E-09   1.0000E-02   1.0000E+03
+  1    18 Helmholtz PS 2    F:   7.2458E-06   1.0000E-09   1.0000E-02   1.0000E+03
+  1    19 Helmholtz PS 2    F:   2.7886E-06   1.0000E-09   1.0000E-02   1.0000E+03
+  1    20 Helmholtz PS 2    F:   9.1244E-07   1.0000E-09   1.0000E-02   1.0000E+03
+  1    21 Helmholtz PS 2    F:   4.0354E-07   1.0000E-09   1.0000E-02   1.0000E+03
+  1    22 Helmholtz PS 2    F:   1.4529E-07   1.0000E-09   1.0000E-02   1.0000E+03
+  1    23 Helmholtz PS 2    F:   5.8413E-08   1.0000E-09   1.0000E-02   1.0000E+03
+  1    24 Helmholtz PS 2    F:   2.2306E-08   1.0000E-09   1.0000E-02   1.0000E+03
+  1    25 Helmholtz PS 2    F:   8.0181E-09   1.0000E-09   1.0000E-02   1.0000E+03
+  1    26 Helmholtz PS 2    F:   3.6221E-09   1.0000E-09   1.0000E-02   1.0000E+03
+  1    27 Helmholtz PS 2    F:   1.7575E-09   1.0000E-09   1.0000E-02   1.0000E+03
+  1    28 Helmholtz PS 2    F:   7.7499E-10   1.0000E-09   1.0000E-02   1.0000E+03
+          1    Hmholtz PS 2:     27   7.7499E-10   4.0777E+01   1.0000E-09
+  1.00000000000000006E-009  p22            1           2
+  1     1 Helmholtz PS 3    F:   4.0810E+01   1.0000E-09   1.0000E-03   1.0000E+03
+  1     2 Helmholtz PS 3    F:   3.9767E+00   1.0000E-09   1.0000E-03   1.0000E+03
+  1     3 Helmholtz PS 3    F:   4.6453E-01   1.0000E-09   1.0000E-03   1.0000E+03
+  1     4 Helmholtz PS 3    F:   7.7490E-02   1.0000E-09   1.0000E-03   1.0000E+03
+  1     5 Helmholtz PS 3    F:   7.4287E-03   1.0000E-09   1.0000E-03   1.0000E+03
+  1     6 Helmholtz PS 3    F:   7.8808E-04   1.0000E-09   1.0000E-03   1.0000E+03
+  1     7 Helmholtz PS 3    F:   5.4353E-05   1.0000E-09   1.0000E-03   1.0000E+03
+  1     8 Helmholtz PS 3    F:   6.7242E-06   1.0000E-09   1.0000E-03   1.0000E+03
+  1     9 Helmholtz PS 3    F:   6.9214E-07   1.0000E-09   1.0000E-03   1.0000E+03
+  1    10 Helmholtz PS 3    F:   6.3280E-08   1.0000E-09   1.0000E-03   1.0000E+03
+  1    11 Helmholtz PS 3    F:   7.8716E-09   1.0000E-09   1.0000E-03   1.0000E+03
+  1    12 Helmholtz PS 3    F:   9.0352E-10   1.0000E-09   1.0000E-03   1.0000E+03
+          1    Hmholtz PS 3:     11   9.0352E-10   4.0810E+01   1.0000E-09
+          1   1.0000E-03  1.5000E-01 Heat done
+  1.00000000000000006E-009  p22            1           1
+  1     1 Helmholtz VELX    F:   5.7857E-01   1.0000E-09   2.5000E-05   1.0000E+03
+  1     2 Helmholtz VELX    F:   1.9369E-03   1.0000E-09   2.5000E-05   1.0000E+03
+  1     3 Helmholtz VELX    F:   1.0180E-05   1.0000E-09   2.5000E-05   1.0000E+03
+  1     4 Helmholtz VELX    F:   4.9805E-08   1.0000E-09   2.5000E-05   1.0000E+03
+  1     5 Helmholtz VELX    F:   2.1969E-10   1.0000E-09   2.5000E-05   1.0000E+03
+          1    Hmholtz VELX:      4   2.1969E-10   5.7857E-01   1.0000E-09
+  1.00000000000000006E-009  p22            1           1
+  1     1 Helmholtz VELY    F:   2.1766E-01   1.0000E-09   2.5000E-05   1.0000E+03
+  1     2 Helmholtz VELY    F:   5.6368E-04   1.0000E-09   2.5000E-05   1.0000E+03
+  1     3 Helmholtz VELY    F:   2.1364E-06   1.0000E-09   2.5000E-05   1.0000E+03
+  1     4 Helmholtz VELY    F:   1.3256E-08   1.0000E-09   2.5000E-05   1.0000E+03
+  1     5 Helmholtz VELY    F:   3.8452E-11   1.0000E-09   2.5000E-05   1.0000E+03
+          1    Hmholtz VELY:      4   3.8452E-11   2.1766E-01   1.0000E-09
+    1 1.00000E-07 5.37593E-03 7.25145E-03 7.41360E-01       1 Divergence
+    2 1.00000E-07 2.79947E-03 7.25145E-03 3.86056E-01       1 Divergence
+    3 1.00000E-07 1.04730E-03 7.25145E-03 1.44427E-01       1 Divergence
+    4 1.00000E-07 5.54889E-04 7.25145E-03 7.65211E-02       1 Divergence
+    5 1.00000E-07 1.99858E-04 7.25145E-03 2.75611E-02       1 Divergence
+    6 1.00000E-07 5.06029E-05 7.25145E-03 6.97832E-03       1 Divergence
+    7 1.00000E-07 3.84999E-05 7.25145E-03 5.30927E-03       1 Divergence
+    8 1.00000E-07 1.50785E-05 7.25145E-03 2.07938E-03       1 Divergence
+    9 1.00000E-07 3.82353E-06 7.25145E-03 5.27279E-04       1 Divergence
+   10 1.00000E-07 1.56133E-06 7.25145E-03 2.15313E-04       1 Divergence
+   11 1.00000E-07 8.76777E-07 7.25145E-03 1.20911E-04       1 Divergence
+   12 1.00000E-07 3.52517E-07 7.25145E-03 4.86133E-05       1 Divergence
+   13 1.00000E-07 1.05990E-07 7.25145E-03 1.46164E-05       1 Divergence
+   14 1.00000E-07 4.31631E-08 7.25145E-03 5.95234E-06       1 Divergence
+         1 U-PRES gmres:     14  4.3163E-08  1.0000E-07  7.2515E-03  1.0000E-02  5.0000E-02
+          1   1.0000E-03  7.0000E-02 Fluid done
+        1  1.000000E-03  1.005241E+02 peak vorticity
+ schfile:/homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/shear4/thin.sch                                                        
+ Output:         -10
+   History point:  1 at ( 1, 1,  13,  13,); X,Y,Z = (  0.7500    ,   0.000    ,
+Step      2, t= 2.0000000E-03, DT= 1.0000000E-03, C=  0.335 3.1000E-01 3.1000E-01
+             Solving for heat
+ Solving for fluid F T T
+  1.00000000000000006E-009  p22            2           2
+     2   100 **ERROR**: Failed in HMHOLTZ: TEMP   2.8813E-04   3.1487E+02   1.0000E-09
+  1.00000000000000006E-009  p22            2           2
+          2    Hmholtz PS 1:     63   9.8058E-10   1.6764E+02   1.0000E-09
+  1.00000000000000006E-009  p22            2           2
+          2    Hmholtz PS 2:     23   3.7203E-10   4.7273E+01   1.0000E-09
+  1.00000000000000006E-009  p22            2           2
+          2    Hmholtz PS 3:     10   6.5858E-10   5.9125E+01   1.0000E-09
+          2   2.0000E-03  1.4000E-01 Heat done
+  1.00000000000000006E-009  p22            2           1
+          2    Hmholtz VELX:      4   5.9767E-11   7.7733E-01   1.0000E-09
+  1.00000000000000006E-009  p22            2           1
+          2    Hmholtz VELY:      4   3.2203E-12   1.1269E-01   1.0000E-09
+         2 U-PRES gmres:     10  5.0238E-08  1.0000E-07  3.6346E-05  1.0000E-02  4.0000E-02
+          2   2.0000E-03  5.0000E-02 Fluid done
+        2  2.000000E-03  1.004554E+02 peak vorticity
+Step      3, t= 3.0000000E-03, DT= 1.0000000E-03, C=  0.335 6.6000E-01 3.5000E-01
+             Solving for heat
+ Solving for fluid F T T
+     3   100 **ERROR**: Failed in HMHOLTZ: TEMP   4.0521E-05   2.3298E+02   1.0000E-09
+ Reorthogonalize Basis:
+       3   1.19937E+00   1.19937E+00   1.00000E+00   1 PS 1   PROJECT
+          3    Hmholtz PS 1:     57   8.0016E-10   1.2447E+02   1.0000E-09
+ Reorthogonalize Basis:
+       3   4.64635E-01   4.64369E-01   1.00057E+00   2 PS 2   PROJECT
+          3    Hmholtz PS 2:     21   6.5063E-10   5.1623E+01   1.0000E-09
+ Reorthogonalize Basis:
+       3   5.97838E-01   5.97771E-01   1.00011E+00   3 PS 3   PROJECT
+          3    Hmholtz PS 3:     10   1.6917E-10   7.0742E+01   1.0000E-09
+          3   3.0000E-03  1.5000E-01 Heat done
+  1.00000000000000006E-009  p22            3           1
+          3    Hmholtz VELX:      4   3.2261E-11   9.4844E-01   1.0000E-09
+  1.00000000000000006E-009  p22            3           1
+          3    Hmholtz VELY:      4   5.0383E-12   3.5971E-01   1.0000E-09
+         3 U-PRES gmres:     13  5.8783E-08  1.0000E-07  3.9543E-03  0.0000E+00  5.0000E-02
+          3   3.0000E-03  7.0000E-02 Fluid done
+        3  3.000000E-03  1.003874E+02 peak vorticity
+Step      4, t= 4.0000000E-03, DT= 1.0000000E-03, C=  0.336 1.0700E+00 4.1000E-01
+             Solving for heat
+ Solving for fluid F T T
+ Reorthogonalize Basis:
+       4   1.57526E+00   1.57602E+00   9.99520E-01   3 TEMP   PROJECT
+     4   100 **ERROR**: Failed in HMHOLTZ: TEMP   2.6718E-05   1.7244E+02   1.0000E-09
+ Reorthogonalize Basis:
+       4   9.64142E-01   9.64553E-01   9.99573E-01   3 PS 1   PROJECT
+          4    Hmholtz PS 1:     57   7.2298E-10   9.9978E+01   1.0000E-09
+ Reorthogonalize Basis:
+       4   4.47331E-01   4.46998E-01   1.00074E+00   3 PS 2   PROJECT
+          4    Hmholtz PS 2:     21   6.0635E-10   4.9033E+01   1.0000E-09
+ Reorthogonalize Basis:
+       4   5.98737E-01   5.98719E-01   1.00003E+00   3 PS 3   PROJECT
+          4    Hmholtz PS 3:     10   1.6436E-10   6.9697E+01   1.0000E-09
+          4   4.0000E-03  1.5000E-01 Heat done
+ this is mprev:          10          10
+       4  1  9.4975E-01  9.4975E-01  1.0000E+00   0 alph1x
+     4 halpha   0
+          4    Hmholtz VELX:      4   3.2871E-11   9.4975E-01   1.0000E-09
+       4  2  1.3776E-01  1.3776E-01  1.0000E+00   0 alph1x
+     4 halpha   0
+          4    Hmholtz VELY:      4   1.7714E-12   1.3776E-01   1.0000E-09
+         4 U-PRES gmres:      5  6.7952E-08  1.0000E-07  1.9454E-06  0.0000E+00  2.0000E-02
+          4   4.0000E-03  3.0000E-02 Fluid done
+        4  4.000000E-03  1.003196E+02 peak vorticity
+Step      5, t= 5.0000000E-03, DT= 1.0000000E-03, C=  0.336 1.4700E+00 4.0000E-01
+             Solving for heat
+ Solving for fluid F T T
+ Reorthogonalize Basis:
+       5   1.21804E+00   1.21857E+00   9.99564E-01   3 TEMP   PROJECT
+     5   100 **ERROR**: Failed in HMHOLTZ: TEMP   1.6277E-05   1.3294E+02   1.0000E-09
+ Reorthogonalize Basis:
+       5   8.23818E-01   8.24042E-01   9.99728E-01   3 PS 1   PROJECT
+          5    Hmholtz PS 1:     57   5.7822E-10   8.6755E+01   1.0000E-09
+ Reorthogonalize Basis:
+       5   4.35147E-01   4.34872E-01   1.00063E+00   3 PS 2   PROJECT
+          5    Hmholtz PS 2:     21   5.3995E-10   4.7474E+01   1.0000E-09
+ Reorthogonalize Basis:
+       5   5.99027E-01   5.98993E-01   1.00006E+00   3 PS 3   PROJECT
+          5    Hmholtz PS 3:     10   1.5681E-10   6.8721E+01   1.0000E-09
+          5   5.0000E-03  1.6000E-01 Heat done
+       5  1  9.4965E-01  4.5057E-03  2.1076E+02   1 alph1x
+     5 halpha   1  2.2177E-02
+          5    Hmholtz VELX:      3   2.8596E-11   4.5057E-03   1.0000E-09
+       5  2  1.3777E-01  9.4419E-04  1.4592E+02   1 alph1x
+     5 halpha   1  3.2175E-03
+          5    Hmholtz VELY:      3   1.0557E-11   9.4419E-04   1.0000E-09
+         5 U-PRES gmres:      5  3.0679E-08  1.0000E-07  1.0235E-06  0.0000E+00  1.0000E-02
+          5   5.0000E-03  4.0000E-02 Fluid done
+        5  5.000000E-03  1.002520E+02 peak vorticity
+Step      6, t= 6.0000000E-03, DT= 1.0000000E-03, C=  0.336 1.8600E+00 3.9000E-01
+             Solving for heat
+ Solving for fluid F T T
+ Reorthogonalize Basis:
+       6   9.66702E-01   9.67021E-01   9.99669E-01   3 TEMP   PROJECT
+     6   100 **ERROR**: Failed in HMHOLTZ: TEMP   1.0169E-05   1.0545E+02   1.0000E-09
+ Reorthogonalize Basis:
+       6   7.31152E-01   7.31225E-01   9.99900E-01   3 PS 1   PROJECT
+          6    Hmholtz PS 1:     56   8.3840E-10   7.8034E+01   1.0000E-09
+ Reorthogonalize Basis:
+       6   4.25956E-01   4.25775E-01   1.00042E+00   3 PS 2   PROJECT
+          6    Hmholtz PS 2:     21   4.8479E-10   4.6381E+01   1.0000E-09
+ Reorthogonalize Basis:
+       6   5.99279E-01   5.99261E-01   1.00003E+00   3 PS 3   PROJECT
+          6    Hmholtz PS 3:     10   1.4977E-10   6.7864E+01   1.0000E-09
+          6   6.0000E-03  1.5000E-01 Heat done
+       6  1  9.4956E-01  3.1219E-05  3.0417E+04   2 alph1x
+     6 halpha   2  2.2175E-02  2.1024E-04
+          6    Hmholtz VELX:      2   9.1127E-11   3.1219E-05   1.0000E-09
+       6  2  1.3781E-01  3.9853E-05  3.4580E+03   2 alph1x
+     6 halpha   2  3.2182E-03  4.3766E-05
+          6    Hmholtz VELY:      2   1.0744E-10   3.9853E-05   1.0000E-09
+    6    1 alpha:  7.7471E-06
+     6   1  9.3789E-04  1.4759E-03  6.3549E-01 alph12
+         6 U-PRES gmres:      4  3.0187E-08  1.0000E-07  8.0502E-07  1.0000E-02  2.0000E-02
+          6   6.0000E-03  4.0000E-02 Fluid done
+        6  6.000000E-03  1.001845E+02 peak vorticity
+Step      7, t= 7.0000000E-03, DT= 1.0000000E-03, C=  0.336 2.2600E+00 4.0000E-01
+             Solving for heat
+ Solving for fluid F T T
+ Reorthogonalize Basis:
+       7   7.86018E-01   7.86242E-01   9.99716E-01   3 TEMP   PROJECT
+     7   100 **ERROR**: Failed in HMHOLTZ: TEMP   6.9802E-06   8.5787E+01   1.0000E-09
+ Reorthogonalize Basis:
+       7   6.64289E-01   6.64280E-01   1.00001E+00   3 PS 1   PROJECT
+          7    Hmholtz PS 1:     56   7.7420E-10   7.1465E+01   1.0000E-09
+ Reorthogonalize Basis:
+       7   4.18555E-01   4.18453E-01   1.00024E+00   3 PS 2   PROJECT
+          7    Hmholtz PS 2:     21   4.4781E-10   4.5536E+01   1.0000E-09
+ Reorthogonalize Basis:
+       7   5.99527E-01   5.99525E-01   1.00000E+00   3 PS 3   PROJECT
+          7    Hmholtz PS 3:     10   1.3673E-10   6.7151E+01   1.0000E-09
+          7   7.0000E-03  1.6000E-01 Heat done
+       7  1  9.4951E-01  3.1672E-05  2.9980E+04   3 alph1x
+     7 halpha   3  2.2172E-02  3.1529E-04  1.7628E-06
+          7    Hmholtz VELX:      2   8.2870E-11   3.1672E-05   1.0000E-09
+       7  2  1.3786E-01  1.6519E-05  8.3454E+03   3 alph1x
+     7 halpha   3  3.2190E-03  6.5733E-05  1.7681E-06
+          7    Hmholtz VELY:      2   5.4081E-11   1.6519E-05   1.0000E-09
+    7    2 alpha:  9.4637E-06  6.2178E-06
+     7   2  8.3734E-04  1.4607E-03  5.7326E-01 alph12
+         7 U-PRES gmres:      4  5.8444E-08  1.0000E-07  7.9673E-07  1.0000E-02  1.0000E-02
+          7   7.0000E-03  4.0000E-02 Fluid done
+        7  7.000000E-03  1.001171E+02 peak vorticity
+Step      8, t= 8.0000000E-03, DT= 1.0000000E-03, C=  0.336 2.6500E+00 3.9000E-01
+             Solving for heat
+ Solving for fluid F T T
+ Reorthogonalize Basis:
+       8   6.52544E-01   6.52737E-01   9.99705E-01   3 TEMP   PROJECT
+     8   100 **ERROR**: Failed in HMHOLTZ: TEMP   4.9570E-06   7.1206E+01   1.0000E-09
+ Reorthogonalize Basis:
+       8   6.12109E-01   6.12070E-01   1.00006E+00   3 PS 1   PROJECT
+          8    Hmholtz PS 1:     56   6.7129E-10   6.6143E+01   1.0000E-09
+ Reorthogonalize Basis:
+       8   4.12193E-01   4.12142E-01   1.00012E+00   3 PS 2   PROJECT
+          8    Hmholtz PS 2:     21   4.2507E-10   4.4829E+01   1.0000E-09
+ Reorthogonalize Basis:
+       8   5.99578E-01   5.99581E-01   9.99996E-01   3 PS 3   PROJECT
+          8    Hmholtz PS 3:     10   1.2177E-10   6.6565E+01   1.0000E-09
+          8   8.0000E-03  1.5000E-01 Heat done
+       8  1  9.4949E-01  1.0668E-05  8.9005E+04   4 alph1x
+     8 halpha   4  2.2170E-02  4.2034E-04  3.1629E-06  2.0767E-06
+          8    Hmholtz VELX:      2   3.7821E-11   1.0668E-05   1.0000E-09
+       8  2  1.3792E-01  1.1176E-05  1.2340E+04   4 alph1x
+     8 halpha   4  3.2198E-03  8.7859E-05  2.7085E-06  1.0918E-06
+          8    Hmholtz VELY:      2   4.8450E-11   1.1176E-05   1.0000E-09
+    8    3 alpha:  9.8850E-06  6.5090E-06  1.8375E-06
+     8   3  7.1532E-04  6.2148E-04  1.1510E+00 alph12
+         8 U-PRES gmres:      3  5.1102E-08  1.0000E-07  3.3899E-07  0.0000E+00  1.0000E-02
+          8   8.0000E-03  4.0000E-02 Fluid done
+        8  8.000000E-03  1.000498E+02 peak vorticity
+Step      9, t= 9.0000000E-03, DT= 1.0000000E-03, C=  0.336 3.0400E+00 3.9000E-01
+             Solving for heat
+ Solving for fluid F T T
+ Reorthogonalize Basis:
+       9   5.50706E-01   5.50871E-01   9.99700E-01   3 TEMP   PROJECT
+     9   100 **ERROR**: Failed in HMHOLTZ: TEMP   3.2369E-06   6.0077E+01   1.0000E-09
+ Reorthogonalize Basis:
+backtrace(): obtained 6 stack frames.
+./nek5000() [0x4f6e9a]
+./nek5000() [0x5d842c]
+./nek5000() [0x402544]
+./nek5000() [0x63bb9a]
+/lib/libc.so.6(__libc_start_main+0xfd) [0x7f9fa3f1cc8d]
+./nek5000() [0x401c89]
+       9   5.68675E-01   5.68626E-01   1.00009E+00   3 PS 1   PROJECT
+          9    Hmholtz PS 1:     56   6.2886E-10   6.1627E+01   1.0000E-09
+ Reorthogonalize Basis:
+       9   4.06494E-01   4.06475E-01   1.00005E+00   3 PS 2   PROJECT
+          9    Hmholtz PS 2:     21   4.0910E-10   4.4210E+01   1.0000E-09
+ Reorthogonalize Basis:
+       9   5.99277E-01   5.99274E-01   1.00000E+00   3 PS 3   PROJECT
+          9    Hmholtz PS 3:     10   1.1640E-10   6.6069E+01   1.0000E-09
+          9   9.0000E-03  1.5000E-01 Heat done
+       9  1  9.4950E-01  4.6162E-06  2.0569E+05   5 alph1x
+     9 halpha   5  2.2168E-02  5.2535E-04  4.9985E-06  3.9319E-06  5.0409E-07
+          9    Hmholtz VELX:      2   2.2831E-11   4.6162E-06   1.0000E-09
+       9  2  1.3799E-01  6.6668E-06  2.0697E+04   5 alph1x
+     9 halpha   5  3.2207E-03  1.1003E-04  3.8221E-06  2.0989E-06  5.2526E-07
+          9    Hmholtz VELY:      2   2.6058E-11   6.6668E-06   1.0000E-09
+    9    4 alpha:  5.3644E-06  3.8824E-06  1.9135E-06 -3.4831E-06
+     9   4  6.6301E-04  5.8736E-04  1.1288E+00 alph12
+         9 U-PRES gmres:      3  5.2836E-08  1.0000E-07  3.2038E-07  0.0000E+00  1.0000E-02
+          9   9.0000E-03  4.0000E-02 Fluid done
+        9  9.000000E-03  9.998259E+01 peak vorticity
+Step     10, t= 1.0000000E-02, DT= 1.0000000E-03, C=  0.336 3.4300E+00 3.9000E-01
+             Solving for heat
+ Solving for fluid F T T
+ Reorthogonalize Basis:
+      10   4.71613E-01   4.71744E-01   9.99723E-01   3 TEMP   PROJECT
+    10   100 **ERROR**: Failed in HMHOLTZ: TEMP   2.1163E-06   5.1448E+01   1.0000E-09
+ Reorthogonalize Basis:
+      10   5.31137E-01   5.31085E-01   1.00010E+00   3 PS 1   PROJECT
+         10    Hmholtz PS 1:     55   9.7410E-10   5.7686E+01   1.0000E-09
+ Reorthogonalize Basis:
+      10   4.01261E-01   4.01260E-01   1.00000E+00   3 PS 2   PROJECT
+         10    Hmholtz PS 2:     21   3.9645E-10   4.3650E+01   1.0000E-09
+ Reorthogonalize Basis:
+      10   5.98589E-01   5.98575E-01   1.00002E+00   3 PS 3   PROJECT
+         10    Hmholtz PS 3:     10   1.1786E-10   6.5625E+01   1.0000E-09
+         10   1.0000E-02  1.5000E-01 Heat done
+      10  1  9.4954E-01  1.2649E-05  7.5066E+04   6 alph1x
+    10 halpha   6  2.2166E-02  6.3030E-04  7.3522E-06  6.2900E-06  7.7469E-07  1.3482E-07
+         10    Hmholtz VELX:      2   4.4851E-11   1.2649E-05   1.0000E-09
+      10  2  1.3806E-01  7.4480E-06  1.8537E+04   6 alph1x
+    10 halpha   6  3.2217E-03  1.3226E-04  4.9582E-06  3.2074E-06  8.6132E-07  8.5101E-08
+         10    Hmholtz VELY:      2   2.6720E-11   7.4480E-06   1.0000E-09
+   10    5 alpha:  1.0018E-05  6.8391E-06  3.3410E-06  3.4990E-06 -2.1687E-06
+    10   5  5.8734E-04  2.0921E-04  2.8074E+00 alph12
+        10 U-PRES gmres:      2  5.9904E-08  1.0000E-07  1.1411E-07  1.0000E-02  1.0000E-02
+         10   1.0000E-02  4.0000E-02 Fluid done
+       10  1.000000E-02  9.991556E+01 peak vorticity
+ call outfld: ifpsco: T
+
+       10  1.0000E-02 Write checkpoint:
+       0      10 OPEN: thin0.f00001
+
+       10  1.0000E-02 done :: Write checkpoint
+                              file size =     0.71    MB
+                              avg data-throughput =     0.7MB/s
+                              io-nodes =     1
+
+
+end of time-step loop
+
+runtime statistics:
+ total time   3.8200001077486037     
+ tgop time        5886   0.0000000000000000        0.0000000000000000     
+ inv3 time          84   0.0000000000000000        0.0000000000000000     
+ invc time           0   0.0000000000000000        0.0000000000000000     
+ mltd time         168  6.99999332427978516E-002  1.83245893372641182E-002
+ cdtp time         188  0.14999991655349731       3.92669927545899675E-002
+ eslv time          10  0.23000007867813110       6.02094429818449475E-002
+ pres time          10  0.30000001192092896       7.85340323191090622E-002
+ crsl time          63   0.0000000000000000        0.0000000000000000     
+ crsl min    0.0000000000000000     
+ crsl max    0.0000000000000000     
+ crsl avg    0.0000000000000000     
+ hmhz time          14   1.3300002664327621       0.34816759919324330     
+ spro time          11   0.0000000000000000        0.0000000000000000     
+ usbc time         154  3.99999618530273438E-002  1.04711939070080678E-002
+ usbc min   3.99999618530273438E-002
+ usbc max   3.99999618530273438E-002
+ usb  avg   3.99999618530273438E-002
+ axhm time        2372   1.0400000959634781       0.27225132634261201     
+ advc time          10   1.6099997013807297       0.42146587852575124     
+ vdss time          85  2.99999713897705078E-002  7.85339543025605213E-003
+ vdss min   2.99999713897705078E-002
+ vdss max   2.99999713897705078E-002
+ vdss avg   2.99999713897705078E-002
+ dsum time        2487  3.00000011920928955E-002  7.85340323191090726E-003
+ dsum min   3.00000011920928955E-002
+ dsum max   3.00000011920928955E-002
+ dsum avg   3.00000011920928955E-002
+ dadd time           0   0.0000000000000000        0.0000000000000000     
+ ddsl time          63  3.99999618530273438E-002  1.04711939070080678E-002
+ solv time          63  2.99999713897705078E-002  7.85339543025605213E-003
+ prep time          10   0.0000000000000000        0.0000000000000000     
+
+#  nid       tusbc       tdadd       tcrsl       tvdss       tdsum        tgop    qqq    F
+           0  4.0000E-02  0.0000E+00  0.0000E+00  3.0000E-02  3.0000E-02  0.0000E+00 qqq
+  
+call exitt: dying ...
+  
+  
+total elapsed time             :   3.97000E+00 sec
+total solver time incl. I/O    :   3.82000E+00 sec
+time/timestep                  :   3.82000E-01 sec
+CPU seconds/timestep/gridpt    :   2.33154E-05 sec
+

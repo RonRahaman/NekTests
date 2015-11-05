@@ -1,0 +1,137 @@
+----------------------
+Make genbox...
+----------------------
+make[1]: Entering directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/genbox'
+gfortran -c -fdefault-real-8 genbox.f
+gcc  -c -DUNDERSCORE byte.c
+gfortran -fdefault-real-8 -o /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/tests/tools/genbox genbox.o byte.o   
+make[1]: Leaving directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/genbox'
+
+----------------------
+Make int_tp...
+----------------------
+make[1]: Entering directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/int_tp'
+gfortran -c    int_tp.f 
+gfortran -c    ../../nek/speclib.f 
+gfortran -c    mxm44f2.f 
+gcc  -c -DUNDERSCORE byte.c
+gfortran -c    int_tp_gbox.f 
+gfortran   -o /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/tests/tools/int_tp int_tp.o speclib.o mxm44f2.o byte.o int_tp_gbox.o 
+make[1]: Leaving directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/int_tp'
+
+----------------------
+Make nekmerge...
+----------------------
+make[1]: Entering directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/nekmerge'
+gfortran -c    nekmerge.f 
+gfortran -c    reader.f 
+gcc -c -DUNDERSCORE  byte.c
+gfortran -c    strings.f 
+gfortran -c    tsort.f 
+gfortran   -o  /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/tests/tools/nekmerge nekmerge.o reader.o byte.o strings.o tsort.o 
+make[1]: Leaving directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/nekmerge'
+
+----------------------
+Make prenek...
+----------------------
+make[1]: Entering directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/prenek'
+gfortran -c   prenek.f
+gfortran -c   curve.f
+gfortran -c   edit.f
+gfortran -c   build.f
+gfortran -c   build1.f
+gfortran -c   build2.f
+gfortran -c   bound.f
+gfortran -c   plot.f
+gfortran -c   xinterface.f
+gfortran -c   glomod.f
+gfortran -c   legend.f
+gfortran -c   vprops.f
+gfortran -c   iolib.f
+gfortran -c   subs.f
+gfortran -c   zipper2.f
+gfortran -c   postnek6.f
+gfortran -c   screen.f
+gcc -c -DUNDERSCORE -Dr8  revert.c
+gfortran -c   crs.f
+gfortran -c   mxm.f
+gcc -c -DUNDERSCORE -Dr8  xdriver.c
+gfortran -o /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/tests/tools/prex prenek.o curve.o edit.o build.o build1.o build2.o bound.o plot.o xinterface.o glomod.o legend.o vprops.o iolib.o subs.o zipper2.o postnek6.o screen.o revert.o crs.o mxm.o xdriver.o  -L/usr/lib/X11 -lX11 -lm
+Linux
+gfortran -c   iolib_no_graph.f
+gfortran -o /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/tests/tools/pretex prenek.o curve.o edit.o build.o build1.o build2.o bound.o plot.o xinterface.o glomod.o legend.o vprops.o iolib_no_graph.o subs.o zipper2.o postnek6.o screen.o revert.o crs.o mxm.o xdriver.o -L/usr/lib/X11 -lX11 -lm
+make[1]: Leaving directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/prenek'
+
+----------------------
+Make genmap...
+----------------------
+make[1]: Entering directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/genmap'
+gfortran -c -fdefault-real-8 genmap.f
+gcc  -c -DUNDERSCORE ../../nek/byte.c
+gfortran -fdefault-real-8 -o /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/tests/tools/genmap genmap.o byte.o  
+make[1]: Leaving directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/genmap'
+
+----------------------
+Make n2to3...
+----------------------
+make[1]: Entering directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/n2to3'
+gfortran -c   n2to3.f 
+gcc  -c -DUNDERSCORE byte.c
+gfortran   -o /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/tests/tools/n2to3 n2to3.o byte.o   
+make[1]: Leaving directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/n2to3'
+
+----------------------
+Make postnek...
+----------------------
+make[1]: Entering directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/postnek'
+gfortran -c    postnek.f 
+gfortran -c    postnek2.f
+gfortran -c    postnek3.f
+gfortran -c    postnek5.f
+gfortran -c    postnek6.f
+gfortran -c    tsort.f
+gfortran -c    postnek8.f
+gfortran -c    postnek9.f
+gfortran -c    plot.f
+gfortran -c    getfld.f 
+gfortran -c    legend.f
+gfortran -c    userf.f
+gcc  -c -DUNDERSCORE   revert.c
+gfortran -c    trap.f
+gfortran -c    animate.f
+gfortran -c    genxyz.f
+gfortran -c    screen.f
+gfortran -c    g3d.f
+gfortran -c    subs.f
+gfortran -c    xinterface.f
+gfortran -c    locglob.f 
+gfortran -c    postnek5a.f
+gfortran -c    ../../nek/3rd_party/blas.f
+gcc  -c -O2  -DUNDERSCORE  xdriver.c
+gfortran -c    scrdmp.f
+gfortran -c    coef.f
+gfortran -c    postnek7.f
+gfortran -c    speclib.f
+gfortran -c   mxm.f
+gcc  -c -DUNDERSCORE   byte.c
+gfortran -c    ssyev.f
+gfortran -c    iolib.f
+gfortran -o  /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/tests/tools/postx postnek.o postnek2.o postnek3.o postnek5.o postnek6.o tsort.o postnek8.o postnek9.o plot.o getfld.o legend.o userf.o revert.o trap.o animate.o genxyz.o screen.o g3d.o subs.o xinterface.o locglob.o postnek5a.o blas.o xdriver.o scrdmp.o coef.o postnek7.o speclib.o mxm.o byte.o ssyev.o iolib.o -L/usr/lib/X11 -lX11 -lm
+Linux
+2.6.32-74-generic
+gfortran -c    iolib_no_graph.f
+gfortran -o  /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/tests/tools/postex postnek.o postnek2.o postnek3.o postnek5.o postnek6.o tsort.o postnek8.o postnek9.o plot.o getfld.o legend.o userf.o revert.o trap.o animate.o genxyz.o screen.o g3d.o subs.o xinterface.o locglob.o postnek5a.o blas.o xdriver.o scrdmp.o coef.o postnek7.o speclib.o mxm.o byte.o ssyev.o iolib_no_graph.o -L/usr/lib/X11 -lX11 -lm
+make[1]: Leaving directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/postnek'
+
+----------------------
+Make reatore2...
+----------------------
+make[1]: Entering directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/reatore2'
+gfortran -c    reatore2.f 
+gcc  -c -DUNDERSCORE byte.c
+gfortran -c    strings.f 
+gfortran -o /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/tests/tools/reatore2 reatore2.o byte.o strings.o 
+gfortran -c    re2torea.f 
+gfortran -o /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/tests/tools/re2torea re2torea.o byte.o strings.o 
+make[1]: Leaving directory `/nfs2/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/trunk/tools/reatore2'
+

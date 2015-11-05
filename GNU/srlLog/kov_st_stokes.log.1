@@ -1,0 +1,523 @@
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 4004 4004 4004
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 548 548 548
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 1124 1124 1124
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 2276 2276 2276
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 2852 2852 2852
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 548 548 548
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 1124 1124 1124
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 1124 1124 1124
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 1700 1700 1700
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 4004 4004 4004
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 4580 4580 4580
+   buffer bytes (avg, min, max): 0 0 0
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 548 548 548
+   buffer bytes (avg, min, max): 0 0 0
+/----------------------------------------------------------\\
+|      _   __ ______ __ __  ______  ____    ____    ____   |
+|     / | / // ____// //_/ / ____/ / __ \\ / __ \\ / __ \\ |
+|    /  |/ // __/  / ,<   /___ \\  / / / // / / // / / /   |
+|   / /|  // /___ / /| | ____/ / / /_/ // /_/ // /_/ /     |
+|  /_/ |_//_____//_/ |_|/_____/  \\____/ \\____/ \\____/   |
+|                                                          |
+|----------------------------------------------------------|
+|                                                          |
+| NEK5000:  Open Source Spectral Element Solver            |
+| COPYRIGHT (c) 2008-2010 UCHICAGO ARGONNE, LLC            |
+| Version:  1.0rc1 / SVN  r1082                            |
+| Web:      http://nek5000.mcs.anl.gov                     |
+|                                                          |
+\\----------------------------------------------------------/
+                                                              
+
+ Number of processors:           1
+ REAL    wdsize      :           8
+ INTEGER wdsize      :           4
+
+
+  Beginning session:
+  /homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/kov_st_state/kov_
+
+ 
+ timer accuracy:   0.0000000E+00 sec
+
+ read .rea file
+ nelgt/nelgv/lelt:           8           8          80
+ lx1  /lx2  /lx3 :          14          14          14
+
+ mapping elements to processors
+           0           8           8           8           8  NELV
+ RANK     0 IEG       1       2       3       4       5       6       7       8
+ element load imbalance:            0           8           8
+ done :: mapping elements to processors
+  
+           0  objects found
+ done :: read .rea file    0.0000     sec
+
+ setup mesh topology
+   Right-handed check complete for       8 elements. OK.
+   setvert2d:  14         252        1404         252         252
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   0 14         252           8
+           4  max multiplicity
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ vol_t,vol_v:   3.0000000000000222        3.0000000000000222     
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+ regenerate geometry data           1
+ vol_t,vol_v:   3.0000000000000222        3.0000000000000222     
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+ -0.50000000000000000        1.0000000000000000       Xrange
+ -0.50000000000000000        1.5000000000000000       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+ 118   Parameters from file:/homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/kov_st_state/kov_st_stokes.rea
+   1          1.000000         p01 DENSITY
+   2          1.000000         p02 VISCOS
+   8          1.000000         p08 CONDUCT
+  11          1.000000         p11 NSTEPS
+  12        -1.0000000E-03     p12 DT
+  24         1.0000000E-04     p24 TOLREL
+  25         1.0000000E-04     p25 TOLABS
+  26          2.000000         p26 COURANT/NTAU
+  27          3.000000         p27 TORDER
+  28         0.0000000E+00     p28 TORDER: mesh velocity (0: p28=p27)
+  65          1.000000         p65 #iofile(eg,0 or 64); <0 --> sep. dirs
+  66          6.000000         p66 write fmt:ONLY postx uses rea value
+  67          6.000000         p67 read fmt: same modes as p66
+  99          3.000000         p99    dealiasing:if <0 disable
+  
+ IFTRAN   = T
+ IFFLOW   = T
+ IFHEAT   = F
+ IFSPLIT  = T
+ IFLOMACH = F
+ IFUSERVP = F
+ IFUSERMV = F
+ IFSTRS   = F
+ IFCHAR   = F
+ IFCYCLIC = F
+ IFAXIS   = F
+ IFMVBD   = F
+ IFMELT   = F
+ IFMODEL  = F
+ IFKEPS   = F
+ IFMOAB   = F
+ IFNEKNEK = F
+ IFSYNC   = T
+   
+ IFVCOR   = T
+ IFINTQ   = F
+ IFCWUZ   = F
+ IFSWALL  = F
+ IFGEOM   = F
+ IFSURT   = F
+ IFWCNO   = F
+   
+ IFTMSH for field           1    =  F
+ IFADVC for field           1    =  F
+ IFNONL for field           1    =  F
+   
+ Dealiasing enabled, lxd=          20
+  
+ Estimated eigenvalues
+ EIGAA =    3.4269459726004716     
+ EIGGA =    84733.385426573703     
+ EIGAE =    2.4674011002723395     
+ EIGAS =   8.99999999999999967E-002
+ EIGGE =    84733.385426573703     
+ EIGGS =    2.0000000000000000     
+  
+ verify mesh topology
+ -0.50000000000000000        1.0000000000000000       Xrange
+ -0.50000000000000000        1.5000000000000000       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+  E-solver strategy:  0 itr
+ mg_nx:           1           7          13
+ mg_ny:           1           7          13
+ mg_nz:           0           0           0
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   1  2          12           8
+   setvert2d:   4          52          84          52          52
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   2  4          52           8
+   setvert2d:   8         132         420         132         132
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   3  8         132           8
+   setvert2d:  10         172         684         172         172
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   4 10         172           8
+ regenerate geometry data           1
+ vol_t,vol_v:   3.0000000000000222        3.0000000000000222     
+ NOTE: All elements deformed , param(59) ^=0
+ done :: regenerate geometry data           1
+  
+ h1_mg_nx:           1           3          13
+ h1_mg_ny:           1           3          13
+ h1_mg_nz:           0           0           0
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   5  2          12           8
+   setvert2d:   4          52          84          52          52
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   6  4          52           8
+   setvert2d:   4          52          84          52          52
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   7  4          52           8
+   setvert2d:   6          92         220          92          92
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   8  6          92           8
+   setvert2d:  14         252        1404         252         252
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds   9 14         252           8
+   setvert2d:  16         292        1860         292         292
+ call usrsetvert
+ done :: usrsetvert
+
+   setupds time 0.0000E+00 seconds  10 16         292           8
+ setup h1 coarse grid, nx_crs=           2
+ call usrsetvert
+ done :: usrsetvert
+
+ done :: setup h1 coarse grid    0.0000000000000000       sec
+  
+ call usrdat3
+ done :: usrdat3
+
+ set initial conditions
+ nekuic (1) for ifld            1
+ call nekuic for vel  
+ xyz min   -0.50000     -0.50000       0.0000    
+ uvwpt min -0.99954E-20 -0.99954E-20 -0.99954E-20 -0.14305E-19   0.0000    
+ xyz max     1.0000       1.5000       0.0000    
+ uvwpt max  0.39997E-19  0.39997E-19  0.39997E-19  0.35688E-19   0.0000    
+ done :: set initial conditions
+  
+ call userchk
+ schfile:/homes/buildbot/NekBot/slaves/V8/nek/build/nek5_svn/examples/kov_st_state/kov_st_stokes.sch                                         
+ call outfld: ifpsco: F
+
+        0  0.0000E+00 Write checkpoint:
+       0       0 OPEN: kov_st_stokes0.f00001
+
+        0  0.0000E+00 done :: Write checkpoint
+                              file size =     301.E-04MB
+                              avg data-throughput =     0.0MB/s
+                              io-nodes =     1
+
+ call outfld: ifpsco: F
+
+        0  0.0000E+00 Write checkpoint:
+       0       0 OPEN: kov_st_stokes0.f00002
+
+        0  0.0000E+00 done :: Write checkpoint
+                              file size =     181.E-04MB
+                              avg data-throughput =     0.0MB/s
+                              io-nodes =     1
+
+     0 13  8.22107E+01  4.73610E+01  5.42298E+00  2.41407E+01  0.00000E+00 err
+ done :: userchk
+
+gridpoints unique/tot:          1404         1568
+  dofs:                 1300                 1404
+  
+ Initialization successfully completed   0.10000E-01 sec
+
+Starting time loop ...
+
+     DT/DTCFL/DTFS/DTINIT   0.100E-02   0.303-316   0.109-321   0.100E-02
+Step      1, time= 1.00000E-03, DT=  1.000E-03
+ Solving for fluid T T F
+ Relax the pressure tolerance    2.5561100866075290       1.44886134804534613E-024
+   0.0000000000000000       p22            1           1
+ New CG1-tolerance (RINIT*epsm) =   2.55611008660752887E-008  1.44886134804534619E-027
+ New CG1-tolerance (Neumann) =   2.55611008660752880E-007
+    1 2.55611E-07 1.49000E+03 2.60452E+03 5.72082E-01       1 Divergence
+    2 2.55611E-07 6.74500E+02 2.60452E+03 2.58973E-01       1 Divergence
+    3 2.55611E-07 2.57356E+02 2.60452E+03 9.88115E-02       1 Divergence
+    4 2.55611E-07 6.68922E+01 2.60452E+03 2.56832E-02       1 Divergence
+    5 2.55611E-07 2.49851E+01 2.60452E+03 9.59298E-03       1 Divergence
+    6 2.55611E-07 7.99810E+00 2.60452E+03 3.07086E-03       1 Divergence
+    7 2.55611E-07 4.05786E+00 2.60452E+03 1.55801E-03       1 Divergence
+    8 2.55611E-07 1.64508E+00 2.60452E+03 6.31625E-04       1 Divergence
+    9 2.55611E-07 6.07574E-01 2.60452E+03 2.33277E-04       1 Divergence
+   10 2.55611E-07 2.83249E-01 2.60452E+03 1.08753E-04       1 Divergence
+   11 2.55611E-07 9.32293E-02 2.60452E+03 3.57953E-05       1 Divergence
+   12 2.55611E-07 3.64973E-02 2.60452E+03 1.40131E-05       1 Divergence
+   13 2.55611E-07 1.42935E-02 2.60452E+03 5.48798E-06       1 Divergence
+   14 2.55611E-07 4.47697E-03 2.60452E+03 1.71893E-06       1 Divergence
+   15 2.55611E-07 2.04064E-03 2.60452E+03 7.83502E-07       1 Divergence
+   16 2.55611E-07 7.79653E-04 2.60452E+03 2.99346E-07       1 Divergence
+   17 2.55611E-07 3.47681E-04 2.60452E+03 1.33492E-07       1 Divergence
+   18 2.55611E-07 1.29378E-04 2.60452E+03 4.96745E-08       1 Divergence
+   19 2.55611E-07 4.00799E-05 2.60452E+03 1.53886E-08       1 Divergence
+   20 2.55611E-07 1.18079E-05 2.60452E+03 4.53362E-09       1 Divergence
+   21 2.55611E-07 5.36961E-06 2.60452E+03 2.06166E-09       1 Divergence
+   22 2.55611E-07 2.37719E-06 2.60452E+03 9.12719E-10       1 Divergence
+   23 2.55611E-07 8.65238E-07 2.60452E+03 3.32207E-10       1 Divergence
+   24 2.55611E-07 3.32430E-07 2.60452E+03 1.27636E-10       1 Divergence
+   25 2.55611E-07 1.06019E-07 2.60452E+03 4.07058E-11       1 Divergence
+        1 PRES gmres:   25  1.0602E-07  2.5561E-07  2.6045E+03  1.0000E-02  1.0000E-02    F
+   0.0000000000000000       p22            1           1
+ New CG1-tolerance (RINIT*epsm) =   1.59299418295425974E-009  1.74520497955112808E-024
+  1     1 Helmholtz VELX    F:   1.5930E+04   1.5930E-09   1.0000E+00   1.0000E+03
+  1     2 Helmholtz VELX    F:   7.6285E+03   1.5930E-09   1.0000E+00   1.0000E+03
+  1     3 Helmholtz VELX    F:   4.2563E+03   1.5930E-09   1.0000E+00   1.0000E+03
+  1     4 Helmholtz VELX    F:   3.4258E+03   1.5930E-09   1.0000E+00   1.0000E+03
+  1     5 Helmholtz VELX    F:   2.2916E+03   1.5930E-09   1.0000E+00   1.0000E+03
+  1     6 Helmholtz VELX    F:   3.0004E+03   1.5930E-09   1.0000E+00   1.0000E+03
+  1     7 Helmholtz VELX    F:   1.1578E+03   1.5930E-09   1.0000E+00   1.0000E+03
+  1     8 Helmholtz VELX    F:   5.6753E+02   1.5930E-09   1.0000E+00   1.0000E+03
+  1     9 Helmholtz VELX    F:   4.0794E+02   1.5930E-09   1.0000E+00   1.0000E+03
+  1    10 Helmholtz VELX    F:   2.6260E+02   1.5930E-09   1.0000E+00   1.0000E+03
+  1    11 Helmholtz VELX    F:   1.8465E+02   1.5930E-09   1.0000E+00   1.0000E+03
+  1    12 Helmholtz VELX    F:   1.3411E+02   1.5930E-09   1.0000E+00   1.0000E+03
+  1    13 Helmholtz VELX    F:   7.1442E+01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    14 Helmholtz VELX    F:   5.0590E+01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    15 Helmholtz VELX    F:   4.5006E+01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    16 Helmholtz VELX    F:   2.6128E+01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    17 Helmholtz VELX    F:   2.1978E+01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    18 Helmholtz VELX    F:   1.1192E+01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    19 Helmholtz VELX    F:   1.0337E+01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    20 Helmholtz VELX    F:   7.5140E+00   1.5930E-09   1.0000E+00   1.0000E+03
+  1    21 Helmholtz VELX    F:   4.9814E+00   1.5930E-09   1.0000E+00   1.0000E+03
+  1    22 Helmholtz VELX    F:   3.3286E+00   1.5930E-09   1.0000E+00   1.0000E+03
+  1    23 Helmholtz VELX    F:   1.9451E+00   1.5930E-09   1.0000E+00   1.0000E+03
+  1    24 Helmholtz VELX    F:   1.6346E+00   1.5930E-09   1.0000E+00   1.0000E+03
+  1    25 Helmholtz VELX    F:   8.5195E-01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    26 Helmholtz VELX    F:   6.2060E-01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    27 Helmholtz VELX    F:   3.9421E-01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    28 Helmholtz VELX    F:   2.5692E-01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    29 Helmholtz VELX    F:   1.8059E-01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    30 Helmholtz VELX    F:   1.0590E-01   1.5930E-09   1.0000E+00   1.0000E+03
+  1    31 Helmholtz VELX    F:   6.8287E-02   1.5930E-09   1.0000E+00   1.0000E+03
+  1    32 Helmholtz VELX    F:   5.0066E-02   1.5930E-09   1.0000E+00   1.0000E+03
+  1    33 Helmholtz VELX    F:   2.6627E-02   1.5930E-09   1.0000E+00   1.0000E+03
+  1    34 Helmholtz VELX    F:   1.9637E-02   1.5930E-09   1.0000E+00   1.0000E+03
+  1    35 Helmholtz VELX    F:   1.0043E-02   1.5930E-09   1.0000E+00   1.0000E+03
+  1    36 Helmholtz VELX    F:   7.9442E-03   1.5930E-09   1.0000E+00   1.0000E+03
+  1    37 Helmholtz VELX    F:   4.8401E-03   1.5930E-09   1.0000E+00   1.0000E+03
+  1    38 Helmholtz VELX    F:   2.8463E-03   1.5930E-09   1.0000E+00   1.0000E+03
+  1    39 Helmholtz VELX    F:   2.1306E-03   1.5930E-09   1.0000E+00   1.0000E+03
+  1    40 Helmholtz VELX    F:   1.2670E-03   1.5930E-09   1.0000E+00   1.0000E+03
+  1    41 Helmholtz VELX    F:   7.3495E-04   1.5930E-09   1.0000E+00   1.0000E+03
+  1    42 Helmholtz VELX    F:   6.6272E-04   1.5930E-09   1.0000E+00   1.0000E+03
+  1    43 Helmholtz VELX    F:   3.0048E-04   1.5930E-09   1.0000E+00   1.0000E+03
+  1    44 Helmholtz VELX    F:   2.1627E-04   1.5930E-09   1.0000E+00   1.0000E+03
+  1    45 Helmholtz VELX    F:   1.1904E-04   1.5930E-09   1.0000E+00   1.0000E+03
+  1    46 Helmholtz VELX    F:   7.1868E-05   1.5930E-09   1.0000E+00   1.0000E+03
+  1    47 Helmholtz VELX    F:   4.7055E-05   1.5930E-09   1.0000E+00   1.0000E+03
+  1    48 Helmholtz VELX    F:   2.6319E-05   1.5930E-09   1.0000E+00   1.0000E+03
+  1    49 Helmholtz VELX    F:   1.7305E-05   1.5930E-09   1.0000E+00   1.0000E+03
+  1    50 Helmholtz VELX    F:   1.0695E-05   1.5930E-09   1.0000E+00   1.0000E+03
+  1    51 Helmholtz VELX    F:   7.1205E-06   1.5930E-09   1.0000E+00   1.0000E+03
+  1    52 Helmholtz VELX    F:   5.0546E-06   1.5930E-09   1.0000E+00   1.0000E+03
+  1    53 Helmholtz VELX    F:   3.5280E-06   1.5930E-09   1.0000E+00   1.0000E+03
+  1    54 Helmholtz VELX    F:   1.9490E-06   1.5930E-09   1.0000E+00   1.0000E+03
+  1    55 Helmholtz VELX    F:   1.0589E-06   1.5930E-09   1.0000E+00   1.0000E+03
+  1    56 Helmholtz VELX    F:   7.7991E-07   1.5930E-09   1.0000E+00   1.0000E+03
+  1    57 Helmholtz VELX    F:   4.8670E-07   1.5930E-09   1.0000E+00   1.0000E+03
+  1    58 Helmholtz VELX    F:   3.3361E-07   1.5930E-09   1.0000E+00   1.0000E+03
+  1    59 Helmholtz VELX    F:   2.0996E-07   1.5930E-09   1.0000E+00   1.0000E+03
+  1    60 Helmholtz VELX    F:   1.4242E-07   1.5930E-09   1.0000E+00   1.0000E+03
+  1    61 Helmholtz VELX    F:   7.9360E-08   1.5930E-09   1.0000E+00   1.0000E+03
+  1    62 Helmholtz VELX    F:   5.6930E-08   1.5930E-09   1.0000E+00   1.0000E+03
+  1    63 Helmholtz VELX    F:   3.7345E-08   1.5930E-09   1.0000E+00   1.0000E+03
+  1    64 Helmholtz VELX    F:   3.0393E-08   1.5930E-09   1.0000E+00   1.0000E+03
+  1    65 Helmholtz VELX    F:   2.1212E-08   1.5930E-09   1.0000E+00   1.0000E+03
+  1    66 Helmholtz VELX    F:   1.1886E-08   1.5930E-09   1.0000E+00   1.0000E+03
+  1    67 Helmholtz VELX    F:   9.9455E-09   1.5930E-09   1.0000E+00   1.0000E+03
+  1    68 Helmholtz VELX    F:   6.1946E-09   1.5930E-09   1.0000E+00   1.0000E+03
+backtrace(): obtained 6 stack frames.
+./nek5000() [0x4f759a]
+./nek5000() [0x5d8a1c]
+./nek5000() [0x402474]
+./nek5000() [0x63c17a]
+/lib/libc.so.6(__libc_start_main+0xfd) [0x7f37636eac8d]
+./nek5000() [0x401c39]
+  1    69 Helmholtz VELX    F:   4.4762E-09   1.5930E-09   1.0000E+00   1.0000E+03
+  1    70 Helmholtz VELX    F:   3.6232E-09   1.5930E-09   1.0000E+00   1.0000E+03
+  1    71 Helmholtz VELX    F:   2.1484E-09   1.5930E-09   1.0000E+00   1.0000E+03
+  1    72 Helmholtz VELX    F:   1.2226E-09   1.5930E-09   1.0000E+00   1.0000E+03
+          1    Hmholtz VELX:     71   1.2226E-09   1.5930E+04   1.5930E-09
+   0.0000000000000000       p22            1           1
+ New CG1-tolerance (RINIT*epsm) =   1.58650032852777347E-009  1.74520497955112808E-024
+  1     1 Helmholtz VELY    F:   1.5865E+04   1.5865E-09   1.0000E+00   1.0000E+03
+  1     2 Helmholtz VELY    F:   6.0820E+03   1.5865E-09   1.0000E+00   1.0000E+03
+  1     3 Helmholtz VELY    F:   2.6412E+03   1.5865E-09   1.0000E+00   1.0000E+03
+  1     4 Helmholtz VELY    F:   9.4715E+02   1.5865E-09   1.0000E+00   1.0000E+03
+  1     5 Helmholtz VELY    F:   4.6752E+02   1.5865E-09   1.0000E+00   1.0000E+03
+  1     6 Helmholtz VELY    F:   2.4421E+02   1.5865E-09   1.0000E+00   1.0000E+03
+  1     7 Helmholtz VELY    F:   1.8387E+02   1.5865E-09   1.0000E+00   1.0000E+03
+  1     8 Helmholtz VELY    F:   8.2785E+01   1.5865E-09   1.0000E+00   1.0000E+03
+  1     9 Helmholtz VELY    F:   5.6107E+01   1.5865E-09   1.0000E+00   1.0000E+03
+  1    10 Helmholtz VELY    F:   4.2937E+01   1.5865E-09   1.0000E+00   1.0000E+03
+  1    11 Helmholtz VELY    F:   2.4158E+01   1.5865E-09   1.0000E+00   1.0000E+03
+  1    12 Helmholtz VELY    F:   1.4322E+01   1.5865E-09   1.0000E+00   1.0000E+03
+  1    13 Helmholtz VELY    F:   5.9522E+00   1.5865E-09   1.0000E+00   1.0000E+03
+  1    14 Helmholtz VELY    F:   2.1240E+00   1.5865E-09   1.0000E+00   1.0000E+03
+  1    15 Helmholtz VELY    F:   1.2631E+00   1.5865E-09   1.0000E+00   1.0000E+03
+  1    16 Helmholtz VELY    F:   5.7586E-01   1.5865E-09   1.0000E+00   1.0000E+03
+  1    17 Helmholtz VELY    F:   3.1393E-01   1.5865E-09   1.0000E+00   1.0000E+03
+  1    18 Helmholtz VELY    F:   2.6512E-01   1.5865E-09   1.0000E+00   1.0000E+03
+  1    19 Helmholtz VELY    F:   1.6379E-01   1.5865E-09   1.0000E+00   1.0000E+03
+  1    20 Helmholtz VELY    F:   6.3758E-02   1.5865E-09   1.0000E+00   1.0000E+03
+  1    21 Helmholtz VELY    F:   2.1446E-02   1.5865E-09   1.0000E+00   1.0000E+03
+  1    22 Helmholtz VELY    F:   7.0040E-03   1.5865E-09   1.0000E+00   1.0000E+03
+  1    23 Helmholtz VELY    F:   3.9132E-03   1.5865E-09   1.0000E+00   1.0000E+03
+  1    24 Helmholtz VELY    F:   1.8353E-03   1.5865E-09   1.0000E+00   1.0000E+03
+  1    25 Helmholtz VELY    F:   1.0739E-03   1.5865E-09   1.0000E+00   1.0000E+03
+  1    26 Helmholtz VELY    F:   6.8340E-04   1.5865E-09   1.0000E+00   1.0000E+03
+  1    27 Helmholtz VELY    F:   2.8586E-04   1.5865E-09   1.0000E+00   1.0000E+03
+  1    28 Helmholtz VELY    F:   1.9694E-04   1.5865E-09   1.0000E+00   1.0000E+03
+  1    29 Helmholtz VELY    F:   9.2393E-05   1.5865E-09   1.0000E+00   1.0000E+03
+  1    30 Helmholtz VELY    F:   3.7101E-05   1.5865E-09   1.0000E+00   1.0000E+03
+  1    31 Helmholtz VELY    F:   1.3687E-05   1.5865E-09   1.0000E+00   1.0000E+03
+  1    32 Helmholtz VELY    F:   7.7648E-06   1.5865E-09   1.0000E+00   1.0000E+03
+  1    33 Helmholtz VELY    F:   3.3967E-06   1.5865E-09   1.0000E+00   1.0000E+03
+  1    34 Helmholtz VELY    F:   1.1444E-06   1.5865E-09   1.0000E+00   1.0000E+03
+  1    35 Helmholtz VELY    F:   5.7562E-07   1.5865E-09   1.0000E+00   1.0000E+03
+  1    36 Helmholtz VELY    F:   2.3928E-07   1.5865E-09   1.0000E+00   1.0000E+03
+  1    37 Helmholtz VELY    F:   9.1958E-08   1.5865E-09   1.0000E+00   1.0000E+03
+  1    38 Helmholtz VELY    F:   4.3474E-08   1.5865E-09   1.0000E+00   1.0000E+03
+  1    39 Helmholtz VELY    F:   1.9037E-08   1.5865E-09   1.0000E+00   1.0000E+03
+  1    40 Helmholtz VELY    F:   8.5118E-09   1.5865E-09   1.0000E+00   1.0000E+03
+  1    41 Helmholtz VELY    F:   3.5565E-09   1.5865E-09   1.0000E+00   1.0000E+03
+  1    42 Helmholtz VELY    F:   1.4940E-09   1.5865E-09   1.0000E+00   1.0000E+03
+          1    Hmholtz VELY:     41   1.4940E-09   1.5865E+04   1.5865E-09
+               L1/L2 DIV(V)    :   2.1916E-16   4.4715E-08
+               L1/L2 QTL       :   0.0000E+00   0.0000E+00
+               L1/L2 DIV(V)-QTL:   2.1916E-16   4.4715E-08
+          1   1.0000E-03  2.0000E-02 Fluid done
+ call outfld: ifpsco: F
+
+        1  1.0000E-03 Write checkpoint:
+       0       1 OPEN: kov_st_stokes0.f00003
+
+        1  1.0000E-03 done :: Write checkpoint
+                              file size =     181.E-04MB
+                              avg data-throughput =     0.0MB/s
+                              io-nodes =     1
+
+ call outfld: ifpsco: F
+
+        1  1.0000E-03 Write checkpoint:
+       0       1 OPEN: kov_st_stokes0.f00004
+
+        1  1.0000E-03 done :: Write checkpoint
+                              file size =     181.E-04MB
+                              avg data-throughput =     0.0MB/s
+                              io-nodes =     1
+
+     1 13  7.23831E-08  4.17842E-08  1.25191E-09  2.61049E-09  1.00000E-03 err
+ call outfld: ifpsco: F
+
+        1  1.0000E-03 Write checkpoint:
+       0       1 OPEN: kov_st_stokes0.f00005
+
+        1  1.0000E-03 done :: Write checkpoint
+                              file size =     181.E-04MB
+                              avg data-throughput =     0.0MB/s
+                              io-nodes =     1
+
+
+end of time-step loop
+
+runtime statistics:
+ total time  2.00000995529651636E-002
+ tgop time         387   0.0000000000000000        0.0000000000000000     
+ inv3 time           2   0.0000000000000000        0.0000000000000000     
+ invc time          32   0.0000000000000000        0.0000000000000000     
+ mltd time           2   0.0000000000000000        0.0000000000000000     
+ cdtp time           2   0.0000000000000000        0.0000000000000000     
+ eslv time           0   0.0000000000000000        0.0000000000000000     
+ pres time           1  9.99999977648258209E-003  0.49999750001244408     
+ crsl time          25   0.0000000000000000        0.0000000000000000     
+ crsl min    0.0000000000000000     
+ crsl max    0.0000000000000000     
+ crsl avg    0.0000000000000000     
+ hmhz time           3  1.99999995529651642E-002  0.99999500002488817     
+ spro time           2   0.0000000000000000        0.0000000000000000     
+ usbc time           1   0.0000000000000000        0.0000000000000000     
+ usbc min    0.0000000000000000     
+ usbc max    0.0000000000000000     
+ usb  avg    0.0000000000000000     
+ axhm time         179  9.99999977648258209E-003  0.49999750001244408     
+ advc time           0   0.0000000000000000        0.0000000000000000     
+ vdss time           4   0.0000000000000000        0.0000000000000000     
+ vdss min    0.0000000000000000     
+ vdss max    0.0000000000000000     
+ vdss avg    0.0000000000000000     
+ dsum time         205   0.0000000000000000        0.0000000000000000     
+ dsum min    0.0000000000000000     
+ dsum max    0.0000000000000000     
+ dsum avg    0.0000000000000000     
+ dadd time           0   0.0000000000000000        0.0000000000000000     
+ ddsl time           0   0.0000000000000000        0.0000000000000000     
+ solv time           0   0.0000000000000000        0.0000000000000000     
+ prep time           5   0.0000000000000000        0.0000000000000000     
+
+#  nid       tusbc       tdadd       tcrsl       tvdss       tdsum        tgop    qqq    F
+           0  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00 qqq
+  
+call exitt: dying ...
+  
+  
+total elapsed time             :   3.00000E-02 sec
+total solver time incl. I/O    :   2.00000E-02 sec
+time/timestep                  :   2.00000E-02 sec
+CPU seconds/timestep/gridpt    :   1.42450E-05 sec
+
