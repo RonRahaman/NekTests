@@ -1,8 +1,9 @@
 #! /usr/bin/python
 # Python module to run top-down tests for Nek
 
-import unittest
+import collections
 import re
+import unittest
 
 ###############################################################################
 
@@ -38,12 +39,9 @@ import re
 def RunTestFactory(exampleName, logfile, listOfVals):
 
     # Convenient data structure
-    dictOfVals = {testName: {'target': target, 'tolerance': tolerance, 'col': col}
-         for [testName, target, tolerance, col] in listOfVals }
-
-    # dictOfVals = collections.OrderedDict(
-    #     [(testName, {'target': target, 'tolerance': tolerance, 'col': col})
-    #      for (testName, target, tolerance, col) in listOfVals ] )
+    dictOfVals = collections.OrderedDict(
+        [(testName, {'target': target, 'tolerance': tolerance, 'col': col})
+         for (testName, target, tolerance, col) in listOfVals ] )
 
     # Get a new subclass of TestCase
     validName = re.sub(r'[_\W]+', '_', 'NekTest_%s' % exampleName)
@@ -58,7 +56,6 @@ def RunTestFactory(exampleName, logfile, listOfVals):
                   (exampleName, testName, cls.foundTests[testName]['testVal']))
             self.assertLess(abs(cls.foundTests[testName]['testVal'] - cls.foundTests[testName]['target']),
                             cls.foundTests[testName]['tolerance'])
-
 
         validName = re.sub(r'[_\W]+', '_', 'test_%s_%02d' % (testName, i))
         setattr(cls, validName, testFunc)
