@@ -35,7 +35,7 @@ import re
 #                             cls.foundVals[valName] = cls.missingVals.pop(valName)
 #                             cls.foundVals[valName]['test'] = testVal
 
-def testCaseFactory(exampleName, logfile, listOfVals):
+def RunTestFactory(exampleName, logfile, listOfVals):
 
     # Convenient data structure
     dictOfVals = {testName: {'target': target, 'tolerance': tolerance, 'col': col}
@@ -54,8 +54,11 @@ def testCaseFactory(exampleName, logfile, listOfVals):
 
         def testFunc(self, testName=testName):
             self.assertIn(testName, cls.foundTests)
+            print("[%s] %s : %s" %
+                  (exampleName, testName, cls.foundTests[testName]['testVal']))
             self.assertLess(abs(cls.foundTests[testName]['testVal'] - cls.foundTests[testName]['target']),
                             cls.foundTests[testName]['tolerance'])
+
 
         validName = re.sub(r'[_\W]+', '_', 'test_%s_%02d' % (testName, i))
         setattr(cls, validName, testFunc)
@@ -66,6 +69,8 @@ def testCaseFactory(exampleName, logfile, listOfVals):
 
     with open(logfile, 'r') as fd:
         for line in fd:
+            # Can't use dictionary iterator, since missingTests can change during loop.
+            # Need to iterate over list returned by missngTests.keys()
             for testName in cls.missingTests.keys():
                 if testName in line:
                     try:
@@ -77,9 +82,25 @@ def testCaseFactory(exampleName, logfile, listOfVals):
                         cls.foundTests[testName] = cls.missingTests.pop(testName)
                         cls.foundTests[testName]['testVal'] = testVal
 
+    # Teardown phase
+    def tearDownClass(cls):
+        if len(cls.missingTests) > 0:
+            print("[%s]...I couldn't find all the requested value in the log file..."%exampleName)
+            testList = ", ".join(cls.missingTests)
+            print("[%s]...%s were not found..."%(exampleName,testList))
+            print("%s : F "%exampleName)
+        else :
+            print("%s : ."%exampleName)
+
+    cls.tearDownClass = classmethod(tearDownClass)
+
     return cls
 
+
+
 if __name__ == '__main__':
+
+    __unittest = True
 
     suite = unittest.TestSuite()
 
@@ -89,14 +110,14 @@ if __name__ == '__main__':
              [' 3   ',0,39,6],
              [' 6  ' ,0,128,6],
              [' 10  ',0,402,6]]
-    newTests = testCaseFactory("Example 2d_eig/SRL: Serial-iter/err",log,value)
+    newTests = RunTestFactory("Example 2d_eig/SRL: Serial-iter/err",log,value)
     suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
 
     #axi Example
     log = "./srlLog/axi.log.1"
     value = [['total solver time',0.1,2,2],
              ['PRES: ',0,76,4]]
-    newTests = testCaseFactory("Example axi/SRL: Serial-time/iter",log,value)
+    newTests = RunTestFactory("Example axi/SRL: Serial-time/iter",log,value)
     suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
 
     unittest.TextTestRunner(verbosity=2).run(suite)
