@@ -42,7 +42,7 @@ class RunTestBase(unittest.TestCase):
     exampleName = ""
     missingTests = {}
     foundTests = {}
-    successTests = {}
+    passedTests = {}
 
     @classmethod
     def setUpClass(cls):
@@ -74,7 +74,7 @@ class RunTestBase(unittest.TestCase):
             print("[%s]...I couldn't find all the requested value in the log file..."%cls.exampleName)
             testList = ", ".join(cls.missingTests)
             print("[%s]...%s were not found..."%(cls.exampleName,testList))
-        if len(cls.successTests) < len(cls.foundTests) or len(cls.missingTests) > 0:
+        if len(cls.passedTests) < len(cls.foundTests) or len(cls.missingTests) > 0:
             print("%s : F "%cls.exampleName)
         else :
             print("%s : ."%cls.exampleName)
@@ -107,40 +107,60 @@ def RunTestFactory(exampleName, logfile, listOfVals):
                   (cls.exampleName, testName, cls.foundTests[testName]['testVal']))
             self.assertLess(abs(cls.foundTests[testName]['testVal'] - cls.foundTests[testName]['target']),
                             cls.foundTests[testName]['tolerance'])
-            cls.successTests[testName] = cls.foundTests[testName]
+            cls.passedTests[testName] = cls.foundTests[testName]
 
         validName = re.sub(r'[_\W]+', '_', 'test_%s_%02d' % (testName, i))
         setattr(cls, validName, testFunc)
 
     return cls
 
-# class FindPhraseBase(unittest.TestCase):
-#
-#     @classmethod
-#     def setUpClass(cls):
-#         with open(cls.logfile, 'r') as fd:
-#             for line in fd:
-#                 # Can't use dictionary iterator, since missingTests can change during loop.
-#                 # Need to iterate over list returned by missngTests.keys()
-#                 for testName in cls.missingTests.keys():
-#                     if testName in line:
-#                         try:
-#                             col = -cls.missingTests[testName]['col']
-#                             testVal = float(line.split()[col])
-#                         except (ValueError,IndexError) :
-#                             pass
-#                         else:
-#                             cls.foundTests[testName] = cls.missingTests.pop(testName)
-#                             cls.foundTests[testName]['testVal'] = testVal
-#
-#     @classmethod
-#     def tearDownClass(cls):
-#         pass
+class FindPhraseBase(unittest.TestCase):
+
+    exampleName = ""
+    logfile = ""
+    keyword = ""
+    foundPhrases = []
+    raisedIOError = False
+
+    @classmethod
+    def setUpClass(cls):
+        try:
+            with open(cls.logfile, 'r') as fd:
+                for line in fd:
+                    if cls.keyword in line:
+                        cls.foundPhrases.append(cls.keyword)
+                        break
+        except IOError :
+            cls.raisedIOError = True
 
 
+    def test_findPhrase(self):
+        cls = self.__class__
+        self.assertIn(cls.keyword,cls.foundPhrases)
 
+    @classmethod
+    def tearDownClass(cls):
+        if cls.raisedIOError:
+            print("[%s]...Sorry, I must skip this test."%cls.exampleName)
+            print("[%s]...The logfile is missing or doesn't have the correct name..."%cls.exampleName)
+            print("%s : F "%cls.exampleName) # not in Analysis.py
+        else:
+            print("[%s] : %s"%(cls.exampleName, cls.keyword))
+            if len(cls.foundPhrases) == 0:
+                print("[%s]...I couldn't find '%s' in the logfile..."%(cls.exampleName,cls.keyword))
+                print("%s : F "%cls.exampleName)
+            else:
+                print("%s : ."%cls.exampleName)                 #prints the result
 
+def FindPhraseFactory(exampleName, logfile, keyword) :
 
+    validName = re.sub(r'[_\W]+', '_', 'NekTest_%s' % exampleName)
+    attr = dict(exampleName=exampleName,
+                logfile=logfile,
+                keyword=keyword,
+                foundPhrases=[],
+                raisedIOError=False)
+    return type(validName, (FindPhraseBase,), attr)
 
 if __name__ == '__main__':
 
@@ -157,21 +177,39 @@ if __name__ == '__main__':
     newTests = RunTestFactory("Example 2d_eig/SRL: Serial-iter/err",log,value)
     suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
 
+    #SRL
+    log = "./srlLog/b3d.log.1"
+    value = "end of time-step loop"
+    newTests = FindPhraseFactory("Example 3dbox/SRL: Serial",log,value)
+    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
+
+    #SRL2
+    log = "./srl2Log/b3d.log.1"
+    value = "end of time-step loop"
+    newTests = FindPhraseFactory("Example 3dbox/SRL2: Serial",log,value)
+    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
+
     #axi Example
     log = "./srlLog/axi.log.1"
     value = [['total solver time',0.1,2,2],
-             # ['PRES: ',0,76,4],
-             ['PRES: ',1000000,0,4]
+             ['PRES: ',0,76,4],
+             # ['PRES: ',1000000,0,4]
              ]
     newTests = RunTestFactory("Example axi/SRL: Serial-time/iter",log,value)
     suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
 
     #missing log
-    log = "./srlLog/foobar.log.1"
+    log = "./srlLog/foobar"
     value = [['total solver time',0.1,2,2],
              ['PRES: ',0,76,4]]
-    newTests = RunTestFactory("Example foobar/SRL: Serial-time/iter",log,value)
+    newTests = RunTestFactory("Example Run missingLog",log,value)
     suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
+
+    log = "./srlLog/foobar"
+    value = "end of time-step loop"
+    newTests = FindPhraseFactory("Example FindPhrase missingLog",log,value)
+    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
+
 
     unittest.TextTestRunner(verbosity=2).run(suite)
 
