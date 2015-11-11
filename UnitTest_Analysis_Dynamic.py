@@ -58,15 +58,12 @@ def RunTestFactory(exampleName, logfile, listOfVals):
         [(testName, {'target': target, 'tolerance': tolerance, 'col': col})
          for (testName, target, tolerance, col) in listOfVals ] )
 
-    # Get a new subclass of RunTestBase
-    validName = re.sub(r'[_\W]+', '_', 'NekTest_%s' % exampleName)
-    cls = type(validName, (RunTestBase,), {})
-
-    # Set class attributes
-    cls.logfile = logfile
-    cls.exampleName = exampleName
-    cls.missingTests = dictOfVals
-    cls.foundTests = {}
+    # Class attributes
+    attr = dict(logfile=logfile,
+                exampleName=exampleName,
+                missingTests=dictOfVals,
+                foundTests={},
+                passedTests={})
 
     # Add a test function for each test
     for (i, testName) in enumerate(dictOfVals):
@@ -81,9 +78,11 @@ def RunTestFactory(exampleName, logfile, listOfVals):
             cls.passedTests[testName] = cls.foundTests[testName]
 
         validName = re.sub(r'[_\W]+', '_', 'test_%s_%02d' % (testName, i))
-        setattr(cls, validName, testFunc)
+        attr[validName] = testFunc
 
-    return cls
+    # Get a new subclass of RunTestBase
+    validName = re.sub(r'[_\W]+', '_', 'NekTest_%s' % exampleName)
+    return type(validName, (RunTestBase,), attr)
 
 class FindPhraseBase(unittest.TestCase):
 
@@ -153,9 +152,9 @@ class DFdPhraseBase(unittest.TestCase):
             cls.raisedIOError = True
 
 
-    def test_findPhrase(self):
+    def test_DFdPhrase(self):
         cls = self.__class__
-        self.assertIn(cls.keyword,cls.foundPhrases)
+        self.assertNotIn(cls.keyword,cls.foundPhrases)
 
     @classmethod
     def tearDownClass(cls):
@@ -179,15 +178,7 @@ def DFdPhraseFactory(exampleName, logfile, keyword) :
                 keyword=keyword,
                 foundPhrases=[],
                 raisedIOError=False)
-    cls = type(validName, (DFdPhraseBase,), attr)
-
-    def test_DFdPhrase(self):
-        cls = self.__class__
-        self.assertNotIn(cls.keyword,cls.foundPhrases)
-
-    cls.test_DFdPhrase = test_DFdPhrase
-
-    return cls
+    return type(validName, (DFdPhraseBase,), attr)
 
 if __name__ == '__main__':
 
