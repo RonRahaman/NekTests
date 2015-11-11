@@ -7,35 +7,6 @@ import unittest
 
 ###############################################################################
 
-# class BaseTestCase(unittest.TestCase):
-#     """
-#         name (string): name of the test
-#         logfile (string): path of the log file
-#         dictOfValue (dict): dict of different
-#             {valName: {'target':val, 'tolerance':val, 'col':val}}
-#             we want to check (where 'col' is the column)
-#     """
-#
-#     testName = ""
-#     logfile = ""
-#     foundVals = {}
-#     missingVals = {}
-#
-#     @classmethod
-#     def setUpClass(cls):
-#         with open(cls.logfile, 'r') as fd:
-#             for line in fd:
-#                 for valName in cls.missingVals:
-#                     if valName in line:
-#                         try:
-#                             col = cls.missingVals[valName]['col']
-#                             testVal = float(line.split()[col])
-#                         except (ValueError,IndexError) :
-#                             pass
-#                         else:
-#                             cls.foundVals[valName] = cls.missingVals.pop(valName)
-#                             cls.foundVals[valName]['test'] = testVal
-
 class RunTestBase(unittest.TestCase):
 
     logfile = ""
@@ -162,11 +133,75 @@ def FindPhraseFactory(exampleName, logfile, keyword) :
                 raisedIOError=False)
     return type(validName, (FindPhraseBase,), attr)
 
+class DFdPhraseBase(unittest.TestCase):
+
+    exampleName = ""
+    logfile = ""
+    keyword = ""
+    foundPhrases = []
+    raisedIOError = False
+
+    @classmethod
+    def setUpClass(cls):
+        try:
+            with open(cls.logfile, 'r') as fd:
+                for line in fd:
+                    if cls.keyword in line:
+                        cls.foundPhrases.append(cls.keyword)
+                        break
+        except IOError :
+            cls.raisedIOError = True
+
+
+    def test_findPhrase(self):
+        cls = self.__class__
+        self.assertIn(cls.keyword,cls.foundPhrases)
+
+    @classmethod
+    def tearDownClass(cls):
+        if cls.raisedIOError:
+            print("[%s]...Sorry, I must skip this test."%cls.exampleName)
+            print("[%s]...The logfile is missing or doesn't have the correct name..."%cls.exampleName)
+            print("%s : F "%cls.exampleName) # not in Analysis.py
+        else:
+            if len(cls.foundPhrases) > 0:
+                print("[%s] : %s"%(cls.exampleName, cls.keyword))
+                print("%s : F"%cls.exampleName)                 #prints the result
+            else:
+                print("%s : . "%cls.exampleName)
+
+
+def DFdPhraseFactory(exampleName, logfile, keyword) :
+
+    validName = re.sub(r'[_\W]+', '_', 'NekTest_%s' % exampleName)
+    attr = dict(exampleName=exampleName,
+                logfile=logfile,
+                keyword=keyword,
+                foundPhrases=[],
+                raisedIOError=False)
+    cls = type(validName, (DFdPhraseBase,), attr)
+
+    def test_DFdPhrase(self):
+        cls = self.__class__
+        self.assertNotIn(cls.keyword,cls.foundPhrases)
+
+    cls.test_DFdPhrase = test_DFdPhrase
+
+    return cls
+
 if __name__ == '__main__':
 
     __unittest = True
 
     suite = unittest.TestSuite()
+
+    print("\nBEGIN TESTING TOOLS")
+    #SRL Compiler
+    log = "./tools.out"
+    value = "Error "
+    newTests = DFdPhraseFactory("Tools",log,value)
+    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
+
 
     # 2d_eig Example
     log = "./srlLog/eig1.err"
