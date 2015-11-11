@@ -38,29 +38,43 @@ import unittest
 
 class RunTestBase(unittest.TestCase):
 
+    logfile = ""
+    exampleName = ""
+    missingTests = {}
+    foundTests = {}
+    successTests = {}
+
     @classmethod
     def setUpClass(cls):
-        with open(cls.logfile, 'r') as fd:
-            for line in fd:
-                # Can't use dictionary iterator, since missingTests can change during loop.
-                # Need to iterate over list returned by missngTests.keys()
-                for testName in cls.missingTests.keys():
-                    if testName in line:
-                        try:
-                            col = -cls.missingTests[testName]['col']
-                            testVal = float(line.split()[col])
-                        except (ValueError,IndexError) :
-                            pass
-                        else:
-                            cls.foundTests[testName] = cls.missingTests.pop(testName)
-                            cls.foundTests[testName]['testVal'] = testVal
+        try:
+            # Parse to log file.  If a test is found, pop it off missingTests and push it onto foundTests
+            with open(cls.logfile, 'r') as fd:
+                for line in fd:
+                    # Can't use dictionary iterator, since missingTests can change during loop.
+                    # Need to iterate over list returned by missngTests.keys()
+                    for testName in cls.missingTests.keys():
+                        if testName in line:
+                            try:
+                                col = -cls.missingTests[testName]['col']
+                                testVal = float(line.split()[col])
+                            except (ValueError,IndexError) :
+                                pass
+                            else:
+                                cls.foundTests[testName] = cls.missingTests.pop(testName)
+                                cls.foundTests[testName]['testVal'] = testVal
+        except IOError:
+            # If an IOError is caught, all the tests will stay in missingTests
+            print("[%s]...Sorry, I must skip this test."%cls.exampleName)
+            print("[%s]...The logfile is missing or doesn't have the correct name..."%cls.exampleName)
 
     @classmethod
     def tearDownClass(cls):
         if len(cls.missingTests) > 0:
+            # Print all the tests that were not found
             print("[%s]...I couldn't find all the requested value in the log file..."%cls.exampleName)
             testList = ", ".join(cls.missingTests)
             print("[%s]...%s were not found..."%(cls.exampleName,testList))
+        if len(cls.successTests) < len(cls.foundTests) or len(cls.missingTests) > 0:
             print("%s : F "%cls.exampleName)
         else :
             print("%s : ."%cls.exampleName)
@@ -93,11 +107,38 @@ def RunTestFactory(exampleName, logfile, listOfVals):
                   (cls.exampleName, testName, cls.foundTests[testName]['testVal']))
             self.assertLess(abs(cls.foundTests[testName]['testVal'] - cls.foundTests[testName]['target']),
                             cls.foundTests[testName]['tolerance'])
+            cls.successTests[testName] = cls.foundTests[testName]
 
         validName = re.sub(r'[_\W]+', '_', 'test_%s_%02d' % (testName, i))
         setattr(cls, validName, testFunc)
 
     return cls
+
+# class FindPhraseBase(unittest.TestCase):
+#
+#     @classmethod
+#     def setUpClass(cls):
+#         with open(cls.logfile, 'r') as fd:
+#             for line in fd:
+#                 # Can't use dictionary iterator, since missingTests can change during loop.
+#                 # Need to iterate over list returned by missngTests.keys()
+#                 for testName in cls.missingTests.keys():
+#                     if testName in line:
+#                         try:
+#                             col = -cls.missingTests[testName]['col']
+#                             testVal = float(line.split()[col])
+#                         except (ValueError,IndexError) :
+#                             pass
+#                         else:
+#                             cls.foundTests[testName] = cls.missingTests.pop(testName)
+#                             cls.foundTests[testName]['testVal'] = testVal
+#
+#     @classmethod
+#     def tearDownClass(cls):
+#         pass
+
+
+
 
 
 
@@ -119,10 +160,18 @@ if __name__ == '__main__':
     #axi Example
     log = "./srlLog/axi.log.1"
     value = [['total solver time',0.1,2,2],
-             ['PRES: ',0,76,4]]
+             # ['PRES: ',0,76,4],
+             ['PRES: ',1000000,0,4]
+             ]
     newTests = RunTestFactory("Example axi/SRL: Serial-time/iter",log,value)
     suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
 
-    unittest.TextTestRunner(verbosity=2).run(suite)
+    #missing log
+    log = "./srlLog/foobar.log.1"
+    value = [['total solver time',0.1,2,2],
+             ['PRES: ',0,76,4]]
+    newTests = RunTestFactory("Example foobar/SRL: Serial-time/iter",log,value)
+    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
 
+    unittest.TextTestRunner(verbosity=2).run(suite)
 
