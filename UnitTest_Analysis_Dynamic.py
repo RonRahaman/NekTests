@@ -84,6 +84,11 @@ def RunTestFactory(exampleName, logfile, listOfVals):
     validName = re.sub(r'[_\W]+', '_', 'NekTest_%s' % exampleName)
     return type(validName, (RunTestBase,), attr)
 
+def Run(exampleName, logfile, listOfVals):
+    global suite
+    cls = RunTestFactory(exampleName, logfile, listOfVals)
+    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(cls))
+
 class FindPhraseBase(unittest.TestCase):
 
     exampleName = ""
@@ -131,6 +136,11 @@ def FindPhraseFactory(exampleName, logfile, keyword) :
                 foundPhrases=[],
                 raisedIOError=False)
     return type(validName, (FindPhraseBase,), attr)
+
+def FindPhrase(exampleName, logfile, keyword):
+    global suite
+    cls = FindPhraseFactory(exampleName, logfile, keyword)
+    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(cls))
 
 class DFdPhraseBase(unittest.TestCase):
 
@@ -180,62 +190,65 @@ def DFdPhraseFactory(exampleName, logfile, keyword) :
                 raisedIOError=False)
     return type(validName, (DFdPhraseBase,), attr)
 
+def DFdPhrase(exampleName, logfile, keyword):
+    global suite
+    cls = DFdPhraseFactory(exampleName, logfile, keyword)
+    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(cls))
+
 if __name__ == '__main__':
 
     __unittest = True
 
+    global suite
     suite = unittest.TestSuite()
 
     print("\nBEGIN TESTING TOOLS")
     #SRL Compiler
     log = "./tools.out"
     value = "Error "
-    newTests = DFdPhraseFactory("Tools",log,value)
-    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
+    DFdPhrase("Tools",log,value)
 
-
-    # 2d_eig Example
+    print("\n\n2d_eig Example")
     log = "./srlLog/eig1.err"
     value = [[' 2   ',0,21,6],
              [' 3   ',0,39,6],
              [' 6  ' ,0,128,6],
              [' 10  ',0,402,6]]
-    newTests = RunTestFactory("Example 2d_eig/SRL: Serial-iter/err",log,value)
-    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
+    Run("Example 2d_eig/SRL: Serial-iter/err",log,value)
+
+    print("\n\n3Dbox Example")
 
     #SRL
     log = "./srlLog/b3d.log.1"
     value = "end of time-step loop"
-    newTests = FindPhraseFactory("Example 3dbox/SRL: Serial",log,value)
-    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
+    FindPhrase("Example 3dbox/SRL: Serial",log,value)
 
     #SRL2
     log = "./srl2Log/b3d.log.1"
     value = "end of time-step loop"
-    newTests = FindPhraseFactory("Example 3dbox/SRL2: Serial",log,value)
-    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
+    FindPhrase("Example 3dbox/SRL2: Serial",log,value)
 
-    #axi Example
+
+    print("\n\naxi Example")
     log = "./srlLog/axi.log.1"
     value = [['total solver time',0.1,2,2],
              ['PRES: ',0,76,4],
              # ['PRES: ',1000000,0,4]
              ]
-    newTests = RunTestFactory("Example axi/SRL: Serial-time/iter",log,value)
-    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
+    Run("Example axi/SRL: Serial-time/iter",log,value)
 
     #missing log
+    print("\n\RunMissingLog")
     log = "./srlLog/foobar"
     value = [['total solver time',0.1,2,2],
              ['PRES: ',0,76,4]]
-    newTests = RunTestFactory("Example Run missingLog",log,value)
-    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
+    Run("Example Run missingLog",log,value)
 
+    print("\n\FindPhraseMissingLog")
+    #missing value
     log = "./srlLog/foobar"
     value = "end of time-step loop"
-    newTests = FindPhraseFactory("Example FindPhrase missingLog",log,value)
-    suite.addTest( unittest.TestLoader().loadTestsFromTestCase(newTests))
-
+    FindPhrase("Example FindPhrase missingLog",log,value)
 
     unittest.TextTestRunner(verbosity=2).run(suite)
 
