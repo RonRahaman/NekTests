@@ -18,6 +18,7 @@ class TestVals(dict):
         col:  The column (from the right) where the test val appears in the logfile
         testVal:  The value found in the logfile for this test case
     """
+
     def __init__(self, target=None, tolerance=None, col=None, testVal=None):
         dict.__init__(self)
         self.update(locals())
@@ -27,6 +28,7 @@ class TestVals(dict):
             dict.__setitem__(self, key, value)
         else:
             raise KeyError("'%s' isn't a valid key for a TestVals object" % key)
+
 
 class RunTestClass(unittest.TestCase):
     """ Basic fixture to test multiple numerical values from a single example problem.
@@ -76,7 +78,6 @@ class RunTestClass(unittest.TestCase):
 
         # Add a test function for each test
         for (i, testName) in enumerate(cls.missingTests):
-
             def testFunc(self, testName=testName):
                 cls = self.__class__
                 self.assertIn(testName, cls.foundTests)
@@ -131,7 +132,6 @@ class RunTestClass(unittest.TestCase):
             print("%s : ." % cls.exampleName)
 
 
-
 def Run(exampleName, logfile, listOfTests):
     """ Set up multiple tests for one example problem.
 
@@ -153,6 +153,8 @@ def Run(exampleName, logfile, listOfTests):
     cls.addTests(exampleName, logfile, listOfTests)
     suite.addTest(unittest.TestLoader().loadTestsFromTestCase(cls))
 
+
+###############################################################################
 
 class FindPhraseClass(unittest.TestCase):
     """ Fixture to find one phrase in a logfile for one example problem
@@ -242,31 +244,29 @@ def FindPhrase(exampleName, logfile, keyword):
     suite.addTest(unittest.TestLoader().loadTestsFromTestCase(cls))
 
 
-class DFdPhraseClass(unittest.TestCase):
-    exampleName = ""
-    logfile = ""
-    keyword = ""
-    foundPhrases = []
-    raisedIOError = False
+###############################################################################
 
-    @classmethod
-    def setUpClass(cls):
-        try:
-            with open(cls.logfile, 'r') as fd:
-                for line in fd:
-                    if cls.keyword in line:
-                        cls.foundPhrases.append(cls.keyword)
-                        break
-        except IOError:
-            cls.raisedIOError = True
+class DFdPhraseClass(FindPhraseClass):
+    """ Fixture to determine if logfile does NOT contain a keyphrase
 
-    def test_DFdPhrase(self):
+    Like a FindPhraseClass except test method and teardown are different
+
+    Attributes:
+        exampleName (string):  Name of this example problem
+        logfile (string):  Path to the logfile
+        keyword (string):  The word or phrase to search for
+        foundPhrases (list of strings):  The phrases found in the logfile
+    """
+
+    def test_findPhrase(self):
+        """ Asserts that the keyphrase was NOT found in the logfile """
         cls = self.__class__
         self.assertNotIn(cls.keyword, cls.foundPhrases)
 
     @classmethod
     def tearDownClass(cls):
-        if cls.raisedIOError:
+        """ Reports test results to stdout """
+        if cls._raisedIOError:
             print("[%s]...Sorry, I must skip this test." % cls.exampleName)
             print("[%s]...The logfile is missing or doesn't have the correct name..." % cls.exampleName)
             print("%s : F " % cls.exampleName)  # not in Analysis.py
@@ -278,21 +278,26 @@ class DFdPhraseClass(unittest.TestCase):
                 print("%s : . " % cls.exampleName)
 
 
-def DFdPhraseFactory(exampleName, logfile, keyword):
-    validName = re.sub(r'[_\W]+', '_', 'NekTest_%s' % exampleName)
-    attr = dict(exampleName=exampleName,
-                logfile=logfile,
-                keyword=keyword,
-                foundPhrases=[],
-                raisedIOError=False)
-    return type(validName, (DFdPhraseClass,), attr)
-
-
 def DFdPhrase(exampleName, logfile, keyword):
+    """ Sets up a test case to see if keyword is NOT in logfile
+
+    Creates a new subclass of DFdPhrase for this example problem.
+    Adds the subclass to a global TestSuite.
+    Doesn't actually run the tests; a TestRunner will do that later.
+
+    Attributes
+        exampleName:  Name of this example problem
+        logfile:  Path to the logfile
+        keyword:  Keyword to search for
+    """
     global suite
-    cls = DFdPhraseFactory(exampleName, logfile, keyword)
+    validName = re.sub(r'[_\W]+', '_', 'NekTest_%s' % exampleName)
+    cls = type(validName, (DFdPhraseClass,), {})
+    cls.addTest(exampleName, logfile, keyword)
     suite.addTest(unittest.TestLoader().loadTestsFromTestCase(cls))
 
+
+###############################################################################
 
 if __name__ == '__main__':
     __unittest = True
