@@ -30,35 +30,66 @@ class TestVals(dict):
             raise KeyError("'%s' isn't a valid key for a TestVals object" % key)
 
 class RunTestClass(unittest.TestCase):
-    """ Basic test fixture for finding numerical values in a logfile.
+    """ Basic fixture to test multiple numerical values from a single example problem.
 
     This fixture only has setup and teardown methods (no test cases), so it is useless
-    by itself. Superclasses will inherit setup/teardown and be extended with the actual
-    test cases.
+    by itself.  To add test cases, use the addTests() class method.
 
-    A test case for this fixture could look like:
-        def test_something(self):
-            cls = self.__class__
-            self.assertIn(something, cls.foundTests)
-            print("something wasn't found!")
-            self.assertLess(cls.foundTests[something][testVal] - tolerance, target)
-
+    A subclass will inherit setup and teardown; and can call addTests() on itself to
+    create the desired test cases.  (This is the intended usage)
 
     Attributes:
-        logfile (string): Path to the logfile
         exampleName (string): Name of the example problem
-        missingTests (dict): Test values that have not been found in the log.  Has the form
-            {testName1: {target: value, tolerance: value, column: value, testVal: value
-
-        foundTests (dict): Test values that have been found
-        passedTests (dict): Values that passed the unit test. A subset of foundTests.
+        logfile (string): Path to the logfile
+        missingTests (dict of TestVals): Test values that have not been found in the log.
+            Has the form {testName1: TestVals1, testName2: TestVals2, ... }
+        foundTests (dict of TestVals): Test values that have been found.
+            Same form as missingTests.
+        passedTests (dict): Values that passed their respective unit test.
+            A subset of foundTests. Same form as missingTests and foundTests
     """
 
-    logfile = ""
     exampleName = ""
+    logfile = ""
     missingTests = {}
     foundTests = {}
     passedTests = {}
+
+    @classmethod
+    def addTests(cls, exampleName, logfile, listOfTests):
+        """ Adds test cases for an example problem to this class.
+
+        For every test in listTests, this will add a method for checking the test value.
+
+        Arguments:
+            exampleName (string):  The name of the example problem
+            logfile (string):  Path to the logfile
+            listOfTests (list): list of the different ['testName',target,tolerance] we want to check
+
+        """
+        # Assume all tests are missing right now
+        cls.exampleName = exampleName
+        cls.logfile = logfile
+        cls.missingTests = collections.OrderedDict(
+            [(testName, TestVals(target=target, tolerance=tolerance, col=col))
+             for (testName, target, tolerance, col) in listOfTests])
+        cls.foundTests = {}
+        cls.passedTests = {}
+
+        # Add a test function for each test
+        for (i, testName) in enumerate(cls.missingTests):
+
+            def testFunc(self, testName=testName):
+                cls = self.__class__
+                self.assertIn(testName, cls.foundTests)
+                print("[%s] %s : %s" %
+                      (cls.exampleName, testName, cls.foundTests[testName]['testVal']))
+                self.assertLess(abs(cls.foundTests[testName]['testVal'] - cls.foundTests[testName]['target']),
+                                cls.foundTests[testName]['tolerance'])
+                cls.passedTests[testName] = cls.foundTests[testName]
+
+            validName = re.sub(r'[_\W]+', '_', 'test_%s_%02d' % (testName, i))
+            setattr(cls, validName, testFunc)
 
     @classmethod
     def setUpClass(cls):
@@ -102,41 +133,26 @@ class RunTestClass(unittest.TestCase):
             print("%s : ." % cls.exampleName)
 
 
-def RunTestFactory(exampleName, logfile, listOfVals):
-    # Convenient data structure
-    dictOfVals = collections.OrderedDict(
-        [(testName, TestVals(target=target, tolerance=tolerance, col=col))
-         for (testName, target, tolerance, col) in listOfVals])
 
-    # Class attributes
-    attr = dict(logfile=logfile,
-                exampleName=exampleName,
-                missingTests=dictOfVals,
-                foundTests={},
-                passedTests={})
+def Run(exampleName, logfile, listOfTests):
+    """ Set up multiple tests for one example problem.
 
-    # Add a test function for each test
-    for (i, testName) in enumerate(dictOfVals):
-        def testFunc(self, testName=testName):
-            cls = self.__class__
-            self.assertIn(testName, cls.foundTests)
-            print("[%s] %s : %s" %
-                  (cls.exampleName, testName, cls.foundTests[testName]['testVal']))
-            self.assertLess(abs(cls.foundTests[testName]['testVal'] - cls.foundTests[testName]['target']),
-                            cls.foundTests[testName]['tolerance'])
-            cls.passedTests[testName] = cls.foundTests[testName]
+    Creates a new subclass of RunTestsClass for this example problem.
+    Adds the subclass to a global TestSuite.
+    Doesn't actually run the tests; a TestRunner will do that later.
 
-        validName = re.sub(r'[_\W]+', '_', 'test_%s_%02d' % (testName, i))
-        attr[validName] = testFunc
+    Arguments:
+        exampleName (string):  The name of the example problem
+        logfile (string):  Path to the logfile
+        listOfTests (list): list of the different ['testName',target,tolerance] we want to check
 
-    # Get a new subclass of RunTestBase
-    validName = re.sub(r'[_\W]+', '_', 'NekTest_%s' % exampleName)
-    return type(validName, (RunTestClass,), attr)
-
-
-def Run(exampleName, logfile, listOfVals):
+    Globals:
+        suite (TestSuite): a previously-instantiated TestSuite to which the test cases will be added
+    """
     global suite
-    cls = RunTestFactory(exampleName, logfile, listOfVals)
+    validName = re.sub(r'[_\W]+', '_', 'NekTest_%s' % exampleName)
+    cls = type(validName, (RunTestClass,), {})
+    cls.addTests(exampleName, logfile, listOfTests)
     suite.addTest(unittest.TestLoader().loadTestsFromTestCase(cls))
 
 
