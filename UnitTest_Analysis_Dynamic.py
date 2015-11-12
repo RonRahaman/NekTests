@@ -10,8 +10,7 @@ import unittest
 class TestVals(dict):
     """ Descriptive values for a given test case
 
-    This is just a dict with a limited set of keys.  Initializing or setting an invalid key
-    will raise an error.
+    Just a dict with a limited set of keys.  Setting an invalid key raises an error.
 
     Keys:
         target:  Acceptable value for this test case
@@ -65,7 +64,6 @@ class RunTestClass(unittest.TestCase):
             exampleName (string):  The name of the example problem
             logfile (string):  Path to the logfile
             listOfTests (list): list of the different ['testName',target,tolerance] we want to check
-
         """
         # Assume all tests are missing right now
         cls.exampleName = exampleName
@@ -157,14 +155,49 @@ def Run(exampleName, logfile, listOfTests):
 
 
 class FindPhraseClass(unittest.TestCase):
+    """ Fixture to find one phrase in a logfile for one example problem
+
+    This class has a single keyphrase; and a single test method to find that keyphrase.
+    Make a subclass to find a different keyphrase.
+
+    Kind of overkill.  Intended to fit the unittest backend while matching the
+    interface from the original Analysis.py.
+
+    Attributes:
+        exampleName (string):  Name of this example problem
+        logfile (string):  Path to the logfile
+        keyword (string):  The word or phrase to search for
+        foundPhrases (list of strings):  The phrases found in the logfile
+    """
     exampleName = ""
     logfile = ""
     keyword = ""
     foundPhrases = []
-    raisedIOError = False
+    _raisedIOError = False
+
+    def test_findPhrase(self):
+        """ Asserts that the keyphrase was found in the logfile """
+        cls = self.__class__
+        self.assertIn(cls.keyword, cls.foundPhrases)
+
+    @classmethod
+    def addTest(cls, exampleName, logfile, keyword):
+        """ Sets up the test to find keyword in logfile
+
+        Arguments:
+            exampleName (string):  The name of the example problem
+            logfile (string):  Path to the logfile
+            keyword (string): Word or phrase to find in logfile
+        """
+        cls.exampleName = exampleName
+        cls.logfile = logfile
+        cls.keyword = keyword
+        cls.foundPhrases = []
+        cls._raisedIOError = False
 
     @classmethod
     def setUpClass(cls):
+        """ Parses logfile and finds keyphrases.  Populates foundPhrases. """
         try:
             with open(cls.logfile, 'r') as fd:
                 for line in fd:
@@ -172,15 +205,12 @@ class FindPhraseClass(unittest.TestCase):
                         cls.foundPhrases.append(cls.keyword)
                         break
         except IOError:
-            cls.raisedIOError = True
-
-    def test_findPhrase(self):
-        cls = self.__class__
-        self.assertIn(cls.keyword, cls.foundPhrases)
+            cls._raisedIOError = True
 
     @classmethod
     def tearDownClass(cls):
-        if cls.raisedIOError:
+        """ Reports test results to stdout """
+        if cls._raisedIOError:
             print("[%s]...Sorry, I must skip this test." % cls.exampleName)
             print("[%s]...The logfile is missing or doesn't have the correct name..." % cls.exampleName)
             print("%s : F " % cls.exampleName)  # not in Analysis.py
@@ -193,19 +223,22 @@ class FindPhraseClass(unittest.TestCase):
                 print("%s : ." % cls.exampleName)  # prints the result
 
 
-def FindPhraseFactory(exampleName, logfile, keyword):
-    validName = re.sub(r'[_\W]+', '_', 'NekTest_%s' % exampleName)
-    attr = dict(exampleName=exampleName,
-                logfile=logfile,
-                keyword=keyword,
-                foundPhrases=[],
-                raisedIOError=False)
-    return type(validName, (FindPhraseClass,), attr)
-
-
 def FindPhrase(exampleName, logfile, keyword):
+    """ Sets up a test case to find keyword in logfile for the given example
+
+    Creates a new subclass of FindPhraseClass for this example problem.
+    Adds the subclass to a global TestSuite.
+    Doesn't actually run the tests; a TestRunner will do that later.
+
+    Attributes
+        exampleName:  Name of this example problem
+        logfile:  Path to the logfile
+        keyword:  Keyword to find in logfile
+    """
     global suite
-    cls = FindPhraseFactory(exampleName, logfile, keyword)
+    validName = re.sub(r'[_\W]+', '_', 'NekTest_%s' % exampleName)
+    cls = type(validName, (FindPhraseClass,), {})
+    cls.addTest(exampleName, logfile, keyword)
     suite.addTest(unittest.TestLoader().loadTestsFromTestCase(cls))
 
 
