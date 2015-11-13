@@ -80,12 +80,22 @@ class RunTestClass(unittest.TestCase):
         # Add a test function for each test
         for (i, testName) in enumerate(cls.missingTests):
             def testFunc(self, testName=testName):
+                """.\tWas test value found in log and within acceptable range? """
                 cls = self.__class__
-                self.assertIn(testName, cls.foundTests)
-                print("[%s] %s : %s" %
-                      (cls.exampleName, testName, cls.foundTests[testName]['testVal']))
-                self.assertLess(abs(cls.foundTests[testName]['testVal'] - cls.foundTests[testName]['target']),
-                                cls.foundTests[testName]['tolerance'])
+
+                self.assertIn(testName, cls.foundTests,
+                              "[%s] Could not find '%s' in logfile '%s'"
+                              % (cls.exampleName, testName, cls.logfile))
+
+                exampleName = cls.exampleName
+                testVal     = cls.foundTests[testName]['testVal']
+                target      = cls.foundTests[testName]['target']
+                tolerance   = cls.foundTests[testName]['tolerance']
+
+                print("[%s] %s : %s" % (exampleName, testName, testVal))
+                self.assertLess(abs(testVal - target), tolerance,
+                                "[%s] Value of '%s' (%f) is outside acceptable range (%f +/ %f )"
+                                % (exampleName, testName, testVal, target, tolerance))
                 cls.passedTests[testName] = cls.foundTests[testName]
 
             validName = re.sub(r'[_\W]+', '_', 'test_%s_%02d' % (testName, i))
@@ -180,9 +190,10 @@ class FindPhraseClass(unittest.TestCase):
     _raisedIOError = False
 
     def test_findPhrase(self):
-        """ Asserts that the keyphrase was found in the logfile """
+        """.\tWas keyphrase found in the logfile? """
         cls = self.__class__
-        self.assertIn(cls.keyword, cls.foundPhrases)
+        self.assertIn(cls.keyword, cls.foundPhrases,
+                      "Could not find '%s' in logfile '%s'" % (cls.keyword, cls.logfile))
 
     @classmethod
     def addTest(cls, exampleName, logfile, keyword):
@@ -262,9 +273,10 @@ class DFdPhraseClass(FindPhraseClass):
     """
 
     def test_findPhrase(self):
-        """ Asserts that the keyphrase was NOT found in the logfile """
+        """.\tWas keyphrase absent in the logfile?"""
         cls = self.__class__
-        self.assertNotIn(cls.keyword, cls.foundPhrases)
+        self.assertNotIn(cls.keyword, cls.foundPhrases,
+                         "Found '%s' in logfiel '%s'" % (cls.keyword, cls.logfile))
 
     @classmethod
     def tearDownClass(cls):
