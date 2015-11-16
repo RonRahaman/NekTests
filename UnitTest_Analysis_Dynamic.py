@@ -323,13 +323,28 @@ if __name__ == '__main__':
     suite = unittest.TestSuite()
 
     #  Check if mpi tests were run..
-    TestsToDo = sys.argv
-    if "mpi" in TestsToDo:
+    if "mpi" in sys.argv:
         ifmpi = True
     else:
         ifmpi = False
         print("NO MPI TESTS BEING RAN! ")
-        print("If incorrect, call Analysis with 'mpi' as an argument")
+        print("If incorrect, call Analysis with 'mpi' as an argument \n")
+
+    # Check if using XML runner
+    if "xml" in sys.argv:
+        try:
+            import xmlrunner
+        except:
+            print("THE 'xmlrunner' MODULE COULD NOT BE FOUND! ")
+            print("Install 'xmlrunner' (available from Python Package Index) or call Analysis without 'xml' as an argument \n")
+            raise
+        else:
+            ifxml = True
+    else:
+        print("NO XML OUTPUT WILL BE PRODUCED! ")
+        print("If incorrect, install 'xmlrunner' (available from Python Package Index) and call Analysis with 'xml' as an argument \n")
+        ifxml = False
+
 
     print("Beginning of top-down testing\n\n")
     print("    . : successful test, F : failed test\n\n")
@@ -2866,7 +2881,11 @@ if __name__ == '__main__':
 
     ###########################################################################
 
-    result = unittest.TextTestRunner(verbosity=2).run(suite)
+    if ifxml:
+        result = xmlrunner.XMLTestRunner(verbosity=2, output='test-reports').run(suite)
+    else:
+        result = unittest.TextTestRunner(verbosity=2).run(suite)
+
 
     ###############################################################################
     ###############################################################################
