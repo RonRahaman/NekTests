@@ -2866,4 +2866,12 @@ if __name__ == '__main__':
 
     ###########################################################################
 
-    unittest.TextTestRunner(verbosity=2).run(suite)
+    result = unittest.TextTestRunner(verbosity=2).run(suite)
+
+    ###############################################################################
+    ###############################################################################
+    print("\n\nTest Summary :     %i/%i tests were successful" %
+          (result.testsRun - len(result.errors) - len(result.failures) - len(result.skipped),
+           result.testsRun))
+    print("End of top-down testing")
+    ######################################################################
